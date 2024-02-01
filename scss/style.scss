@@ -26,11 +26,11 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6, .blog {
-    font-family: 'News Cycle', Verdana, Tahoma, "DejaVu Sans", sans-serif;
+    font-family: 'news-gothic-std', 'News Cycle', Verdana, Tahoma, "DejaVu Sans", sans-serif;
     font-style: normal; font-weight: 700;
 }
 body {
-    font-family: 'News Cycle', Verdana, Tahoma, "DejaVu Sans", sans-serif;
+    font-family: 'news-gothic-std', 'News Cycle', Verdana, Tahoma, "DejaVu Sans", sans-serif;
     font-style: normal; font-weight: 400;
 }
 
@@ -1177,13 +1177,17 @@ h1#logo a {
         font-weight: bold
     }
 
+    #navigation #main-menu > li > ul > li {
+        line-height: 1.4vw;
+    }
     //#navigation .block-menu.submenu > ul > li.last {
     #navigation #main-menu > li > ul > li {
+        height: 1.4vw;
         width: 100%;
-        height: 3vw;
-        padding: 0;
-        line-height: 3vw;
-        margin-top: 1vw
+        //height: 3vw;
+        //padding: 0;
+        //line-height: 3vw;
+        //margin-top: 1vw
     }
 
     //#navigation .block-menu a.menubalk {
@@ -1195,7 +1199,9 @@ h1#logo a {
         color: #fff;
         background-color: #83004c;
         box-sizing: border-box;
-        text-transform: uppercase
+        text-transform: uppercase;
+        margin-top: 1vw;
+        line-height: 3vw;
     }
 
     #navigation {
