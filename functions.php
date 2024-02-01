@@ -11,6 +11,7 @@ add_action('after_setup_theme', 'my_theme_setup');
 
 $includes = [
     'pagination',
+    'EP_Walker_Nav_Menu',
 ];
 
 foreach ($includes as $file) {

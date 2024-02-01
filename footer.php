@@ -34,5 +34,13 @@
 </div> <!-- /#page -->
 
 <?php wp_footer(); ?>
+<script>
+  // Toggle menu class on body when #menubutton is clicked
+  document.getElementById('menubutton').addEventListener('click', function () {
+    console.log("clicked")
+    document.body.classList.toggle('menu');
+  });
+
+</script>
 </body>
 </html>
