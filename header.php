@@ -100,7 +100,7 @@
     </script>
 
 </head>
-<body  <?php body_class(); ?>>
+<body  <?php body_class(array('sidebar-second', 'html')); ?>>
 <p id="skip-link">
     <a href="#main-menu" class="element-invisible element-focusable">Jump to navigation</a>
 </p>

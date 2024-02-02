@@ -775,7 +775,7 @@ h1#logo a {
     }
 
     .logged-in header {
-        /*top: 64px*/
+        top: var(--wp-admin--admin-bar--height, 0px);
     }
 
     #content {
@@ -895,8 +895,9 @@ h1#logo a {
         right: 0
     }
 
-    .logged-in header {
-        top: 64px
+    //.logged-in header {
+    .admin-bar header {
+        top: var(--wp-admin--admin-bar--height, 0px);
     }
 
     #content {
