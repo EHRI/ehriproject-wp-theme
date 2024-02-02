@@ -1,3 +1,4 @@
+@import "system.base";
 @import "fonts";
 
 article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
@@ -494,7 +495,10 @@ h1#logo a {
     display: none;
 }
 
-#main-menu li ul.submenu li a {
+// .submenu ul li a {
+#main-menu li a,
+#main-menu li ul.submenu li a
+{
     color: #333;
     text-decoration: none
 }
@@ -1222,29 +1226,23 @@ h1#logo a {
         height: 23vw;
         list-style: none;
         display: flex;
-        // Given items equal width
         margin: 0;
         padding: 0;
     }
 
     #navigation #main-menu > .menu-item {
         height: 23vw;
-        //height: 322px;
         width: 20%;
         display: flex;
         flex-direction: column-reverse;
     }
 
     #navigation #main-menu > .menu-item > a {
-        //height: 42px;
-        //background-color: #84004C;
         color: #fff;
         width: 100%;
         text-transform: uppercase;
         font-weight: bold;
-        //padding-left: 14px;
         text-decoration: none;
-        //line-height: 42px;
     }
 
     .sidebar-second #content {
@@ -1321,7 +1319,8 @@ h1#logo a {
         width: 60%
     }
 
-    .submenu ul li {
+    //.submenu ul li {
+    #main-menu li {
         height: 20px;
         padding: 7px 6px 0 7px;
         width: 100%
@@ -1331,24 +1330,36 @@ h1#logo a {
         top: 42px
     }
 
-    #navigation .block-menu {
+    #main-menu {
+        height: 322px;
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    //#navigation .block-menu {
+    #navigation #main-menu > li.menu-item {
         height: 322px;
         width: 20%
     }
 
-    #navigation .block-menu > ul {
+    //#navigation .block-menu > ul {
+    #navigation #main-menu > li {
         width: 100%;
         font-size: 14px;
         line-height: 19px
     }
 
-    #navigation .block-menu.submenu > ul > li.last {
+    //#navigation .block-menu.submenu > ul > li.last {
+    #navigation #main-menu > li > a {
         height: 42px;
         line-height: 42px;
         margin-top: 14px
     }
 
-    #navigation .block-menu a.menubalk {
+    //#navigation .block-menu a.menubalk {
+    #navigation #main-menu > li > a {
         height: 42px;
         padding-left: 14px
     }

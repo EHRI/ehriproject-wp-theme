@@ -100,7 +100,7 @@
     </script>
 
 </head>
-<body class="html">
+<body  <?php body_class(); ?>>
 <p id="skip-link">
     <a href="#main-menu" class="element-invisible element-focusable">Jump to navigation</a>
 </p>
