@@ -522,7 +522,11 @@ h1#logo a {
 }
 
 .view-homepage-teasers img {
-    border: 1px solid #cecfcf
+    border: 1px solid #cecfcf;
+
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
 }
 
 .sidebar .block {
