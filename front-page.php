@@ -1,0 +1,46 @@
+<?php
+/**
+ * The main template file.
+ */
+
+?>
+
+<?php get_header(); ?>
+
+    <div id="main">
+        <div id="main-inner">
+            <div id="content" class="column" role="main">
+                <div id="content-inner">
+                    <?php
+                        $args = array(
+                            'post_type' => 'post',
+                            'posts_per_page' => 6,
+                            'orderby' => array('meta_value_num' => 'ASC', 'date' => 'DESC'),
+                            'meta_key' => 'homepage_order',
+                        );
+                        $the_query = new WP_Query( $args );
+                    ?>
+                    <a id="main-content"></a>
+                    <div class="ds-1col node node-homepage view-mode-full clearfix">
+                        <div class="field field-name-body"></div>
+                    </div>
+                    <div id="block-views-homepage-teasers-block-1" class="block block-views last even">
+                        <div class="view view-homepage-teasers">
+                            <div class="view-content">
+                                <?php if ( $the_query->have_posts() ) : ?>
+                                    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                                        <?php get_template_part( 'loop-templates/content', get_post_format() ); ?>
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <?php get_sidebar(); ?>
+
+        </div>
+    </div>
+
+<?php get_footer(); ?>
