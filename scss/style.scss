@@ -526,7 +526,26 @@ h1#logo a {
 
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+// This is a bit of a hack to make
+@media (min-width: 0) {
+    .view-homepage-teasers img {
+        aspect-ratio: 640/360;
+    }
+}
+
+@media (min-width: 960px) {
+    .view-homepage-teasers img {
+        aspect-ratio: 560/370;
+    }
+}
+
+@media (min-width: 1200px) {
+    .view-homepage-teasers img {
+        aspect-ratio: 800/540;
+    }
 }
 
 .sidebar .block {

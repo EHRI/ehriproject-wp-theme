@@ -13,7 +13,7 @@
                 <div id="content-inner">
                     <?php
                         $args = array(
-                            'post_type' => 'post',
+                            'post_type' => array('post', 'page'),
                             'posts_per_page' => 6,
                             'orderby' => array('meta_value_num' => 'ASC', 'date' => 'DESC'),
                             'meta_key' => 'homepage_order',
@@ -29,7 +29,7 @@
                             <div class="view-content">
                                 <?php if ( $the_query->have_posts() ) : ?>
                                     <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                                        <?php get_template_part( 'loop-templates/content', get_post_format() ); ?>
+                                        <?php get_template_part( 'loop-templates/content-front', get_post_format() ); ?>
                                     <?php endwhile; ?>
                                 <?php endif; ?>
                             </div>
