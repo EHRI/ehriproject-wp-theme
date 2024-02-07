@@ -88,8 +88,7 @@ if ( ! function_exists('ehriproject_setup_theme_default_settings') ) {
 
 $ehriproject_includes = [
     'pagination',
-    'widgets',
-    'EP_Walker_Nav_Menu',
+    'widgets'
 ];
 
 foreach ($ehriproject_includes as $file) {

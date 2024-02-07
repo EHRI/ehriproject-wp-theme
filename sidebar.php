@@ -25,24 +25,12 @@
 
             <div class="resources">
                 <h2>Resources</h2>
-
-                <h3><a href="https://portal.ehri-project.eu">EHRI Portal</a></h3>
-
-                <h3><a href="https://github.com/EHRI/ehri-data-analysis-tools">EHRI Digital Tools Guides</a></h3>
-
-                <h3><a href="https://blog.ehri-project.eu/">EHRI Document Blog</a></h3>
-
-                <h3><a href="https://geodata.ehri-project.eu/">EHRI Geospatial Repository</a></h3>
-
-                <h3><a href="https://training.ehri-project.eu/">EHRI Online Course</a></h3>
-
-                <h3><a href="https://www.ehri-project.eu/ehri-online-editions">EHRI Online Editions</a></h3>
-
-                <h3><a href="https://www.ehri-project.eu/ehri-podcast-for-the-living-and-the-dead">EHRI Podcast</a></h3>
-
-                <h3><a href="https://hal.science/EHRI">EHRI Publication Repository</a></h3>
-
-                <h3><a href="https://portal.ehri-project.eu/guides">EHRI Research Guides</a></h3>
+                <!-- Render the sidebar menu resources menu -->
+                <?php wp_nav_menu(array(
+                    'menu' => 'resources-menu',
+                    'theme_location' => 'primary',
+                    'fallback_cb' => false
+                )); ?>
             </div>
 
         </div>

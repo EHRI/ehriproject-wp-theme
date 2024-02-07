@@ -62,19 +62,30 @@
             color: #36104F;
         }
 
-        .resources h3 {
+        .resources ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .resources li {
             background-image: url(<?php echo get_theme_file_uri('images/dot3.png'); ?>);
             background-repeat: no-repeat;
             background-position: left center;
             background-size: 1.5em;
+            line-height: 1.5em;
+            font-weight: 700;
+            font-size: 1em;
+            margin-top: 1.5em;
         }
 
-        .resources h3:hover {
+        .resources li:hover {
             background-image: url(<?php echo get_theme_file_uri('images/dot.png'); ?>);
         }
 
-        .resources h3 a {
+        .resources li a {
             padding-left: 0.8em;
+            text-decoration: none;
         }
 
         #block-menu-secondary-menu {
@@ -175,175 +186,8 @@
                     'container_class' => 'main-menu-container',
                     'menu_class' => 'menu',
                     'menu_id' => 'main-menu',
-                    'fallback_cb' => false,
-                    'walker' => new EP_Walker_Nav_Menu(),
+                    'fallback_cb' => false
                 )); ?>
-
-<!--                <div id="block-menu-menu-about" class="block block-menu submenu first odd" role="navigation">-->
-<!---->
-<!--                    <ul class="menu">-->
-<!--                        <li class="menu__item is-expanded first expanded item"><a href="/about-ehri"-->
-<!--                                                                                  class="menu__link item">About EHRI</a>-->
-<!--                            <ul class="menu">-->
-<!--                                <li class="menu__item is-leaf first leaf item"><a href="/consortium"-->
-<!--                                                                                  title="EHRI Consortium Partners"-->
-<!--                                                                                  class="menu__link item">Our-->
-<!--                                        Partners</a></li>-->
-<!--                                <li class="menu__item is-leaf leaf item"><a href="/our-staff"-->
-<!--                                                                            title="EHRI Project Management Team members and contact"-->
-<!--                                                                            class="menu__link item">Our Staff</a></li>-->
-<!--                                <li class="menu__item is-collapsed collapsed"><a href="/division-work"-->
-<!--                                                                                 title="Work Plan Table EHRI Preparatory Phase"-->
-<!--                                                                                 class="menu__link item">Workplan&amp;Deliverables</a>-->
-<!--                                </li>-->
-<!--                                <li class="menu__item is-leaf leaf item"><a href="/ehri-for-institutions"-->
-<!--                                                                            title="EHRI for Collection Holding Institutions"-->
-<!--                                                                            class="menu__link item">EHRI for-->
-<!--                                        Institutions</a></li>-->
-<!--                                <li class="menu__item is-leaf leaf item"><a href="/scientific-advisory-board"-->
-<!--                                                                            title="Scientific Advisory Board EHRI"-->
-<!--                                                                            class="menu__link item">Advisory Board</a>-->
-<!--                                </li>-->
-<!--                                <li class="menu__item is-leaf last leaf item"><a href="/project-overview"-->
-<!--                                                                                 title="Overview of EHRI Projects"-->
-<!--                                                                                 class="menu__link item">Project-->
-<!--                                        Overview</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li class="menu__item is-leaf last leaf item"><a href="/about-ehri"-->
-<!--                                                                         class="menu__link item menubalk">About EHRI</a>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div id="block-menu-menu-get-involved" class="block block-menu submenu even" role="navigation">-->
-<!---->
-<!---->
-<!--                    <ul class="menu">-->
-<!--                        <li class="menu__item is-expanded first expanded item"><a href="/ehri-getting-involved"-->
-<!--                                                                                  title="News and Press"-->
-<!--                                                                                  class="menu__link item">News &amp;-->
-<!--                                Press</a>-->
-<!--                            <ul class="menu">-->
-<!--                                <li class="menu__item is-leaf first leaf"><a href="/latestnews" class="menu__link item">News-->
-<!--                                        items</a></li>-->
-<!--                                <li class="menu__item is-leaf leaf item"><a-->
-<!--                                            href="/ehri-podcast-for-the-living-and-the-dead"-->
-<!--                                            title="Podcast For the Living and the Dead. Traces of the Holocaust"-->
-<!--                                            class="menu__link item">EHRI Podcast Series</a></li>-->
-<!--                                <li class="menu__item is-collapsed collapsed item"><a href="/ehri-archive"-->
-<!--                                                                                      title="Archive of Past Events"-->
-<!--                                                                                      class="menu__link item">EHRI-->
-<!--                                        Archive</a></li>-->
-<!--                                <li class="menu__item is-leaf leaf"><a href="/berlin-conference-film"-->
-<!--                                                                       title="EHRI Videos" class="menu__link item">EHRI-->
-<!--                                        Videos</a></li>-->
-<!--                                <li class="menu__item is-leaf last leaf"><a href="/press" title="Press"-->
-<!--                                                                            class="menu__link item">Press</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li class="menu__item is-leaf last leaf item"><a href="/ehri-getting-involved"-->
-<!--                                                                         class="menu__link item menubalk">News &amp;-->
-<!--                                Press</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div id="block-menu-menu-research" class="block block-menu submenu odd" role="navigation">-->
-<!---->
-<!---->
-<!--                    <ul class="menu">-->
-<!--                        <li class="menu__item is-expanded first expanded item"><a-->
-<!--                                    href="https://training.ehri-project.eu/" title="EHRI Training and Events"-->
-<!--                                    class="menu__link item">Training and Events</a>-->
-<!--                            <ul class="menu">-->
-<!--                                <li class="menu__item is-leaf first leaf item"><a href="/ehri-seminars-0"-->
-<!--                                                                                  title="Calls for EHRI Seminars"-->
-<!--                                                                                  class="menu__link item">EHRI-->
-<!--                                        Seminars</a></li>-->
-<!--                                <li class="menu__item is-leaf leaf item"><a href="/ehri-workshops-0"-->
-<!--                                                                            title="Calls for EHRI Workshops"-->
-<!--                                                                            class="menu__link item">EHRI Workshops</a>-->
-<!--                                </li>-->
-<!--                                <li class="menu__item is-leaf leaf item"><a href="/ehri-webinars"-->
-<!--                                                                            title="EHRI Webinars on Zoom"-->
-<!--                                                                            class="menu__link item">EHRI Webinars</a>-->
-<!--                                </li>-->
-<!--                                <li class="menu__item is-leaf last leaf item"><a-->
-<!--                                            href="https://training.ehri-project.eu/"-->
-<!--                                            title="EHRI Online Course in Holocaust Studies" class="menu__link item">Online-->
-<!--                                        Course</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li class="menu__item is-leaf last leaf item"><a href="/training-0"-->
-<!--                                                                         title="EHRI Online Course in Holocaust Studies"-->
-<!--                                                                         class="menu__link item menubalk">Training and-->
-<!--                                Events</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div id="block-menu-menu-publications" class="block block-menu submenu even" role="navigation">-->
-<!---->
-<!---->
-<!--                    <ul class="menu">-->
-<!--                        <li class="menu__item is-expanded first expanded item"><a href="/Conny-Kristel-Fellowships"-->
-<!--                                                                                  class="menu__link item">Kristel-->
-<!--                                Fellowships</a>-->
-<!--                            <ul class="menu">-->
-<!--                                <li class="menu__item is-leaf first last leaf"><a href="/ehri-fellows-2016"-->
-<!--                                                                                  title="EHRI Conny Kristel Fellows"-->
-<!--                                                                                  class="menu__link item">Conny Kristel-->
-<!--                                        Fellows</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li class="menu__item is-collapsed last collapsed item"><a href="/Conny-Kristel-Fellowships"-->
-<!--                                                                                   class="menu__link item menubalk">Kristel-->
-<!--                                Fellowships</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div id="block-menu-menu-community-hub" class="block block-menu submenu last odd" role="navigation">-->
-<!---->
-<!---->
-<!--                    <ul class="menu">-->
-<!--                        <li class="menu__item is-expanded first expanded item"><a-->
-<!--                                    href="/online-course-holocaust-studies" title="EHRI Online Services"-->
-<!--                                    class="menu__link item">Online Services</a>-->
-<!--                            <ul class="menu">-->
-<!--                                <li class="menu__item is-leaf first leaf"><a href="https://portal.ehri-project.eu/"-->
-<!--                                                                             title="EHRI Online Portal to Holocaust-related Sources"-->
-<!--                                                                             class="menu__link item" target="_blank">EHRI-->
-<!--                                        Portal</a></li>-->
-<!--                                <li class="menu__item is-leaf leaf item"><a href="/ehri-collection-digital-tools-guides"-->
-<!--                                                                            title="EHRI Collection of Digital Tools Guides"-->
-<!--                                                                            class="menu__link item">Digital Tools-->
-<!--                                        Guides</a></li>-->
-<!--                                <li class="menu__item is-leaf leaf"><a href="https://blog.ehri-project.eu/"-->
-<!--                                                                       title="EHRI Document Blog"-->
-<!--                                                                       class="menu__link item" target="_blank">Document-->
-<!--                                        Blog</a></li>-->
-<!--                                <li class="menu__item is-leaf leaf item"><a-->
-<!--                                            href="https://geodata.ehri-project.eu/geonetwork/srv/eng/catalog.search#/home"-->
-<!--                                            title="EHRI Geospatial Repository" class="menu__link item" target="_blank">Geospatial-->
-<!--                                        Repository</a></li>-->
-<!--                                <li class="menu__item is-leaf leaf item"><a href="/ehri-online-editions"-->
-<!--                                                                            title="EHRI Online Editions"-->
-<!--                                                                            class="menu__link item">Online Editions</a>-->
-<!--                                </li>-->
-<!--                                <li class="menu__item is-leaf leaf item"><a href="https://hal.science/EHRI"-->
-<!--                                                                            title="EHRI Publication Repository in HAL"-->
-<!--                                                                            class="menu__link item" target="_blank">Publication-->
-<!--                                        Repository</a></li>-->
-<!--                                <li class="menu__item is-leaf leaf item"><a href="https://portal.ehri-project.eu/guides"-->
-<!--                                                                            title="Terezín Research Guide and Jewish Councils Research Guide"-->
-<!--                                                                            class="menu__link item">Research Guides</a>-->
-<!--                                </li>-->
-<!--                                <li class="menu__item is-leaf last leaf item"><a href="https://irp2.ehri-project.eu/"-->
-<!--                                                                                 title="International Research Portal for Records Related to Nazi-Era Cultural Property"-->
-<!--                                                                                 class="menu__link item"-->
-<!--                                                                                 target="_blank">IRP2 Portal</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li class="menu__item is-leaf last leaf item"><a href="/online-course-holocaust-studies"-->
-<!--                                                                         class="menu__link item menubalk">Online-->
-<!--                                Services</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
             </div>
         </div>
     </header>

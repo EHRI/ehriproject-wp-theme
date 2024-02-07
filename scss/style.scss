@@ -495,9 +495,17 @@ h1#logo a {
     display: none;
 }
 
+#main-menu > li > ul.sub-menu {
+    padding: 0;
+}
+
+#main-menu > li > ul.sub-menu > li {
+    padding-left: 14px;
+}
+
 // .submenu ul li a {
 #main-menu li a,
-#main-menu li ul.submenu li a
+#main-menu li ul.sub-menu li a
 {
     color: #333;
     text-decoration: none
@@ -1373,6 +1381,10 @@ h1#logo a {
         width: 100%;
         font-size: 14px;
         line-height: 19px
+    }
+
+    #navigation #main-menu > li > ul.sub-menu {
+        padding: 0;
     }
 
     //#navigation .block-menu.submenu > ul > li.last {
