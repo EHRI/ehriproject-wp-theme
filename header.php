@@ -159,22 +159,21 @@
         </div>
         <div id="navigation">
             <div class="header__region region region-header">
-                <div class="view view-header-image view-id-header_image view-display-id-block_1 view-dom-id-4420625f9abc35441a440f3f3fe6d08f">
-                    <div class="field-content">
-                        <picture>
-                            <source srcset="https://www.ehri-project.eu/sites/default/files/styles/headerbeeldcustom_user_desktop_1x/public/Auschwitz%20Monument%20Amsterdam%201.JPG?itok=bNwpXI6N&amp;timestamp=1664406849 1x, https://www.ehri-project.eu/sites/default/files/styles/headerbeeldcustom_user_desktop_2x/public/Auschwitz%20Monument%20Amsterdam%201.JPG?itok=uD9cl3_d&amp;timestamp=1664406849 2x"
-                                    media="(min-width: 1200px)"/>
-                            <source srcset="https://www.ehri-project.eu/sites/default/files/styles/headerbeeldcustom_user_tablet_landscape_1x/public/Auschwitz%20Monument%20Amsterdam%201.JPG?itok=LSIgX792&amp;timestamp=1664406849 1x, https://www.ehri-project.eu/sites/default/files/styles/headerbeeldcustom_user_tablet_landscape_2x/public/Auschwitz%20Monument%20Amsterdam%201.JPG?itok=RLdHrWPN&amp;timestamp=1664406849 2x"
-                                    media="(min-width: 960px)"/>
-                            <source srcset="https://www.ehri-project.eu/sites/default/files/styles/headerbeeldcustom_user_tablet_landscape_1x/public/Auschwitz%20Monument%20Amsterdam%201.JPG?itok=LSIgX792&amp;timestamp=1664406849 1x, https://www.ehri-project.eu/sites/default/files/styles/headerbeeldcustom_user_tablet_landscape_2x/public/Auschwitz%20Monument%20Amsterdam%201.JPG?itok=RLdHrWPN&amp;timestamp=1664406849 2x"
-                                    media="(min-width: 480px)"/>
-                            <source srcset="https://www.ehri-project.eu/sites/default/files/styles/headerbeeldcustom_user_mobiel_1x/public/Auschwitz%20Monument%20Amsterdam%201.JPG?itok=vWUriaHF&amp;timestamp=1664406849 1x, https://www.ehri-project.eu/sites/default/files/styles/headerbeeldcustom_user_mobiel_1x/public/Auschwitz%20Monument%20Amsterdam%201.JPG?itok=vWUriaHF&amp;timestamp=1664406849 2x"
-                                    media="(min-width: 0px)"/>
-                            <!--[if IE 9]></video><![endif]-->
-                            <img src="https://www.ehri-project.eu/sites/default/files/styles/headerbeeldcustom_user_mobiel_1x/public/Auschwitz%20Monument%20Amsterdam%201.JPG?itok=vWUriaHF&amp;timestamp=1664406849"
-                                 alt="" title=""/>
-                        </picture>
-                    </div>
+                <div class="view view-header-image">
+                    <!-- Fetch a random gallery_item and use it as the header image -->
+                    <?php
+                    $args = array(
+                        'post_type' => 'gallery_item',
+                        'posts_per_page' => 1,
+                        'orderby' => 'rand'
+                    );
+                    $query = new WP_Query($args);
+                    if ($query->have_posts()) {
+                        while ($query->have_posts()) {
+                            $query->the_post();
+                            echo ehriproject_header_element(get_the_title());
+                        }
+                    } ?>
                 </div>
             </div>
             <div class="region region-navigation">

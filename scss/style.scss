@@ -438,6 +438,12 @@ h1#logo a {
     display: none
 }
 
+.view-header-image img {
+    object-fit: cover;
+    aspect-ratio: 65/23;
+    height: auto;
+}
+
 .region-navigation {
     position: absolute;
     top: 0;
