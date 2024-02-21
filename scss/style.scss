@@ -1220,9 +1220,6 @@ h1#logo a {
         font-weight: bold
     }
 
-    #navigation #main-menu > li > ul > li {
-        line-height: 1.4vw;
-    }
     //#navigation .block-menu.submenu > ul > li.last {
     #navigation #main-menu > li > ul > li {
         height: 1.4vw;
@@ -1359,7 +1356,9 @@ h1#logo a {
     }
 
     //.submenu ul li {
-    #main-menu li {
+    #main-menu li,
+    #navigation #main-menu > li > ul > li
+    {
         height: 20px;
         padding: 7px 6px 0 7px;
         width: 100%
