@@ -102,7 +102,7 @@
         }
     </style>
 
-    <script src="http://use.typekit.com/yha1waw.js"></script>
+    <script src="//use.typekit.com/yha1waw.js"></script>
     <script>
       try {
         Typekit.load();

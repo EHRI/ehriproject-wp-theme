@@ -20,11 +20,6 @@ if (!defined('ABSPATH')) {
         </div>
     </div>
 <?php endif; ?>
-<div class="field field-name-field-datum">
-            <span class="date-display-single">
-                <?php echo get_the_date('l, F jS, Y'); ?>
-            </span>
-</div>
 
 <div class="field field-name-body">
     <?php the_content(); ?>

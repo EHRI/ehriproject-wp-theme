@@ -15,7 +15,7 @@ get_header();
         <div id="content">
             <div id="content-inner">
                 <a id="#main-content"></a>
-                <h1 class="page__title title" id="page-title"><?php the_title(); ?></h1>
+                <h1 class="page__title title" id="page-title"><?php echo __('Latest News'); ?></h1>
                 <!-- Fetch all posts with the 'news' category and list them in reverse chronological order with pagination -->
                 <?php
                 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
