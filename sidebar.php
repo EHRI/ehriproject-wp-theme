@@ -40,27 +40,36 @@
 
             <div class="view view-latestnews view-id-latestnews view-display-id-block_2 view-dom-id-cd819287d9ba73b1478531a088de54d4">
 
+                <!-- Fetch a random gallery_item and use it as the header image -->
+                <?php
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 3,
+                    'post_status' => 'publish',
+                    'orderby' => 'date',
+                    'category_name' => 'News'
+                );
+                $query = new WP_Query($args);
+                ?>
 
                 <div class="view-content">
-                    <div class="views-row views-row-1 views-row-odd views-row-first">
-
-                        <div><h3>
-                                <a href="/call-proposals-ehri-academic-conference-2024-researching-holocaust-digital-age">Call
-                                    for Proposals | EHRI Academic Conference - Researching the Holocaust in the Digital
-                                    Age</a></h3></div>
-                    </div>
-                    <div class="views-row views-row-2 views-row-even">
-
-                        <div><h3><a href="/new-ehri-document-blog-town-mizoch-map-holocaust">New EHRI Document Blog |
-                                    The Ukrainian Town of Mizoch on the Map of the Holocaust</a></h3></div>
-                    </div>
-                    <div class="views-row views-row-3 views-row-odd views-row-last">
-
-                        <div><h3><a href="/message-support-our-israeli-friends">A Message of Support for Our Israeli
-                                    Friends </a></h3></div>
-                    </div>
+                    <?php if ($query->have_posts()) : ?>
+                        <?php $num = 1; ?>
+                        <?php while ($query->have_posts()) : $query->the_post(); ?>
+                            <div class="views-row views-row-<?php echo $num; ?> views-row-odd views-row-first">
+                                <div>
+                                    <h3>
+                                        <a href="<?php echo esc_url(get_permalink()); ?>"
+                                           title="<?php echo get_the_title(); ?>" alt="<?php echo get_the_title(); ?>">
+                                            <?php the_title(); ?>
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                            <?php $num++; ?>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                 </div>
-
 
                 <div class="more-link">
                     <a href="/latestnews">
