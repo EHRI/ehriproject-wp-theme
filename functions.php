@@ -163,8 +163,76 @@ if (!function_exists('ehriproject_register_video_post_type')) {
     }
 }
 
+if (!function_exists('ehriproject_register_newsletter_edition_taxonomy')) {
+    function ehriproject_register_newsletter_edition_taxonomy()
+    {
+        $labels = array(
+            'name' => _x('Newsletter Editions', 'taxonomy general name'),
+            'singular_name' => _x('Newsletter Edition', 'taxonomy singular name'),
+            'search_items' => __('Search Newsletter Editions'),
+            'all_items' => __('All Newsletter Editions'),
+            'parent_item' => __('Parent Newsletter Edition'),
+            'parent_item_colon' => __('Parent Newsletter Edition:'),
+            'edit_item' => __('Edit Newsletter Edition'),
+            'update_item' => __('Update Newsletter Edition'),
+            'add_new_item' => __('Add New Newsletter Edition'),
+            'new_item_name' => __('New Newsletter Edition Name'),
+            'menu_name' => __('Newsletter Editions'),
+        );
+
+        $args = array(
+            'hierarchical' => false,
+            'labels' => $labels,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'query_var' => true,
+            'show_in_rest' => true,
+            'rewrite' => array('slug' => 'newsletter-edition'),
+            'default' => array(
+                'name' => __('None'),
+                'slug' => __('none'),
+            )
+        );
+
+        register_taxonomy('newsletter_edition', array('post'), $args);
+    }
+}
+
+if (!function_exists('ehriproject_register_newsletter_category_taxonomy')) {
+    function ehriproject_register_newsletter_category_taxonomy()
+    {
+        $labels = array(
+            'name' => _x('Newsletter Categories', 'taxonomy general name'),
+            'singular_name' => _x('Newsletter Category', 'taxonomy singular name'),
+            'search_items' => __('Search Newsletter Categories'),
+            'all_items' => __('All Newsletter Categories'),
+            'parent_item' => __('Parent Newsletter Category'),
+            'parent_item_colon' => __('Parent Newsletter Category:'),
+            'edit_item' => __('Edit Newsletter Category'),
+            'update_item' => __('Update Newsletter Category'),
+            'add_new_item' => __('Add New Newsletter Category'),
+            'new_item_name' => __('New Newsletter Category Name'),
+            'menu_name' => __('Newsletter Categories'),
+        );
+
+        $args = array(
+            'hierarchical' => false,
+            'labels' => $labels,
+            'show_ui' => true,
+            'query_var' => true,
+            'show_in_rest' => true,
+            'rewrite' => array('slug' => 'newsletter-category'),
+            'show_in_menu' => true,
+        );
+
+        register_taxonomy('newsletter_category', array('post'), $args);
+    }
+}
+
 add_action('init', 'ehriproject_register_gallery_item_post_type');
 add_action('init', 'ehriproject_register_video_post_type');
+add_action('init', 'ehriproject_register_newsletter_edition_taxonomy');
+add_action('init', 'ehriproject_register_newsletter_category_taxonomy');
 
 
 $ehriproject_includes = [
