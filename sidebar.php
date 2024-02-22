@@ -47,7 +47,16 @@
                     'posts_per_page' => 3,
                     'post_status' => 'publish',
                     'orderby' => 'date',
-                    'category_name' => 'News'
+                    'order' => 'DESC',
+                    'category_name' => 'News',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'newsletter_category',
+                            'field' => 'slug',
+                            'terms' => array('Online'),
+                            'operator' => 'OR'
+                        )
+                    ),
                 );
                 $query = new WP_Query($args);
                 ?>
