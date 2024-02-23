@@ -9,11 +9,11 @@
 
 
         <ul class="menu">
-            <li class="menu__item is-leaf first leaf"><a href="/content/contact-us" title="Contact us"
+            <li class="menu__item is-leaf first leaf"><a href="/contact-us" title="Contact us"
                                                          class="menu__link">Contact</a></li>
             <li class="menu__item is-leaf leaf item"><a href="/accessibility" class="menu__link item">Accessibility</a>
             </li>
-            <li class="menu__item is-leaf last leaf item"><a href="/content/privacy-statement" class="menu__link item">Privacy
+            <li class="menu__item is-leaf last leaf item"><a href="/privacy-statement" class="menu__link item">Privacy
                     Statement</a></li>
         </ul>
     </div>
