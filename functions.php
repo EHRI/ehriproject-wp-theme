@@ -229,10 +229,74 @@ if (!function_exists('ehriproject_register_newsletter_category_taxonomy')) {
     }
 }
 
+if (!function_exists('ehriproject_register_fellowship_year_taxonomy')) {
+    function ehriproject_register_fellowship_year_taxonomy()
+    {
+        $labels = array(
+            'name' => _x('Fellowship Years', 'taxonomy general name'),
+            'singular_name' => _x('Fellowship Year', 'taxonomy singular name'),
+            'search_items' => __('Search Fellowship Years'),
+            'all_items' => __('All Fellowship Years'),
+            'parent_item' => __('Parent Fellowship Year'),
+            'parent_item_colon' => __('Parent Fellowship Year:'),
+            'edit_item' => __('Edit Fellowship Year'),
+            'update_item' => __('Update Fellowship Year'),
+            'add_new_item' => __('Add New Fellowship Year'),
+            'new_item_name' => __('New Fellowship Year Name'),
+            'menu_name' => __('Fellowship Years'),
+        );
+
+        $args = array(
+            'hierarchical' => false,
+            'labels' => $labels,
+            'show_ui' => true,
+            'query_var' => 'fellowship-year',
+            'show_in_rest' => true,
+            'rewrite' => array('slug' => 'fellowship-year'),
+            'show_in_menu' => true,
+        );
+
+        register_taxonomy('fellowship_year', array('post'), $args);
+    }
+}
+
+if (!function_exists('ehriproject_register_fellowship_institution_taxonomy')) {
+    function ehriproject_register_fellowship_institution_taxonomy()
+    {
+        $labels = array(
+            'name' => _x('Fellowship Institutions', 'taxonomy general name'),
+            'singular_name' => _x('Fellowship Institution', 'taxonomy singular name'),
+            'search_items' => __('Search Fellowship Institutions'),
+            'all_items' => __('All Fellowship Institutions'),
+            'parent_item' => __('Parent Fellowship Institution'),
+            'parent_item_colon' => __('Parent Fellowship Institution:'),
+            'edit_item' => __('Edit Fellowship Institution'),
+            'update_item' => __('Update Fellowship Institution'),
+            'add_new_item' => __('Add New Fellowship Institution'),
+            'new_item_name' => __('New Fellowship Institution Name'),
+            'menu_name' => __('Fellowship Institutions'),
+        );
+
+        $args = array(
+            'hierarchical' => false,
+            'labels' => $labels,
+            'show_ui' => true,
+            'query_var' => 'fellowship-institution',
+            'show_in_rest' => true,
+            'rewrite' => array('slug' => 'fellowship-institution'),
+            'show_in_menu' => true,
+        );
+
+        register_taxonomy('fellowship_institution', array('post'), $args);
+    }
+}
+
 add_action('init', 'ehriproject_register_gallery_item_post_type');
 add_action('init', 'ehriproject_register_video_post_type');
 add_action('init', 'ehriproject_register_newsletter_edition_taxonomy');
 add_action('init', 'ehriproject_register_newsletter_category_taxonomy');
+add_action('init', 'ehriproject_register_fellowship_year_taxonomy');
+add_action('init', 'ehriproject_register_fellowship_institution_taxonomy');
 
 
 $ehriproject_includes = [
