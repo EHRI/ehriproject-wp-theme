@@ -22,6 +22,8 @@ get_header();
                 $args = array(
                     'category_name' => 'news',
                     'paged' => $paged,
+                    'orderby' => 'date',
+                    'order' => 'DESC',
                 );
                 query_posts($args);
                 ?>
