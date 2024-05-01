@@ -312,6 +312,29 @@ if (!function_exists('ehriproject_register_fellowship_institution_taxonomy')) {
     }
 }
 
+// Manage transients for homepage posts and gallery items
+if (!function_exists('ehriproject_delete_homepage_transients')) {
+    function ehriproject_delete_homepage_transients($post_id)
+    {
+        delete_transient('ehri_homepage_posts');
+        delete_transient('ehri_latest_news');
+    }
+}
+
+if (!function_exists('ehriproject_delete_gallery_transients')) {
+    function ehriproject_delete_gallery_transients($post_id)
+    {
+        if (get_post_type($post_id) == 'gallery_item') {
+            delete_transient('ehri_gallery_items');
+        }
+    }
+}
+
+add_action('save_post_post', 'ehriproject_delete_homepage_transients');
+add_action('delete_post', 'ehriproject_delete_homepage_transients');
+add_action('save_post_gallery_item', 'ehriproject_delete_gallery_transients');
+add_action('delete_post', 'ehriproject_delete_gallery_transients');
+
 add_action('init', 'ehriproject_register_gallery_item_post_type');
 add_action('init', 'ehriproject_register_video_post_type');
 add_action('init', 'ehriproject_register_newsletter_edition_taxonomy');

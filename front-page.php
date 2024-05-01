@@ -12,13 +12,16 @@
             <div id="content" class="column" role="main">
                 <div id="content-inner">
                     <?php
+                    if (false === ( $the_query = get_transient( 'ehri_homepage_posts' ) )) {
                         $args = array(
                             'post_type' => array('post', 'page'),
                             'posts_per_page' => 6,
                             'orderby' => array('meta_value_num' => 'ASC', 'date' => 'DESC'),
                             'meta_key' => 'homepage_order',
                         );
-                        $the_query = new WP_Query( $args );
+                        $the_query = new WP_Query($args);
+                        set_transient('ehri_homepage_posts', $the_query, 24 * HOUR_IN_SECONDS);
+                    }
                     ?>
                     <a id="main-content"></a>
                     <div class="ds-1col node node-homepage view-mode-full clearfix">

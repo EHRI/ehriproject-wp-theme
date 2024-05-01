@@ -42,34 +42,36 @@
 
                 <!-- Fetch a random gallery_item and use it as the header image -->
                 <?php
-                $args = array(
-                    'post_type' => 'post',
-                    'posts_per_page' => 3,
-                    'post_status' => 'publish',
-                    'orderby' => 'date',
-                    'order' => 'DESC',
-                    'category_name' => 'News',
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'newsletter_category',
-                            'field' => 'slug',
-                            'terms' => array('Online'),
-                            'operator' => 'OR'
-                        )
-                    ),
-                );
-                $query = new WP_Query($args);
+                if (false === ($latest_news_query = get_transient('ehri_latest_news'))) {
+                    $args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 3,
+                        'post_status' => 'publish',
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                        'category_name' => 'News',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'newsletter_category',
+                                'field' => 'slug',
+                                'terms' => array('Online'),
+                                'operator' => 'OR'
+                            )
+                        ),
+                    );
+                    $latest_news_query = new WP_Query($args);
+                    set_transient('ehri_latest_news', $latest_news_query, 24 * HOUR_IN_SECONDS);
+                }
                 ?>
 
                 <div class="view-content">
-                    <?php if ($query->have_posts()) : ?>
+                    <?php if ($latest_news_query->have_posts()) : ?>
                         <?php $num = 1; ?>
-                        <?php while ($query->have_posts()) : $query->the_post(); ?>
+                        <?php while ($latest_news_query->have_posts()) : $latest_news_query->the_post(); ?>
                             <div class="views-row views-row-<?php echo $num; ?> views-row-odd views-row-first">
                                 <div>
                                     <h3>
-                                        <a href="<?php echo esc_url(get_permalink()); ?>"
-                                           title="<?php echo get_the_title(); ?>" alt="<?php echo get_the_title(); ?>">
+                                        <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo get_the_title(); ?>">
                                             <?php the_title(); ?>
                                         </a>
                                     </h3>

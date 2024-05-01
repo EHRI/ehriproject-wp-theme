@@ -163,16 +163,21 @@
                 <div class="view view-header-image">
                     <!-- Fetch a random gallery_item and use it as the header image -->
                     <?php
-                    $args = array(
-                        'post_type' => 'gallery_item',
-                        'posts_per_page' => 1,
-                        'orderby' => 'rand'
-                    );
-                    $query = new WP_Query($args);
-                    if ($query->have_posts()) {
-                        while ($query->have_posts()) {
-                            $query->the_post();
+
+                    if (false === ($gallery_items = get_transient('ehri_gallery_items'))) {
+                        $args = array(
+                            'post_type' => 'gallery_item',
+                            'orderby' => 'rand'
+                        );
+                        $gallery_items = new WP_Query($args);
+                        set_transient('ehri_gallery_items', $gallery_items, 24 * HOUR_IN_SECONDS);
+                    }
+                    if ($gallery_items->have_posts()) {
+                        shuffle($gallery_items->posts);
+                        while ($gallery_items->have_posts()) {
+                            $gallery_items->the_post();
                             echo ehriproject_header_element(get_the_title());
+                            break;
                         }
                     } ?>
                 </div>
