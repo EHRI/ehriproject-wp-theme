@@ -303,17 +303,19 @@ $newsletter_edition_name = get_queried_object()->name;
                             <tr>
                                 <td colspan="2">
                                     <div class="field field-title">
-                                        <h2><?php the_title(); ?></h2>
+                                        <h2><a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>"><?php the_title(); ?></a></h2>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="inset">&nbsp;</td>
                                 <td>
-                                    <div class="field field-photo">
-                                        <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'thumbnail'); ?>"
-                                             alt="<?php echo get_the_title(); ?>"/>
-                                    </div>
+                                    <?php if(has_post_thumbnail()): ?>
+                                        <div class="field field-photo">
+                                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'thumbnail'); ?>"
+                                                 alt="<?php echo get_the_title(); ?>"/>
+                                        </div>
+                                    <?php endif; ?>
                                     <div class="field field-datum">
                                 <span class="date-display-single">
                                     <?php echo get_the_date('d/m/Y'); ?>
