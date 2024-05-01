@@ -20,8 +20,7 @@ if (!defined('ABSPATH')) {
         <?php endif; ?>
         <div class="field field-name-field-title">
             <h2>
-                <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo get_the_title(); ?>"
-                   alt="<?php echo get_the_title(); ?>">
+                <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo get_the_title(); ?>">
                     <?php the_title(); ?>
                 </a>
             </h2>

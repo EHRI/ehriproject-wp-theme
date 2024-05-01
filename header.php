@@ -7,14 +7,15 @@
 <!DOCTYPE html>
 
 <head>
+    <?php $home = get_home_url(); ?>
     <meta charset="utf-8"/>
-    <link rel="shortcut icon" href="https://www.ehri-project.eu/sites/default/files/favicon.png" type="image/png"/>
-    <link rel="canonical" href="http://localhost/"/>
-    <link rel="shortlink" href="http://localhost/"/>
+    <link rel="shortcut icon" href="<?php echo get_theme_file_uri('favicon.png'); ?>" type="image/png"/>
+    <link rel="canonical" href="<?php echo $home; ?>"/>
+    <link rel="shortlink" href="<?php echo $home; ?>"/>
     <meta name="dcterms.title" content="European Holocaust Research Infrastructure"/>
     <meta name="dcterms.type" content="Text"/>
     <meta name="dcterms.format" content="text/html"/>
-    <meta name="dcterms.identifier" content="http://localhost/"/>
+    <meta name="dcterms.identifier" content="<?php echo $home; ?>/"/>
     <title>European Holocaust Research Infrastructure |</title>
 
     <meta name="MobileOptimized" content="width">
