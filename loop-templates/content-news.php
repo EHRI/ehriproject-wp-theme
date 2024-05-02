@@ -32,7 +32,7 @@ if (!defined('ABSPATH')) {
         </div>
 
         <div class="field field-name-field-body">
-            <?php the_excerpt(); ?>
+            <?php echo drupal_text_summary(get_the_content(), $max_length = 600); ?>
         </div>
         <div class="field field-name-node-link">
             <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo get_the_title(); ?>"
