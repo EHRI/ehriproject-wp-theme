@@ -1,3 +1,39 @@
+/**
+* Display of ars electronica block in footer
+* RS 13 June 2018
+*/
+.funding {
+  float: left;
+}
+
+.ars a {
+  white-space: nowrap;
+  overflow: hidden;
+  height: 6vw;
+  width: 16vw;
+  margin-top: 2vw;
+  margin-left: 20vw;
+  display: flex;
+  align-items: center;
+}
+
+
+/**
+* Podcast stuff
+* MB 27 Sept 2022
+*/
+.podcast-s01-header {
+  background-image: url(../images/podcast-banner.jpg);
+  background-size: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 23vw;
+  z-index: 2;
+}
+
 .podcast-s01-header {
   background-image: url(../images/podcast-banner.jpg);
   background-size: cover;

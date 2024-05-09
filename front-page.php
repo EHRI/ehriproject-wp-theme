@@ -29,13 +29,11 @@
                     </div>
                     <div id="block-views-homepage-teasers-block-1" class="block block-views last even">
                         <div class="view view-homepage-teasers">
-                            <div class="view-content">
-                                <?php if ( $the_query->have_posts() ) : ?>
-                                    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                                        <?php get_template_part( 'loop-templates/content-front', get_post_format() ); ?>
-                                    <?php endwhile; ?>
-                                <?php endif; ?>
-                            </div>
+                            <?php if ( $the_query->have_posts() ) : ?>
+                                <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                                    <?php get_template_part( 'loop-templates/content-front', get_post_format() ); ?>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

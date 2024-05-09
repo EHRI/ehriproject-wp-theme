@@ -17,13 +17,11 @@
                     </div>
                     <div id="block-views-homepage-teasers-block-1" class="block block-views last even">
                         <div class="view view-homepage-teasers">
-                            <div class="view-content">
-                                <?php if ( have_posts() ) : ?>
-                                    <?php while ( have_posts() ) : the_post(); ?>
-                                        <?php get_template_part( 'loop-templates/content', get_post_format() ); ?>
-                                    <?php endwhile; ?>
-                                <?php endif; ?>
-                            </div>
+                            <?php if ( have_posts() ) : ?>
+                                <?php while ( have_posts() ) : the_post(); ?>
+                                    <?php get_template_part( 'loop-templates/content', get_post_format() ); ?>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

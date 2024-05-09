@@ -23,7 +23,8 @@ html {
   line-height: 1.5em
 }
 
-h1, h2, h3, h4, h5, h6, .blog {
+//h1, h2, h3, h4, h5, h6, .blog {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'news-gothic-std', 'News Cycle', Verdana, Tahoma, "DejaVu Sans", sans-serif;
   font-style: normal; font-weight: 700;
 }
@@ -664,7 +665,8 @@ h1#logo a {
   display: none
 }
 
-#block-menu-secondary-menu {
+//#block-menu-secondary-menu {
+#secondary-menu {
   display: none
 }
 
@@ -1035,11 +1037,13 @@ h1#logo a {
     padding: 0.3rem 1rem 1rem 0
   }
 
-  #block-menu-secondary-menu {
+  //#block-menu-secondary-menu {
+  #secondary-menu {
     display: block
   }
 
-  #block-menu-secondary-menu.block-menu {
+  //#block-menu-secondary-menu.block-menu {
+  #secondary-menu {
     position: absolute;
     right: 0;
     top: 0;
@@ -1048,13 +1052,15 @@ h1#logo a {
     padding-right: 2rem
   }
 
-  #block-menu-secondary-menu.block-menu li {
+  //#block-menu-secondary-menu.block-menu li {
+  #secondary-menu li {
     display: inline-block;
     padding-left: 1rem;
     font-size: 0.9rem
   }
 
-  #block-menu-secondary-menu.block-menu li a {
+  //#block-menu-secondary-menu.block-menu li a {
+  #secondary-menu li a {
     text-decoration: none
   }
 

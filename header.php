@@ -89,17 +89,16 @@
             text-decoration: none;
         }
 
-        #block-menu-secondary-menu {
+        #secondary-menu {
             margin-top: 2em;
         }
 
-        #block-menu-secondary-menu a {
+        #secondary-menu a {
             color: #fff;
         }
 
-        #block-menu-secondary-menu.block-menu li {
+        #secondary-menu li {
             display: block !important;
-
         }
     </style>
 
