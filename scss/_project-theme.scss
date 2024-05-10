@@ -672,7 +672,26 @@ h1#logo a {
 
 //#block-menu-secondary-menu {
 #secondary-menu {
-  display: none
+  display: none;
+  margin-top: 2em;
+}
+
+#secondary-menu a {
+  color: #fff;
+}
+
+#secondary-menu li {
+  display: block !important;
+}
+
+.socmed {
+  padding-left: 10px;
+}
+
+.socmed img {
+  margin-right: 10px;
+  width: 30px;
+  height: auto;
 }
 
 .mailchimp-newsletter-mergefields label {
@@ -709,6 +728,53 @@ h1#logo a {
 #header:after, #main:after, #footer:after {
   clear: both
 }
+
+.resources h2 {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  background-image: url(images/resources2.png);
+  background-repeat: no-repeat;
+  background-size: 240px auto;
+  background-position: 0 28px;
+  height: 40px;
+  width: 240px;
+  background-position: left top;
+  margin: 0;
+}
+
+.resources h3 a:hover {
+
+  color: #36104F;
+}
+
+.resources ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resources li {
+  background-image: url(images/dot3.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 1.5em;
+  line-height: 1.5em;
+  font-weight: 700;
+  font-size: 1em;
+  margin-top: 1.5em;
+}
+
+.resources li:hover {
+  background-image: url(images/dot.png);
+}
+
+.resources li a {
+  padding-left: 0.8em;
+  text-decoration: none;
+}
+
 
 @media all and (min-width: 480px) {
   .view-header-image {
@@ -1901,7 +1967,7 @@ tr.selected td {
 
 .progress .filled {
   background-color: #0072b9;
-  background-image: url('images/progress.gif?1456312826')
+  background-image: url('images/progress.gif')
 }
 
 body.node-type-conference, body.page-public-history-holocaust-registration-form {

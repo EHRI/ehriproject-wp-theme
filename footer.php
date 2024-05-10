@@ -21,7 +21,7 @@
 
     <div class="ars">
         <a href="http://prix2018.aec.at/prixwinner/28933/" target="_blank">
-            <img alt="Ars Electronica" height="100" src="<?php echo get_theme_file_uri('images/ars_logo_cropped.jpg'); ?>"/>
+            <img alt="Ars Electronica" width="200" height="100" src="<?php echo get_theme_file_uri('images/ars_logo_cropped.jpg'); ?>"/>
         </a>
     </div>
 </footer>

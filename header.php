@@ -16,7 +16,7 @@
     <meta name="dcterms.type" content="Text"/>
     <meta name="dcterms.format" content="text/html"/>
     <meta name="dcterms.identifier" content="<?php echo $home; ?>/"/>
-    <title>European Holocaust Research Infrastructure |</title>
+    <title><?php echo get_the_title(); ?> | <?php echo get_bloginfo('description'); ?></title>
 
     <meta name="MobileOptimized" content="width">
     <meta name="HandheldFriendly" content="true">
@@ -26,81 +26,6 @@
 
     <!-- include style.css -->
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css"/>
-
-    <style>
-        /** NB: this styles the sidebar buttons and should be moved to the stylesheet **/
-        .socmed {
-            padding-left: 10px;
-        }
-
-        .socmed img {
-            margin-right: 10px;
-            width: 30px;
-            height: auto;
-        }
-
-        .resources {
-            padding: 0 0 10px 10px;
-        }
-
-        .resources h2 {
-            text-indent: 100%;
-            white-space: nowrap;
-            overflow: hidden;
-            display: block;
-            background-image: url(<?php echo get_theme_file_uri('images/resources2.png'); ?>);
-            background-repeat: no-repeat;
-            background-size: 240px auto;
-            background-position: 0 28px;
-            height: 40px;
-            width: 240px;
-            background-position: left top;
-            margin: 0;
-        }
-
-        .resources h3 a:hover {
-
-            color: #36104F;
-        }
-
-        .resources ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .resources li {
-            background-image: url(<?php echo get_theme_file_uri('images/dot3.png'); ?>);
-            background-repeat: no-repeat;
-            background-position: left center;
-            background-size: 1.5em;
-            line-height: 1.5em;
-            font-weight: 700;
-            font-size: 1em;
-            margin-top: 1.5em;
-        }
-
-        .resources li:hover {
-            background-image: url(<?php echo get_theme_file_uri('images/dot.png'); ?>);
-        }
-
-        .resources li a {
-            padding-left: 0.8em;
-            text-decoration: none;
-        }
-
-        #secondary-menu {
-            margin-top: 2em;
-        }
-
-        #secondary-menu a {
-            color: #fff;
-        }
-
-        #secondary-menu li {
-            display: block !important;
-        }
-    </style>
 
     <script src="//use.typekit.com/yha1waw.js"></script>
     <script>
