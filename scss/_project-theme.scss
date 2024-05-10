@@ -520,6 +520,11 @@ h1#logo a {
   display: none
 }
 
+.view-homepage-teasers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .view-homepage-teasers .views-row {
   margin: 2rem 1rem 0 1rem
 }
