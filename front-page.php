@@ -7,41 +7,28 @@
 
 <?php get_header(); ?>
 
-    <div id="main">
-        <div id="main-inner">
-            <div id="content" class="column" role="main">
-                <div id="content-inner">
-                    <?php
-                    if (false === ( $the_query = get_transient( 'ehri_homepage_posts' ) )) {
-                        $args = array(
-                            'post_type' => array('post', 'page'),
-                            'posts_per_page' => 6,
-                            'orderby' => array('meta_value_num' => 'ASC', 'date' => 'DESC'),
-                            'meta_key' => 'homepage_order',
-                        );
-                        $the_query = new WP_Query($args);
-                        set_transient('ehri_homepage_posts', $the_query, 24 * HOUR_IN_SECONDS);
-                    }
-                    ?>
-                    <a id="main-content"></a>
-                    <div class="ds-1col node node-homepage view-mode-full clearfix">
-                        <div class="field field-name-body"></div>
-                    </div>
-                    <div id="block-views-homepage-teasers-block-1" class="block block-views last even">
-                        <div class="view view-homepage-teasers">
-                            <?php if ( $the_query->have_posts() ) : ?>
-                                <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                                    <?php get_template_part( 'loop-templates/content-front', get_post_format() ); ?>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <?php get_sidebar(); ?>
-
+    <section class="home services">
+        <?php
+        if (false === ($the_query = get_transient('ehri_homepage_posts'))) {
+            $args = array(
+                'post_type' => array('post', 'page'),
+                'posts_per_page' => 6,
+                'orderby' => array('meta_value_num' => 'ASC', 'date' => 'DESC'),
+                'meta_key' => 'homepage_order',
+            );
+            $the_query = new WP_Query($args);
+            set_transient('ehri_homepage_posts', $the_query, 24 * HOUR_IN_SECONDS);
+        }
+        ?>
+        <div class="resource-cards">
+            <?php if ($the_query->have_posts()) : ?>
+                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                    <?php get_template_part('loop-templates/content-front', get_post_format()); ?>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
+    </section>
     </div>
+
 
 <?php get_footer(); ?>

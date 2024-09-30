@@ -10,19 +10,19 @@ if (!defined('ABSPATH')) {
 }
 ?>
 
-<div class="views-row" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<div class="resource-card" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-    <div class="views-field views-field-field-photo">
+    <div class="resource-img">
         <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo get_the_title(); ?>">
             <?php echo ehriproject_teaser_element($alt_text = get_the_title()); ?>
         </a>
     </div>
-    <div>
+    <div class="resource-info">
         <!-- render the title as a link -->
-        <h3>
+        <header>
             <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo get_the_title(); ?>">
                 <?php the_title(); ?>
             </a>
-        </h3>
+        </header>
     </div>
 </div><!-- #post-## -->

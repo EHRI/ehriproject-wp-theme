@@ -4,37 +4,34 @@
  */
 ?>
 
-<footer id="footer" class="region region-footer">
-    <!-- Render the menus -->
-    <?php wp_nav_menu(array(
-        'menu' => 'secondary-menu',
-        'theme_location' => 'primary',
-        'container' => 'nav',
-        'menu_class' => 'menu',
-        'menu_id' => 'secondary-menu',
-        'fallback_cb' => false
-    )); ?>
+<?php $home = get_home_url(); ?>
+<footer class="main footer">
+    <div class="footer-content">
+        <div class="footer-headings">
+            <div class="logo">
+                <a href="<?php echo $home; ?>"><img src="<?php echo get_template_directory_uri() . '/images/ehri-logo-beige.svg';
+                ?>" alt="ehri
+                logo"/></a>
+            </div>
+            <a href="<?php echo $home; ?>" class="title"><?php echo get_bloginfo('title'); ?></a>
+        </div>
 
-    <div class="funding">
-        <a href="http://europa.eu/" target="_blank">EHRI is funded by the European Union</a>
-    </div>
-
-    <div class="ars">
-        <a href="http://prix2018.aec.at/prixwinner/28933/" target="_blank">
-            <img alt="Ars Electronica" width="200" height="100" src="<?php echo get_theme_file_uri('images/ars_logo_cropped.jpg'); ?>"/>
-        </a>
+<!--        {{ partial "footer-menu-1.html" .}}-->
+<!---->
+<!--        {{ partial "footer-menu-2.html" . }}-->
+<!---->
+<!--        {{ partial "footer-menu-3.html" . }}-->
+<!---->
+<!--        {{ partial "social.html" . }}-->
+<!---->
+<!--        {{ partial "footer-funders.html" . }}-->
+<!---->
+<!--        {{ partial "footer-copyright.html" . }}-->
     </div>
 </footer>
 
-</div> <!-- /#page -->
+</main> <!-- /#content -->
 
 <?php wp_footer(); ?>
-<script>
-  // Toggle menu class on body when #menubutton is clicked
-  document.getElementById('menubutton').addEventListener('click', function () {
-    document.body.classList.toggle('menu');
-  });
-
-</script>
 </body>
 </html>
