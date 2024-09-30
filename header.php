@@ -55,5 +55,3 @@
     </nav>
 </header>
 
-<main id="content">
-

@@ -3,3 +3,36 @@
 nav.main-navbar .navbar > ul.menu > li.menu-item > .sub-menu {
   display: none;
 }
+
+main#content {
+  padding: var(--margin-page-v) var(--margin-page-h);
+
+  display: flex;
+  flex-direction: row;
+  column-gap: $space-xl;
+}
+
+main#content section.page-content {
+  padding: 0;
+  flex: 1;
+  flex-basis: 75%;
+}
+
+div.socmed > a > img {
+  width: 2rem;
+  height: auto;
+}
+
+.news.page-content picture.featured-image img {
+  margin: 0 0 1rem 1rem;
+}
+
+@media (max-width: 1024px) {
+  main#content {
+    flex-direction: column;
+  }
+
+  main#content section.page-content {
+    flex-basis: 100%;
+  }
+}

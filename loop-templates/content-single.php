@@ -14,11 +14,9 @@ if (!defined('ABSPATH')) {
 <h1 class="page__title title" id="page-title"><?php the_title(); ?></h1>
 
 <?php if (has_post_thumbnail()): ?>
-    <div class="ds-1col node node-news view-mode-full">
-        <div class="field field-name-field-photo">
+        <picture class="featured-image">
             <?php the_post_thumbnail('large'); ?>
-        </div>
-    </div>
+        </picture>
 <?php endif; ?>
 
 <div class="field field-name-body">

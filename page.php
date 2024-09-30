@@ -10,14 +10,18 @@ if (!defined('ABSPATH')) {
 get_header();
 ?>
 
-<?php if (have_posts()) : ?>
-    <section class="page-content news" role="main">
-        <?php while (have_posts()) : the_post(); ?>
-            <?php get_template_part('loop-templates/content', 'page'); ?>
-        <?php endwhile; ?>
-    </section>
-<?php endif; ?>
+<main id="content">
 
+    <?php if (have_posts()) : ?>
+        <section class="page-content news" role="main">
+            <?php while (have_posts()) : the_post(); ?>
+                <?php get_template_part('loop-templates/content', 'page'); ?>
+            <?php endwhile; ?>
+        </section>
+    <?php endif; ?>
 
+    <?php get_sidebar(); ?>
+
+</main>
 
 <?php get_footer(); ?>
