@@ -30,9 +30,9 @@
             <a href="<?php echo $home ?>"><img src="<?php echo get_theme_file_uri('images/ehri-logo.svg'); ?>" alt="EHRI
             Logo"/></a>
         </div>
-        <a href="/" class="title">
-            EHRI
-        </a>
+<!--        <a href="/" class="title">-->
+<!--            EHRI-->
+<!--        </a>-->
     </div>
     <nav class="nav main-navbar">
         <label for="hb-toggle">Show menu</label>
