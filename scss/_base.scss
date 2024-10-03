@@ -64,8 +64,16 @@ body {
   --font-weight-bold: #{$font-weight-bold};
   --font-weight-bolder: #{$font-weight-bolder};
 
+  --max-width: #{$max-width};
+
   --margin-page-v: max(1rem, min(3.1875rem, 5vw));
-  --margin-page-h: max(1rem, 5vw);
+  --margin-page-h: max(1rem, calc((100vw - var(--max-width)) / 2));
+  //--margin-page-h: clamp(max(1rem, 5vw), 5vw, min(1rem, 15vw));
+
+  // Adjust margins for larger screens
+  @media (min-width: $breakpoint-laptop) {
+    //--margin-page-h: max(1rem, 10vw);
+  }
 
   --margin-section-v: max(2rem, min(5rem, 7vw));
   --margin-section-h: var(--margin-page-h);

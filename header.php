@@ -41,15 +41,30 @@
         <span class="hb"></span>
         <span class="hb"></span>
 
-        <?php wp_nav_menu(array(
-            'menu' => 'main-menu',
-            'theme_location' => 'primary',
-            'container' => 'div',
-            'container_class' => 'navbar',
-            'menu_class' => 'menu',
-            'menu_id' => 'main-menu',
-            'fallback_cb' => false
-        )); ?>
+        <div class="navbar">
+                <?php wp_nav_menu(array(
+                    'menu' => 'main-menu',
+                    'theme_location' => 'primary',
+                    'container' => 'div',
+                    'container_class' => 'navbar-menu',
+                    'menu_class' => 'menu',
+                    'menu_id' => 'main-menu',
+                    'fallback_cb' => false
+                )); ?>
+
+                <label class="screen-reader-text" for="search-toggle">Show search bar</label>
+                <input id="search-toggle" type="checkbox"/>
+                <div class="search-controls">
+                    <form role="search" method="get" id="search-form" class="search-form" action="<?php echo $home; ?>">
+                        <label class="screen-reader-text" for="s">Search for:</label>
+                        <input type="text" value="" name="s" id="s">
+                        <input type="submit" id="search-submit" value="Search">
+                    </form>
+                </div>
+                <i id="search-icon" class="fa fa-fw fa-search"></i>
+                <span class="st-x"></span>
+                <span class="st-x"></span>
+        </div>
 
             <?php // Social media links ?>
     </nav>

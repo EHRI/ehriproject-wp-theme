@@ -36,9 +36,11 @@ $white: #FFF;
 $black: #46463D;
 
 // Breakpoints
-//$max-width: 1742px; // of design
+$breakpoint-laptop: 1440px;
 $breakpoint-tablet: 1024px;
 $breakpoint-phone: 576px;
+
+$max-width: min($breakpoint-laptop, calc(100% + 100px));
 
 // Misc
 $logo-width: 20rem;
