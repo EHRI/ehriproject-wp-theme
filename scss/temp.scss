@@ -9,10 +9,12 @@ main#content {
 
   display: flex;
   flex-direction: row;
-  column-gap: $space-xl;
+  column-gap: var(--margin-page-h);
 }
 
-main#content section.page-content {
+main#content section.page-content,
+main#content section.home
+{
   padding: 0;
   flex: 1;
   flex-basis: 75%;
@@ -34,5 +36,31 @@ div.socmed > a > img {
 
   main#content section.page-content {
     flex-basis: 100%;
+  }
+}
+
+aside.sidebars {
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-bold);
+
+  .resources {
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      list-style-type: none;
+      background-image: url(images/dot3.png);
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 1.5em;
+      margin-top: 1.5em;
+
+      a {
+        padding-left: .75rem;
+      }
+    }
   }
 }

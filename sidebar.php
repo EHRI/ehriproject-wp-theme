@@ -15,6 +15,7 @@
         <a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/"
            target="_blank"><img alt="LinkedIn" src="<?php echo get_theme_file_uri('images/linkedin2.png'); ?>"/></a>
     </div>
+
     <div class="resources">
         <h2>Resources</h2>
         <!-- Render the sidebar menu resources menu -->

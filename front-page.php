@@ -7,6 +7,8 @@
 
 <?php get_header(); ?>
 
+<main id="content">
+
     <section class="home services">
         <?php
         if (false === ($the_query = get_transient('ehri_homepage_posts'))) {
@@ -28,7 +30,9 @@
             <?php endif; ?>
         </div>
     </section>
-    </div>
+
+    <?php get_sidebar(); ?>
+</main>
 
 
 <?php get_footer(); ?>
