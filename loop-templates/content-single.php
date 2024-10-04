@@ -11,14 +11,16 @@ if (!defined('ABSPATH')) {
 ?>
 
 
-<h1 class="page__title title" id="page-title"><?php the_title(); ?></h1>
+<header>
+    <h1 class="post-title" id="page-title"><?php the_title(); ?></h1>
+</header>
 
 <?php if (has_post_thumbnail()): ?>
-        <picture class="featured-image">
-            <?php the_post_thumbnail('large'); ?>
-        </picture>
+    <picture class="featured-image">
+        <?php the_post_thumbnail('large'); ?>
+    </picture>
 <?php endif; ?>
 
-<div class="field field-name-body">
+<div class="post-body">
     <?php the_content(); ?>
 </div>

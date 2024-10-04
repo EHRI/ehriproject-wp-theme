@@ -5,26 +5,30 @@
 ?>
 
 <aside class="sidebars">
-    <div class="socmed">follow us on: <br/>
-        <a href="https://twitter.com/EHRIproject" target="_blank"><img alt="Twitter"
-                                                                       src="<?php echo get_theme_file_uri('images/twitter.png'); ?>"></a>
+    <section class="social">
+        <header>Follow Us</header>
+        <a href="https://facebook.com/EHRIproject" target="_blank">
+            <i title="Facebook" class="fa fa-2x fa-fw fa-facebook"></i>
+        </a>
 
-        <a href="https://facebook.com/EHRIproject" target="_blank"><img alt="Facebook"
-                                                                        src="<?php echo get_theme_file_uri('images/facebook.png'); ?>"/></a>
+        <a href="https://twitter.com/EHRIproject" target="_blank">
+            <i title="X (formerly Twitter)" class="fa fa-2x fa-fw" style="font-weight: bold">&#120143;</i>
+        </a>
 
-        <a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/"
-           target="_blank"><img alt="LinkedIn" src="<?php echo get_theme_file_uri('images/linkedin2.png'); ?>"/></a>
-    </div>
+        <a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/" target="_blank">
+            <i title="LinkedIn" class="fa fa-2x fa-fw fa-linkedin"></i>
+        </a>
+    </section>
 
-    <div class="resources">
-        <h2>Resources</h2>
+    <section class="resources">
+        <header>Resources</header>
         <!-- Render the sidebar menu resources menu -->
         <?php wp_nav_menu(array(
             'menu' => 'resources-menu',
             'theme_location' => 'primary',
             'fallback_cb' => false
         )); ?>
-    </div>
+    </section>
 
 
     <!-- Fetch a random gallery_item and use it as the header image -->
@@ -52,8 +56,8 @@
     ?>
 
     <?php if ($latest_news_query->have_posts()) : ?>
-        <div class="latest-news">
-            <h2>Latest News</h2>
+        <section class="latest-news">
+            <header>Latest News</header>
             <?php $num = 1; ?>
             <?php while ($latest_news_query->have_posts()) : $latest_news_query->the_post(); ?>
                 <div class="latest-news-item-<?php echo $num; ?>">
@@ -69,7 +73,7 @@
             <div class="more-link">
                 <a href="/latestnews">More news... </a>
             </div>
-        </div>
+        </section>
     <?php endif; ?>
 
 </aside>

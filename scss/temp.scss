@@ -154,13 +154,13 @@ main#content section.home
   flex-basis: 75%;
 }
 
-div.socmed > a > img {
-  width: 2rem;
-  height: auto;
-}
-
 .news.page-content picture.featured-image img {
   margin: 0 0 1rem 1rem;
+}
+
+.news.page-content .post-body h3 {
+  font-size: $font-size-lg;
+  line-height: $font-size-lg;
 }
 
 @media (max-width: 1024px) {
@@ -173,7 +173,22 @@ div.socmed > a > img {
   }
 }
 
+
+// Sidebar config
 aside.sidebars {
+
+
+
+  section {
+    margin-bottom: $space-lg;
+  }
+
+  section > header {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bolder);
+    margin-bottom: $space-lg;
+  }
+
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-bold);
 
@@ -202,4 +217,14 @@ aside.sidebars {
 // Images within page text
 main#content .page-content p img {
   margin: 0.3rem 1rem 1rem 0;
+}
+
+// Hero section
+.hero {
+  picture img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
 }
