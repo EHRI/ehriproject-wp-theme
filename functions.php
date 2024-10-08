@@ -4,13 +4,17 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-$ehriproject_includes = [
+// Temporarily required to import media from the same host
+add_filter('http_request_host_is_external', '__return_true');
+
+
+$ehrieric_includes = [
     'pagination',
     'widgets',
     'drupal'
 ];
 
-foreach ($ehriproject_includes as $file) {
+foreach ($ehrieric_includes as $file) {
     if (!$filepath = locate_template("inc/$file.php")) {
         trigger_error("Error locating /inc/$file.php", E_USER_ERROR);
     }
@@ -19,8 +23,8 @@ foreach ($ehriproject_includes as $file) {
 }
 
 
-if (!function_exists('ehriproject_teaser_image_data')) {
-    function ehriproject_teaser_image_data()
+if (!function_exists('ehrieric_teaser_image_data')) {
+    function ehrieric_teaser_image_data()
     {
         return array(
             'teaser_desktop_1x' => array(
@@ -63,52 +67,70 @@ if (!function_exists('ehriproject_teaser_image_data')) {
     }
 }
 
-// Temporarily required to import media from the same host
-add_filter('http_request_host_is_external', '__return_true');
-
-if (!function_exists('ehri_theme_setup')) {
-    function ehri_theme_setup()
+if (!function_exists('ehrieric_theme_setup')) {
+    function ehrieric_theme_setup()
     {
         add_theme_support('post-thumbnails', array('post', 'page'));
 
-        foreach (ehriproject_teaser_image_data() as $key => $value) {
+        foreach (ehrieric_teaser_image_data() as $key => $value) {
             add_image_size($key, $value['width'], $value['height'], true);
         }
 
-        add_filter('image_size_names_choose', 'ehri_teaser_sizes');
+        add_filter('image_size_names_choose', 'ehrieric_teaser_sizes');
 
-        function ehri_teaser_sizes($sizes)
+        function ehrieric_teaser_sizes($sizes)
         {
-            $ehri_teaser_image_size_names = array();
-            foreach (ehriproject_teaser_image_data() as $key => $value) {
-                $ehri_teaser_image_size_names[$key] = $value['name'];
+            $ehrieric_teaser_image_size_names = array();
+            foreach (ehrieric_teaser_image_data() as $key => $value) {
+                $ehrieric_teaser_image_size_names[$key] = $value['name'];
             }
-            return array_merge($sizes, $ehri_teaser_image_size_names);
+            return array_merge($sizes, $ehrieric_teaser_image_size_names);
         }
     }
 }
 
-add_action('after_setup_theme', 'ehri_theme_setup');
+add_action('after_setup_theme', 'ehrieric_theme_setup');
 
 
-if (!function_exists('ehriproject_setup_theme_default_settings')) {
-    function ehriproject_setup_theme_default_settings()
+if (!function_exists('ehrieric_setup_theme_default_settings')) {
+    function ehrieric_setup_theme_default_settings()
     {
 
         // check if settings are set, if not set defaults.
         // Caution: DO NOT check existence using === always check with == .
         // Latest blog posts style.
-        $ehriproject_teaser_images = get_theme_mod('ehriproject_teaser_images');
-        if ('' == $ehriproject_teaser_images) {
-            set_theme_mod('ehriproject_teaser_images', 'default');
+        $ehrieric_teaser_images = get_theme_mod('ehrieric_teaser_images');
+        if ('' == $ehrieric_teaser_images) {
+            set_theme_mod('ehrieric_teaser_images', 'default');
         }
+    }
+}
+
+if (!function_exists("ehrieric_random_gallery_item")) {
+    function ehrieric_random_gallery_item()
+    {
+        $args = array(
+            'post_type' => 'gallery_item',
+            'orderby' => 'rand',
+            'posts_per_page' => 1,
+        );
+
+        $gallery_items = new WP_Query($args);
+        if ($gallery_items->have_posts()) {
+            while ($gallery_items->have_posts()) {
+                $gallery_items->the_post();
+                global $post;
+                return $post;
+            }
+        }
+        return null;
     }
 }
 
 
 // Register new custom post type for 'gallery_item':
-if (!function_exists('ehriproject_register_gallery_item_post_type')) {
-    function ehriproject_register_gallery_item_post_type()
+if (!function_exists('ehrieric_register_gallery_item_post_type')) {
+    function ehrieric_register_gallery_item_post_type()
     {
         $labels = array(
             'name' => __('Gallery Items'),
@@ -145,9 +167,9 @@ if (!function_exists('ehriproject_register_gallery_item_post_type')) {
     }
 }
 
-if (!function_exists('ehriproject_register_video_post_type')) {
+if (!function_exists('ehrieric_register_video_post_type')) {
 // Register a new custom post type for 'video'
-    function ehriproject_register_video_post_type()
+    function ehrieric_register_video_post_type()
     {
         $labels = array(
             'name' => __('Videos'),
@@ -184,8 +206,8 @@ if (!function_exists('ehriproject_register_video_post_type')) {
     }
 }
 
-if (!function_exists('ehriproject_register_newsletter_edition_taxonomy')) {
-    function ehriproject_register_newsletter_edition_taxonomy()
+if (!function_exists('ehrieric_register_newsletter_edition_taxonomy')) {
+    function ehrieric_register_newsletter_edition_taxonomy()
     {
         $labels = array(
             'name' => _x('Newsletter Editions', 'taxonomy general name'),
@@ -219,8 +241,8 @@ if (!function_exists('ehriproject_register_newsletter_edition_taxonomy')) {
     }
 }
 
-if (!function_exists('ehriproject_register_newsletter_category_taxonomy')) {
-    function ehriproject_register_newsletter_category_taxonomy()
+if (!function_exists('ehrieric_register_newsletter_category_taxonomy')) {
+    function ehrieric_register_newsletter_category_taxonomy()
     {
         $labels = array(
             'name' => _x('Newsletter Categories', 'taxonomy general name'),
@@ -250,8 +272,8 @@ if (!function_exists('ehriproject_register_newsletter_category_taxonomy')) {
     }
 }
 
-if (!function_exists('ehriproject_register_fellowship_year_taxonomy')) {
-    function ehriproject_register_fellowship_year_taxonomy()
+if (!function_exists('ehrieric_register_fellowship_year_taxonomy')) {
+    function ehrieric_register_fellowship_year_taxonomy()
     {
         $labels = array(
             'name' => _x('Fellowship Years', 'taxonomy general name'),
@@ -281,8 +303,8 @@ if (!function_exists('ehriproject_register_fellowship_year_taxonomy')) {
     }
 }
 
-if (!function_exists('ehriproject_register_fellowship_institution_taxonomy')) {
-    function ehriproject_register_fellowship_institution_taxonomy()
+if (!function_exists('ehrieric_register_fellowship_institution_taxonomy')) {
+    function ehrieric_register_fellowship_institution_taxonomy()
     {
         $labels = array(
             'name' => _x('Fellowship Institutions', 'taxonomy general name'),
@@ -312,37 +334,37 @@ if (!function_exists('ehriproject_register_fellowship_institution_taxonomy')) {
     }
 }
 
-add_action('init', 'ehriproject_register_gallery_item_post_type');
-add_action('init', 'ehriproject_register_video_post_type');
-add_action('init', 'ehriproject_register_newsletter_edition_taxonomy');
-add_action('init', 'ehriproject_register_newsletter_category_taxonomy');
-add_action('init', 'ehriproject_register_fellowship_year_taxonomy');
-add_action('init', 'ehriproject_register_fellowship_institution_taxonomy');
+add_action('init', 'ehrieric_register_gallery_item_post_type');
+add_action('init', 'ehrieric_register_video_post_type');
+add_action('init', 'ehrieric_register_newsletter_edition_taxonomy');
+add_action('init', 'ehrieric_register_newsletter_category_taxonomy');
+add_action('init', 'ehrieric_register_fellowship_year_taxonomy');
+add_action('init', 'ehrieric_register_fellowship_institution_taxonomy');
 
 /**
  * Transients!
  */
 
 // Manage transients for homepage posts and gallery items
-if (!function_exists('ehriproject_delete_homepage_transients')) {
-    function ehriproject_delete_homepage_transients($post_id)
+if (!function_exists('ehrieric_delete_homepage_transients')) {
+    function ehrieric_delete_homepage_transients($post_id)
     {
-        delete_transient('ehri_homepage_posts');
-        delete_transient('ehri_latest_news');
+        delete_transient('ehrieric_homepage_posts');
+        delete_transient('ehrieric_latest_news');
     }
 }
 
-if (!function_exists('ehriproject_delete_gallery_transients')) {
-    function ehriproject_delete_gallery_transients($post_id)
+if (!function_exists('ehrieric_delete_gallery_transients')) {
+    function ehrieric_delete_gallery_transients($post_id)
     {
         if (get_post_type($post_id) == 'gallery_item') {
-            delete_transient('ehri_gallery_items');
+            delete_transient('ehrieric_gallery_items');
         }
     }
 }
 
-add_action('save_post_post', 'ehriproject_delete_homepage_transients');
-add_action('delete_post', 'ehriproject_delete_homepage_transients');
-add_action('save_post_gallery_item', 'ehriproject_delete_gallery_transients');
-add_action('delete_post', 'ehriproject_delete_gallery_transients');
+add_action('save_post_post', 'ehrieric_delete_homepage_transients');
+add_action('delete_post', 'ehrieric_delete_homepage_transients');
+add_action('save_post_gallery_item', 'ehrieric_delete_gallery_transients');
+add_action('delete_post', 'ehrieric_delete_gallery_transients');
 

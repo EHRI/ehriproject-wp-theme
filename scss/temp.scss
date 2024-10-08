@@ -1,5 +1,54 @@
 // Temporary hacks
 
+// This is a temporary file to hold styles that are not yet ready to be
+
+// Test header reproducing the style of the old one
+// with the hero image, logo and search bar
+header.main.header {
+  display: grid;
+  position: relative;
+
+  grid-template-areas: "navbar banner"
+                       "hero banner";
+  grid-template-columns: 75% 25%;
+  grid-column-gap: 4rem;
+  align-items: start;
+
+  div.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  div.hero {
+    grid-area: hero;
+    height: 10vw;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  nav.main-navbar {
+    grid-area: navbar;
+  }
+
+  div.banner {
+    .logo {
+      z-index: 10;
+    }
+    img {
+      grid-area: banner;
+      width: 100%;
+      height: auto;
+      z-index: 10;
+    }
+  }
+}
+
 nav.main-navbar .navbar-menu > ul.menu > li.menu-item {
   position: relative;
 }
@@ -18,7 +67,7 @@ nav.main-navbar > .navbar {
     height: $font-size-lg;
     position: absolute;
     float: right;
-    right: 7px;
+    right: 0;
 
     cursor: pointer;
 
@@ -50,15 +99,26 @@ nav.main-navbar > .navbar {
       }
       input {
         margin-bottom: 0;
-        padding: $space-sm;
+        padding: $space-sm $space-md;
         font-size: var(--font-size-md);
+      }
+
+      input[type='text'] {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0
+      }
+      input[type='submit'] {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        background-color: var(--wine-red);
+        color: var(--white);
       }
     }
   }
 
   #search-icon {
     position: absolute;
-    right: 0;
+    right: 5px;
     transition: opacity 0s ease;
   }
 
@@ -217,14 +277,4 @@ aside.sidebars {
 // Images within page text
 main#content .page-content p img {
   margin: 0.3rem 1rem 1rem 0;
-}
-
-// Hero section
-.hero {
-  picture img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
 }

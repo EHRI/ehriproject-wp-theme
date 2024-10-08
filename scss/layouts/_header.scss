@@ -130,11 +130,11 @@
 
   // When the language switcher is given fixed placement,
   // make the navbar align to the right
-  @media (min-width: $breakpoint-phone) {
-    .main-navbar {
-      margin-left: auto;
-    }
-  }
+  //@media (min-width: $breakpoint-phone) {
+  //  .main-navbar {
+  //    margin-left: auto;
+  //  }
+  //}
 
   // Turn menu into a hamburger pop-out at widths below.
   // NB: largely borrowed from: https://codepen.io/erikterwan/pen/EVzeRP

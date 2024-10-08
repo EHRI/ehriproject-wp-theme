@@ -88,19 +88,18 @@
                     <!-- Fetch a random gallery_item and use it as the header image -->
                     <?php
 
-                    if (false === ($gallery_items = get_transient('ehri_gallery_items'))) {
+                    if (false === ($gallery_items = get_transient('ehrieric_gallery_items'))) {
                         $args = array(
                             'post_type' => 'gallery_item',
                             'orderby' => 'rand'
                         );
                         $gallery_items = new WP_Query($args);
-                        set_transient('ehri_gallery_items', $gallery_items, 24 * HOUR_IN_SECONDS);
+                        set_transient('ehrieric_gallery_items', $gallery_items, 24 * HOUR_IN_SECONDS);
                     }
                     if ($gallery_items->have_posts()) {
                         shuffle($gallery_items->posts);
                         while ($gallery_items->have_posts()) {
-                            $gallery_items->the_post();
-                            echo ehriproject_header_element(get_the_title());
+                            echo ehrieric_header_element($gallery_items->get_post(), get_the_title());
                             break;
                         }
                     } ?>

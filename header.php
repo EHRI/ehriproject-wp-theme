@@ -21,19 +21,45 @@
     <!-- include style.css -->
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css"/>
     <?php wp_head(); ?>
+    <?php if ($post = ehrieric_random_gallery_item()): ?>
 
+    <style>
+        body > header.main.header {
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            background-image: url('<?php echo get_the_post_thumbnail_url($post, 'full'); ?>');
+        }
+    </style>
+
+    <?php endif; ?>
 </head>
 <body>
 <header class="main header">
-    <div class="banner">
-        <div class="logo">
-            <a href="<?php echo $home ?>"><img src="<?php echo get_theme_file_uri('images/ehri-logo.svg'); ?>" alt="EHRI
-            Logo"/></a>
-        </div>
-<!--        <a href="/" class="title">-->
-<!--            EHRI-->
-<!--        </a>-->
+    <div class="overlay"></div>
+    <div class="hero">
+        <!-- Fetch a random gallery_item and use it as the header image -->
+<!--        --><?php
+//
+//        if (false === ($gallery_items = get_transient('ehrieric_gallery_items'))) {
+//            $args = array(
+//                'post_type' => 'gallery_item',
+//                'orderby' => 'rand'
+//            );
+//            $gallery_items = new WP_Query($args);
+//            set_transient('ehrieric_gallery_items', $gallery_items, 24 * HOUR_IN_SECONDS);
+//        }
+//        if ($gallery_items->have_posts()) {
+//            shuffle($gallery_items->posts);
+//            while ($gallery_items->have_posts()) {
+//                $gallery_items->the_post();
+//                echo ehrieric_header_element(null, get_the_title());
+//                break;
+//            }
+//        } ?>
     </div>
+
     <nav class="nav main-navbar">
         <label for="hb-toggle">Show menu</label>
         <input id="hb-toggle" type="checkbox"/>
@@ -68,5 +94,14 @@
 
             <?php // Social media links ?>
     </nav>
+    <div class="banner">
+        <div class="logo">
+            <a href="<?php echo $home ?>"><img src="<?php echo get_theme_file_uri('images/ehri-logo.svg'); ?>" alt="EHRI
+            Logo"/></a>
+        </div>
+        <!--        <a href="/" class="title">-->
+        <!--            EHRI-->
+        <!--        </a>-->
+    </div>
 </header>
 

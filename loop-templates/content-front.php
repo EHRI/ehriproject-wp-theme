@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 
     <div class="resource-img">
         <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo get_the_title(); ?>">
-            <?php echo ehriproject_teaser_element($alt_text = get_the_title()); ?>
+            <?php echo ehrieric_teaser_element(null, $alt_text = get_the_title()); ?>
         </a>
     </div>
     <div class="resource-info">
