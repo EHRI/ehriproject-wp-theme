@@ -4,6 +4,22 @@ nav.main-navbar .navbar-menu > ul.menu > li.menu-item {
   position: relative;
 }
 
+.home.services .resource-cards {
+  margin-top: 0;
+}
+
+#main-menu-items {
+  position: relative;
+
+  #menu-item-search {
+    padding: $space-sm $space-md;
+    &:hover {
+      background-color: inherit;
+      border-color: inherit;
+    }
+  }
+}
+
 nav.main-navbar > .navbar {
   display: flex;
   align-items: center;
@@ -14,11 +30,10 @@ nav.main-navbar > .navbar {
 
   #search-toggle {
     display: block;
-    width: 40px;
+    width: $font-size-lg;
     height: $font-size-lg;
     position: absolute;
-    float: right;
-    right: 7px;
+    float: left;
 
     cursor: pointer;
 
@@ -29,13 +44,19 @@ nav.main-navbar > .navbar {
   }
 
   .search-controls {
-    display: none;
+    visibility: hidden;
     position: absolute;
-    right: 3rem;
-    width: calc(100% - 3rem);
+    right: 0;
+    top: 0;
+    padding-top: 4rem;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    backdrop-filter: blur(5px);
+
   }
 
   #search-toggle:checked ~ .search-controls {
+    visibility: visible;
+    z-index: 50;
     display: flex;
     width: 100%;
     form {
@@ -57,17 +78,18 @@ nav.main-navbar > .navbar {
   }
 
   #search-icon {
-    position: absolute;
-    right: 0;
-    transition: opacity 0s ease;
+    //position: absolute;
+    //right: 0;
+    //transition: opacity 0s ease;
   }
 
   span.st-x {
     opacity: 0;
-    right: 0;
-    width: 30px;
-    height: 3px;
-    margin-bottom: 5px;
+    right: $space-md; // same as padding
+    top: 50%;
+    width: $font-size-lg;
+    height: .2rem;
+    //margin-bottom: 5px;
     position: absolute;
     //top: $space-sm;
     float: right;
@@ -98,9 +120,9 @@ nav.main-navbar > .navbar {
   }
 }
 
-.navbar-menu > ul.menu > li.menu-item > .sub-menu {
+#main-menu-items > li.menu-item > .sub-menu {
   position: absolute;
-  background-color: var(--white);
+  background: var(--beige-light-bg);
   box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.1);
 
   padding: 0;
@@ -117,7 +139,7 @@ nav.main-navbar > .navbar {
 
     a {
       &:hover {
-        background-color: darken($white, 5%);
+        background-color: var(--beige);
       }
 
       display: block;
@@ -128,12 +150,12 @@ nav.main-navbar > .navbar {
 }
 
 // Make submenu visible when main menu is hovered
-.navbar-menu > ul.menu > li.menu-item:hover > .sub-menu {
+#main-menu-items > li.menu-item:hover > .sub-menu {
   display: flex;
 }
 
 // Make submenu visible when main menu is hovered
-.navbar-menu > ul.menu > li.menu-item > .sub-menu {
+#main-menu-items > li.menu-item > .sub-menu {
   display: none;
 }
 
@@ -221,10 +243,20 @@ main#content .page-content p img {
 
 // Hero section
 .hero {
-  picture img {
-    display: block;
-    width: 100%;
-    height: auto;
+  display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+  picture {
+    grid-area: img1;
+    overflow: hidden;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+    }
   }
 
 }

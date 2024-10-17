@@ -30,9 +30,6 @@
             <a href="<?php echo $home ?>"><img src="<?php echo get_theme_file_uri('images/ehri-logo.svg'); ?>" alt="EHRI
             Logo"/></a>
         </div>
-<!--        <a href="/" class="title">-->
-<!--            EHRI-->
-<!--        </a>-->
     </div>
     <nav class="nav main-navbar">
         <label for="hb-toggle">Show menu</label>
@@ -42,28 +39,29 @@
         <span class="hb"></span>
 
         <div class="navbar">
-                <?php wp_nav_menu(array(
-                    'menu' => 'main-menu',
-                    'theme_location' => 'primary',
-                    'container' => 'div',
-                    'container_class' => 'navbar-menu',
-                    'menu_class' => 'menu',
-                    'menu_id' => 'main-menu',
-                    'fallback_cb' => false
-                )); ?>
+            <ul class="main-menu" id="main-menu-items">
+            <?php wp_nav_menu(array(
+                'menu' => 'main-menu',
+                'container' => false,
+                'items_wrap' => '%3$s', // don't wrap the items in a <ul>
+            )); ?>
 
-                <label class="screen-reader-text" for="search-toggle">Show search bar</label>
-                <input id="search-toggle" type="checkbox"/>
-                <div class="search-controls">
-                    <form role="search" method="get" id="search-form" class="search-form" action="<?php echo $home; ?>">
-                        <label class="screen-reader-text" for="s">Search for:</label>
-                        <input type="text" value="" name="s" id="s">
-                        <input type="submit" id="search-submit" value="Search">
-                    </form>
-                </div>
-                <i id="search-icon" class="fa fa-fw fa-search"></i>
-                <span class="st-x"></span>
-                <span class="st-x"></span>
+                <li class="menu-item" id="menu-item-search">
+                    <label class="screen-reader-text" for="search-toggle">Show search bar</label>
+                    <input id="search-toggle" type="checkbox"/>
+                    <div class="search-controls">
+                        <form role="search" method="get" id="search-form" class="search-form" action="<?php echo $home; ?>">
+                            <label class="screen-reader-text" for="s">Search for:</label>
+                            <input type="text" value="" name="s" id="s" placeholder="Enter your search here" autofocus>
+                            <input type="submit" id="search-submit" value="Search">
+                        </form>
+                    </div>
+                    <i id="search-icon" class="fa-solid fa-fw fa-search"></i>
+                    <span class="st-x"></span>
+                    <span class="st-x"></span>
+                </li>
+            </ul>
+
         </div>
 
             <?php // Social media links ?>

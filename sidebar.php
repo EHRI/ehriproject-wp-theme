@@ -8,15 +8,15 @@
     <section class="social">
         <header>Follow Us</header>
         <a href="https://facebook.com/EHRIproject" target="_blank">
-            <i title="Facebook" class="fa fa-2x fa-fw fa-facebook"></i>
+            <i title="Facebook" class="fa-brands fa-2x fa-fw fa-facebook-f"></i>
         </a>
 
         <a href="https://twitter.com/EHRIproject" target="_blank">
-            <i title="X (formerly Twitter)" class="fa fa-2x fa-fw" style="font-weight: bold">&#120143;</i>
+            <i title="X (formerly Twitter)" class="fa-brands fa-2x fa-fw fa-x-twitter"></i>
         </a>
 
         <a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/" target="_blank">
-            <i title="LinkedIn" class="fa fa-2x fa-fw fa-linkedin"></i>
+            <i title="LinkedIn" class="fa-brands fa-2x fa-fw fa-linkedin"></i>
         </a>
     </section>
 

@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 $ehriproject_includes = [
     'pagination',
     'widgets',
-    'drupal'
+    'drupal',
 ];
 
 foreach ($ehriproject_includes as $file) {

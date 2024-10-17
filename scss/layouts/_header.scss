@@ -86,7 +86,7 @@
   }
 
   .main-navbar {
-    min-width: 60%;
+    //min-width: 60%;
 
     // Hide hamburger toggle
     label[for='hb-toggle'],
@@ -96,28 +96,28 @@
     }
   }
 
-  .navbar .navbar-menu {
+  .navbar {
 
-    > ul {
+    #main-menu-items {
       margin: 0;
       padding: 0;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      > li {
+      > .menu-item {
         list-style: none;
         text-align: center;
       }
-      > li:last-child {
+      > .menu-item:last-child {
         margin-right: 0;
       }
 
-      > li > a {
+      > .menu-item > a {
         @extend .button;
         white-space: break-spaces;
       }
-      > li:hover {
+      > .menu-item:hover {
         border-color: $beige;
         background-color: $beige;
         border-radius: var(--input-border-radius);
@@ -206,13 +206,13 @@
         overflow: hidden;
         padding: calc(var(--margin-page-v) + #{$space-md}) 0; // fudge!
 
-        .navbar-menu > ul {
+        #main-menu-items {
           flex-direction: column;
           align-items: unset;
           justify-content: unset;
           margin: 0;
           padding: 0;
-          > li {
+          > .menu-item {
             text-align: unset;
             margin-bottom: $space-lg;
             margin-left: 0;
