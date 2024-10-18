@@ -32,5 +32,16 @@
 </footer>
 
 <?php wp_footer(); ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let searchToggle = document.getElementById('search-toggle');
+      let searchInput = document.getElementById('search-input');
+      searchToggle.addEventListener('change', function() {
+        if (searchToggle.checked) {
+          searchInput.focus();
+        }
+      });
+    });
+</script>
 </body>
 </html>

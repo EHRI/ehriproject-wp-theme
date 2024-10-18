@@ -52,8 +52,11 @@
                     <div class="search-controls">
                         <form role="search" method="get" id="search-form" class="search-form" action="<?php echo $home; ?>">
                             <label class="screen-reader-text" for="s">Search for:</label>
-                            <input type="text" value="" name="s" id="s" placeholder="Enter your search here" autofocus>
-                            <input type="submit" id="search-submit" value="Search">
+                            <input type="text" value="" name="s" id="search-input" placeholder="Enter your search here" autofocus>
+                            <button type="submit" id="search-submit">
+                              <i class="fa-solid fa-fw fa-search"></i>
+                                <span class="screen-reader-text">Search</span>
+                            </button>
                         </form>
                     </div>
                     <i id="search-icon" class="fa-solid fa-fw fa-search"></i>

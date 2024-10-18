@@ -46,34 +46,49 @@ nav.main-navbar > .navbar {
   .search-controls {
     visibility: hidden;
     position: absolute;
-    right: 0;
-    top: 0;
-    padding-top: 4rem;
+    width: calc(100% - 3rem);
+    height: 100%;
+    top: 50%;
+    right: 3rem;
+    transform: translateY(-50%);
+    //padding-top: 4rem;
+    border: 2px solid transparent;
+    //padding: $space-sm $space-md;
     background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
     backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
 
+    font-size: var(--font-size-md);
+
+    input,
+    button {
+      margin-bottom: 0;
+      padding: $space-md $space-md;
+      font-size: var(--font-size-md);
+      border: 1px solid var(--grey-mid);
+      outline: none;
+    }
+    #search-submit {
+      width: max-content;
+      border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
+      background-color: var(--white);
+      border-left: none;
+    }
+    #search-input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: none;
+    }
   }
 
   #search-toggle:checked ~ .search-controls {
     visibility: visible;
     z-index: 50;
-    display: flex;
-    width: 100%;
     form {
       display: flex;
       flex-direction: row;
       width: 100%;
-
-      font-size: var(--font-size-md);
-
-      input[type='submit'] {
-        width: max-content;
-      }
-      input {
-        margin-bottom: 0;
-        padding: $space-sm;
-        font-size: var(--font-size-md);
-      }
     }
   }
 
