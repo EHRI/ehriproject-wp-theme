@@ -8,6 +8,8 @@ $ehriproject_includes = [
     'pagination',
     'widgets',
     'drupal',
+    'theme-settings',
+    'customizer',
 ];
 
 foreach ($ehriproject_includes as $file) {

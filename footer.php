@@ -17,13 +17,22 @@
             <a href="<?php echo $home; ?>" class="title"><?php echo get_bloginfo('title'); ?></a>
         </div>
 
+        <!-- Render the menus -->
         <!--        {{ partial "footer-menu-1.html" .}}-->
+        <?php wp_nav_menu(array(
+            'menu' => 'secondary-menu',
+            'container' => false,
+            'menu_class' => 'menu-1',
+            'menu_id' => 'secondary-menu',
+        )); ?>
+
         <!---->
         <!--        {{ partial "footer-menu-2.html" . }}-->
         <!---->
         <!--        {{ partial "footer-menu-3.html" . }}-->
         <!---->
         <!--        {{ partial "social.html" . }}-->
+        <?php get_template_part('partials/social'); ?>
         <!---->
         <!--        {{ partial "footer-funders.html" . }}-->
         <!---->

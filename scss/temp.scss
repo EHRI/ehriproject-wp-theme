@@ -79,6 +79,9 @@ nav.main-navbar > .navbar {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-right: none;
+      * {
+        cursor: pointer;
+      }
     }
   }
 

@@ -7,17 +7,7 @@
 <aside class="sidebars">
     <section class="social">
         <header>Follow Us</header>
-        <a href="https://facebook.com/EHRIproject" target="_blank">
-            <i title="Facebook" class="fa-brands fa-2x fa-fw fa-facebook-f"></i>
-        </a>
-
-        <a href="https://twitter.com/EHRIproject" target="_blank">
-            <i title="X (formerly Twitter)" class="fa-brands fa-2x fa-fw fa-x-twitter"></i>
-        </a>
-
-        <a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/" target="_blank">
-            <i title="LinkedIn" class="fa-brands fa-2x fa-fw fa-linkedin"></i>
-        </a>
+        <?php get_template_part('partials/social'); ?>
     </section>
 
     <section class="resources">
