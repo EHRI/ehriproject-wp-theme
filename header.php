@@ -22,6 +22,14 @@
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css"/>
     <?php wp_head(); ?>
 
+    <?php if ($random_header_url = ehrieric_random_gallery_image_url()): ?>
+        <style>
+            header.main.header {
+                /*background-image: url('*/<?php //echo $random_header_url; ?>/*');*/
+            }
+        </style>
+    <?php endif; ?>
+
 </head>
 <body>
 <header class="main header">
@@ -40,21 +48,21 @@
 
         <div class="navbar">
             <ul class="main-menu" id="main-menu-items">
-            <?php wp_nav_menu(array(
-                'menu' => 'main-menu',
-                'container' => false,
-                'items_wrap' => '%3$s', // don't wrap the items in a <ul>
-            )); ?>
+				<?php wp_nav_menu(array(
+					'menu' => 'main-menu',
+					'container' => false,
+					'items_wrap' => '%3$s', // don't wrap the items in a <ul>
+				)); ?>
 
                 <li class="menu-item" id="menu-item-search">
                     <label class="screen-reader-text" for="search-toggle">Show search bar</label>
                     <input id="search-toggle" type="checkbox"/>
                     <div class="search-controls">
                         <form role="search" method="get" id="search-form" class="search-form" action="<?php echo $home; ?>">
-                            <label class="screen-reader-text" for="s">Search for:</label>
+                            <label class="screen-reader-text" for="search-input">Search for:</label>
                             <input type="text" value="" name="s" id="search-input" placeholder="Enter your search here" autofocus>
                             <button type="submit" id="search-submit">
-                              <i class="fa-solid fa-fw fa-search"></i>
+                                <i class="fa-solid fa-fw fa-search"></i>
                                 <span class="screen-reader-text">Search</span>
                             </button>
                         </form>
@@ -67,7 +75,7 @@
 
         </div>
 
-            <?php // Social media links ?>
+		<?php // Social media links ?>
     </nav>
 </header>
 

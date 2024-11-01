@@ -6,7 +6,42 @@ nav.main-navbar .navbar-menu > ul.menu > li.menu-item {
 
 .home.services .resource-cards {
   margin-top: 0;
+
+  .resource-card {
+    grid-template-rows: 20rem max-content;
+
+    .resource-info header {
+      font-size: var(--font-size-lg);
+    }
+  }
 }
+
+//header.main.header {
+//  background-origin: content-box;
+//  background-size: cover;
+//  background-position: center;
+//  background-repeat: no-repeat;
+//  //filter: grayscale(100%);
+//  position: relative;
+//
+//  align-items: start;
+//  height: 400px;
+//
+//  .banner {
+//    //width: 100%;
+//  }
+//}
+//
+//header.main.header::before {
+//  content: '';
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  width: 100%;
+//  height: 100%;
+//  background-color: rgba(0, 0, 0, 0.3); /* Red tint - adjust color and opacity */
+//  mix-blend-mode: multiply;
+//}
 
 nav.main-navbar > .navbar {
 }
@@ -25,7 +60,7 @@ main#content section.home
 {
   padding: 0;
   flex: 1;
-  flex-basis: 75%;
+  //flex-basis: 75%;
 }
 
 .news.page-content picture.featured-image img {
@@ -50,7 +85,7 @@ main#content section.home
 
 // Sidebar config
 aside.sidebars {
-
+  flex-basis: 25%;
 
 
   section {

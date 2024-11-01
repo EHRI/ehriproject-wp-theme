@@ -1,5 +1,11 @@
 // Text and links within the main page content
 main {
+
+  h1 {
+    font-size: 3rem;
+    line-height: 3.25rem;
+  }
+
   p {
     > a {
       color: var(--grey-darker);

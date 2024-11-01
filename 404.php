@@ -12,19 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<div id="main">
-    <div id="main-inner">
+<main id="content">
 
-        <div id="content" class="column" role="main">
-            <div id="content-inner">
-                <h1>404: Page not found</h1>
-            </div>
-        </div>
+    <section class="page-content" role="main">
+        <h1>404: Page not found</h1>
+    </section>
 
-        <?php get_sidebar(); ?>
+	<?php get_sidebar(); ?>
 
-    </div>
-</div>
+</main>
 
 
 <?php get_footer(); ?>

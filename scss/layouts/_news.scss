@@ -1,9 +1,10 @@
 
-.news.page-content {
+//.news.page-content {
+.page-content {
 
   picture.featured-image img {
     display: block;
-    width: Max(400px, 33vw);
+    width: Max(400px, 25vw);
     height: auto;
     // the following pulls the news image to the right
     // outside of its containing box and allows text

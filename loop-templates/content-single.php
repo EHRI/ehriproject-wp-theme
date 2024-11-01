@@ -11,9 +11,7 @@ if (!defined('ABSPATH')) {
 ?>
 
 
-<header>
-    <h1 class="post-title" id="page-title"><?php the_title(); ?></h1>
-</header>
+<h1 class="post-title" id="page-title"><?php the_title(); ?></h1>
 
 <?php if (has_post_thumbnail()): ?>
     <picture class="featured-image">

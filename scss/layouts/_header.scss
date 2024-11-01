@@ -5,7 +5,7 @@
  * and desktop views without JavaScript.
  */
 .header.main {
-  color: $wine-red;
+  color: var(--wine-red);
   font-family: var(--font-family-headings);
 
   padding: var(--margin-page-v) var(--margin-page-h);
@@ -62,6 +62,7 @@
         @extend .button;
         text-align: start;
         width: 100%;
+        color: var(--wine-red);
 
         white-space: break-spaces;
       }
@@ -123,8 +124,8 @@
         }
 
         > .menu-item:hover {
-          border-color: $beige;
-          background-color: $beige;
+          border-color: var(--beige);
+          background-color: var(--beige);
           border-radius: var(--input-border-radius);
         }
 
