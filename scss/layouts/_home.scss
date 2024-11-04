@@ -1,19 +1,19 @@
 
 // region Home page sections
-section.home.hero {
-  padding-top: Max(1rem, Min(6rem, 8vw));
-  padding-bottom: Max(1rem, Min(10rem, 12vw));
-  margin-left: auto;
-  margin-right: auto;
-
-  @media (max-width: $breakpoint-tablet) {
-    max-width: unset;
-    padding: $space-xl 0;
-    margin-left: var(--margin-page-h);
-    margin-right: var(--margin-page-h);
-    margin-bottom: $space-xl;
-  }
-}
+//section.home.hero {
+//  padding-top: Max(1rem, Min(6rem, 8vw));
+//  padding-bottom: Max(1rem, Min(10rem, 12vw));
+//  margin-left: auto;
+//  margin-right: auto;
+//
+//  @media (max-width: $breakpoint-tablet) {
+//    max-width: unset;
+//    padding: $space-xl 0;
+//    margin-left: var(--margin-page-h);
+//    margin-right: var(--margin-page-h);
+//    margin-bottom: $space-xl;
+//  }
+//}
 
 section.home,
 .page-content

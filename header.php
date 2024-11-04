@@ -24,8 +24,8 @@
 
     <?php if ($random_header_url = ehrieric_random_gallery_image_url()): ?>
         <style>
-            header.main.header {
-                /*background-image: url('*/<?php //echo $random_header_url; ?>/*');*/
+            .hero {
+                background-image: url('<?php echo get_template_directory_uri(); ?>/images/bubbles-v2.svg');
             }
         </style>
     <?php endif; ?>
