@@ -24,7 +24,7 @@
 
     <?php if ($random_header_url = ehrieric_random_gallery_image_url()): ?>
         <style>
-            .hero {
+            .hero-content {
                 background-image: url('<?php echo get_template_directory_uri(); ?>/images/bubbles-v2.svg');
             }
         </style>
@@ -35,8 +35,7 @@
 <header class="main header">
     <div class="banner">
         <div class="logo">
-            <a href="<?php echo $home ?>"><img src="<?php echo get_theme_file_uri('images/ehri-logo.svg'); ?>" alt="EHRI
-            Logo"/></a>
+            <a href="<?php echo $home ?>"><img src="<?php echo get_theme_file_uri('images/ehri-logo.svg'); ?>" alt="EHRI Logo"/></a>
         </div>
     </div>
     <nav class="nav main-navbar">
@@ -74,8 +73,6 @@
             </ul>
 
         </div>
-
-		<?php // Social media links ?>
     </nav>
 </header>
 

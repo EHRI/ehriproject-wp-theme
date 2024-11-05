@@ -8,10 +8,10 @@ if (!defined('ABSPATH')) {
 }
 
 if (! function_exists("ehriproject_teaser_element")) {
-    function ehriproject_teaser_element($alt_text = "") {
+    function ehriproject_teaser_element($alt_text = "", $classes = "") {
         // Return a <picture> element containing the teaser image sizes. These are hard-coded now to
         // reflect the legacy site but this should be updated when the theme is refreshed.
-        $html = '<picture>';
+        $html = '<picture' . ($classes ? ' class="' . $classes . '"' : '') . '>';
         $html .= '<source srcset="' .
             get_the_post_thumbnail_url(null, 'teaser_desktop_1x') . ' 1x, ' .
             get_the_post_thumbnail_url(null, 'teaser_desktop_2x') . ' 2x" media="(min-width: 1200px)">';
@@ -28,10 +28,10 @@ if (! function_exists("ehriproject_teaser_element")) {
 }
 
 if (! function_exists("ehriproject_header_element")) {
-    function ehriproject_header_element($alt_text = "") {
+    function ehriproject_header_element($alt_text = "", $classes = "") {
         // Return a <picture> element containing the header image sizes. These are hard-coded now to
         // reflect the legacy site but this should be updated when the theme is refreshed.
-        $html = '<picture>';
+        $html = '<picture' . ($classes ? ' class="' . $classes . '"' : '') . '>';
         $html .= '<source srcset="' .
             get_the_post_thumbnail_url(null, 'large') . ' 1x, ' .
             get_the_post_thumbnail_url(null, 'full') . ' 2x" media="(min-width: 1200px)">';

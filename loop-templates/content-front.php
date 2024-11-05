@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 ?>
 
-<div class="resource-card" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<div <?php post_class('resource-card'); ?> id="post-<?php the_ID(); ?>">
 
     <div class="resource-img">
         <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo get_the_title(); ?>">

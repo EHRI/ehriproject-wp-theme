@@ -9,7 +9,7 @@
 
 <section class="hero">
     <div class="hero-content">
-        <h1>Towards a permanent Holocaust Research Infrastructure</h1>
+        <h1>Towards a permanent European Holocaust Research Infrastructure</h1>
         <p>Since 2010 EHRI has worked to build a sustainable infrastructure to support scholarship into the Holocaust.
             From 2025, it will become a permanent organisation in the form of a European Research Infrastructure Consortium (ERIC).
         </p>
