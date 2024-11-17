@@ -21,6 +21,14 @@ if (!defined('ABSPATH')) {
     </div>
 <?php endif; ?>
 
+<?php if (has_category('news')) : ?>
+    <div class="field field-name-field-datum">
+        <span class="date-display-single">
+            <?php echo get_the_date('l, F jS, Y'); ?>
+        </span>
+    </div>
+<?php endif; ?>
+
 <div class="field field-name-body">
     <?php the_content(); ?>
 </div>

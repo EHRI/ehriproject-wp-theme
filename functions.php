@@ -7,8 +7,10 @@ if (!defined('ABSPATH')) {
 $ehriproject_includes = [
     'pagination',
     'widgets',
+    'queries',
     'drupal'
 ];
+
 
 foreach ($ehriproject_includes as $file) {
     if (!$filepath = locate_template("inc/$file.php")) {
@@ -23,42 +25,42 @@ if (!function_exists('ehriproject_teaser_image_data')) {
     function ehriproject_teaser_image_data()
     {
         return array(
-            'teaser_desktop_1x' => array(
-                'name' => __('Teaser Desktop 1x'),
-                'width' => 400,
-                'height' => 270,
-                'media' => '(min-width: 992px)',
-            ),
-            'teaser_desktop_2x' => array(
-                'name' => __('Teaser Desktop 2x'),
-                'width' => 800,
-                'height' => 540,
-                'media' => '(min-width: 992px)',
-            ),
-            'teaser_tablet_1x' => array(
-                'name' => __('Teaser Tablet 1x'),
-                'width' => 280,
-                'height' => 184,
-                'media' => '(min-width: 768px)',
-            ),
-            'teaser_tablet_2x' => array(
-                'name' => __('Teaser Tablet 2x'),
-                'width' => 560,
-                'height' => 370,
-                'media' => '(min-width: 768px)',
-            ),
-            'teaser_mobile_1x' => array(
-                'name' => __('Teaser Mobile 1x'),
-                'width' => 320,
-                'height' => 180,
-                'media' => '(min-width: 0px)',
-            ),
-            'teaser_mobile_2x' => array(
-                'name' => __('Teaser Mobile 2x'),
-                'width' => 640,
-                'height' => 360,
-                'media' => '(min-width: 0px)',
-            ),
+//            'teaser_desktop_1x' => array(
+//                'name' => __('Teaser Desktop 1x'),
+//                'width' => 400,
+//                'height' => 270,
+//                'media' => '(min-width: 992px)',
+//            ),
+//            'teaser_desktop_2x' => array(
+//                'name' => __('Teaser Desktop 2x'),
+//                'width' => 800,
+//                'height' => 540,
+//                'media' => '(min-width: 992px)',
+//            ),
+//            'teaser_tablet_1x' => array(
+//                'name' => __('Teaser Tablet 1x'),
+//                'width' => 280,
+//                'height' => 184,
+//                'media' => '(min-width: 768px)',
+//            ),
+//            'teaser_tablet_2x' => array(
+//                'name' => __('Teaser Tablet 2x'),
+//                'width' => 560,
+//                'height' => 370,
+//                'media' => '(min-width: 768px)',
+//            ),
+//            'teaser_mobile_1x' => array(
+//                'name' => __('Teaser Mobile 1x'),
+//                'width' => 320,
+//                'height' => 180,
+//                'media' => '(min-width: 0px)',
+//            ),
+//            'teaser_mobile_2x' => array(
+//                'name' => __('Teaser Mobile 2x'),
+//                'width' => 640,
+//                'height' => 360,
+//                'media' => '(min-width: 0px)',
+//            ),
         );
     }
 }
@@ -205,6 +207,7 @@ if (!function_exists('ehriproject_register_newsletter_edition_taxonomy')) {
             'hierarchical' => false,
             'labels' => $labels,
             'show_ui' => true,
+            'closed' => true,
             'show_in_menu' => true,
             'query_var' => true,
             'show_in_rest' => true,
@@ -215,7 +218,7 @@ if (!function_exists('ehriproject_register_newsletter_edition_taxonomy')) {
             )
         );
 
-        register_taxonomy('newsletter_edition', array('post'), $args);
+        register_taxonomy('newsletter_edition', array('post', 'page'), $args);
     }
 }
 
@@ -240,13 +243,14 @@ if (!function_exists('ehriproject_register_newsletter_category_taxonomy')) {
             'hierarchical' => false,
             'labels' => $labels,
             'show_ui' => true,
+            'closed' => true,
             'query_var' => true,
             'show_in_rest' => true,
             'rewrite' => array('slug' => 'newsletter-category'),
             'show_in_menu' => true,
         );
 
-        register_taxonomy('newsletter_category', array('post'), $args);
+        register_taxonomy('newsletter_category', array('post', 'page'), $args);
     }
 }
 
@@ -271,13 +275,14 @@ if (!function_exists('ehriproject_register_fellowship_year_taxonomy')) {
             'hierarchical' => false,
             'labels' => $labels,
             'show_ui' => true,
+            'closed' => true,
             'query_var' => 'fellowship-year',
             'show_in_rest' => true,
             'rewrite' => array('slug' => 'fellowship-year'),
             'show_in_menu' => true,
         );
 
-        register_taxonomy('fellowship_year', array('post'), $args);
+        register_taxonomy('fellowship_year', array('post', 'page'), $args);
     }
 }
 
@@ -302,13 +307,14 @@ if (!function_exists('ehriproject_register_fellowship_institution_taxonomy')) {
             'hierarchical' => false,
             'labels' => $labels,
             'show_ui' => true,
+            'closed' => true,
             'query_var' => 'fellowship-institution',
             'show_in_rest' => true,
             'rewrite' => array('slug' => 'fellowship-institution'),
             'show_in_menu' => true,
         );
 
-        register_taxonomy('fellowship_institution', array('post'), $args);
+        register_taxonomy('fellowship_institution', array('post', 'page'), $args);
     }
 }
 
