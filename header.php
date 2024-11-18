@@ -16,7 +16,6 @@
     <meta name="dcterms.type" content="Text"/>
     <meta name="dcterms.format" content="text/html"/>
     <meta name="dcterms.identifier" content="<?php echo $home; ?>/"/>
-    <title><?php echo get_the_title(); ?> | <?php echo get_bloginfo('description'); ?></title>
 
     <meta name="MobileOptimized" content="width">
     <meta name="HandheldFriendly" content="true">

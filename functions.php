@@ -8,7 +8,7 @@ $ehriproject_includes = [
     'pagination',
     'widgets',
     'queries',
-    'drupal'
+    'drupal',
 ];
 
 
@@ -68,9 +68,10 @@ if (!function_exists('ehriproject_teaser_image_data')) {
 // Temporarily required to import media from the same host
 add_filter('http_request_host_is_external', '__return_true');
 
-if (!function_exists('ehri_theme_setup')) {
-    function ehri_theme_setup()
+if (!function_exists('ehriproject_theme_setup')) {
+    function ehriproject_theme_setup()
     {
+        add_theme_support('title-tag');
         add_theme_support('post-thumbnails', array('post', 'page'));
 
         foreach (ehriproject_teaser_image_data() as $key => $value) {
@@ -90,7 +91,7 @@ if (!function_exists('ehri_theme_setup')) {
     }
 }
 
-add_action('after_setup_theme', 'ehri_theme_setup');
+add_action('after_setup_theme', 'ehriproject_theme_setup');
 
 
 if (!function_exists('ehriproject_setup_theme_default_settings')) {
@@ -352,3 +353,19 @@ add_action('delete_post', 'ehriproject_delete_homepage_transients');
 add_action('save_post_gallery_item', 'ehriproject_delete_gallery_transients');
 add_action('delete_post', 'ehriproject_delete_gallery_transients');
 
+
+//function ehriproject_custom_wp_title( $title ) {
+//    if ( is_404() ) {
+//        add_filter( 'pre_get_document_title', function() {
+//            return '404 Page Not Found';
+//        });
+//    } elseif (is_front_page()) {
+//        add_filter( 'pre_get_document_title', function() {
+//            return get_bloginfo('name');
+//        });
+//    }
+//
+//    return $title;
+//}
+//
+//add_action( 'wp', 'ehriproject_custom_wp_title' , 11);
