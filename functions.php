@@ -25,42 +25,42 @@ if (!function_exists('ehriproject_teaser_image_data')) {
     function ehriproject_teaser_image_data()
     {
         return array(
-//            'teaser_desktop_1x' => array(
-//                'name' => __('Teaser Desktop 1x'),
-//                'width' => 400,
-//                'height' => 270,
-//                'media' => '(min-width: 992px)',
-//            ),
-//            'teaser_desktop_2x' => array(
-//                'name' => __('Teaser Desktop 2x'),
-//                'width' => 800,
-//                'height' => 540,
-//                'media' => '(min-width: 992px)',
-//            ),
-//            'teaser_tablet_1x' => array(
-//                'name' => __('Teaser Tablet 1x'),
-//                'width' => 280,
-//                'height' => 184,
-//                'media' => '(min-width: 768px)',
-//            ),
-//            'teaser_tablet_2x' => array(
-//                'name' => __('Teaser Tablet 2x'),
-//                'width' => 560,
-//                'height' => 370,
-//                'media' => '(min-width: 768px)',
-//            ),
-//            'teaser_mobile_1x' => array(
-//                'name' => __('Teaser Mobile 1x'),
-//                'width' => 320,
-//                'height' => 180,
-//                'media' => '(min-width: 0px)',
-//            ),
-//            'teaser_mobile_2x' => array(
-//                'name' => __('Teaser Mobile 2x'),
-//                'width' => 640,
-//                'height' => 360,
-//                'media' => '(min-width: 0px)',
-//            ),
+            'teaser_desktop_1x' => array(
+                'name' => __('Teaser Desktop 1x'),
+                'width' => 400,
+                'height' => 270,
+                'media' => '(min-width: 992px)',
+            ),
+            'teaser_desktop_2x' => array(
+                'name' => __('Teaser Desktop 2x'),
+                'width' => 800,
+                'height' => 540,
+                'media' => '(min-width: 992px)',
+            ),
+            'teaser_tablet_1x' => array(
+                'name' => __('Teaser Tablet 1x'),
+                'width' => 280,
+                'height' => 184,
+                'media' => '(min-width: 768px)',
+            ),
+            'teaser_tablet_2x' => array(
+                'name' => __('Teaser Tablet 2x'),
+                'width' => 560,
+                'height' => 370,
+                'media' => '(min-width: 768px)',
+            ),
+            'teaser_mobile_1x' => array(
+                'name' => __('Teaser Mobile 1x'),
+                'width' => 320,
+                'height' => 180,
+                'media' => '(min-width: 0px)',
+            ),
+            'teaser_mobile_2x' => array(
+                'name' => __('Teaser Mobile 2x'),
+                'width' => 640,
+                'height' => 360,
+                'media' => '(min-width: 0px)',
+            ),
         );
     }
 }

@@ -12,36 +12,41 @@ get_header();
 
 <div id="main">
     <div id="main-inner">
-        <div id="content">
-            <div id="content-inner">
-                <a id="#main-content"></a>
-                <h1 class="page__title title" id="page-title"><?php echo __('Latest News'); ?></h1>
-                <!-- Fetch all posts with the 'news' category and list them in reverse chronological order with pagination -->
-                <?php
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                $args = array(
-                    'category_name' => 'news',
-                    'paged' => $paged,
-                    'orderby' => 'date',
-                    'order' => 'DESC',
-                );
-                query_posts($args);
-                ?>
-
-                <?php if (have_posts()) : ?>
+        <?php if (have_posts()) : ?>
+            <div id="content" class="column" role="main">
+                <div id="content-inner">
+                    <a id="main-content"></a>
                     <?php while (have_posts()) : the_post(); ?>
-                        <?php get_template_part('loop-templates/content', 'news'); ?>
+                        <?php get_template_part('loop-templates/content', 'single'); ?>
                     <?php endwhile; ?>
-                <?php endif; ?>
 
-                <!-- The pagination component -->
-                <?php ehri_pagination(); ?>
+                    <!-- Fetch all posts with the 'news' category and list them in reverse chronological order with pagination -->
+                    <?php
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                    $args = array(
+                        'category_name' => 'news',
+                        'paged' => $paged,
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                    );
+                    $news_query = new WP_Query($args);
+                    ?>
+
+                    <?php if ($news_query->have_posts()) : ?>
+                        <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
+                            <?php get_template_part('loop-templates/content', 'news'); ?>
+                        <?php endwhile; ?>
+
+                        <!-- The pagination component -->
+                        <?php ehri_pagination(); ?>
+                    <?php endif; ?>
+                    <?php wp_reset_postdata(); ?>
+                </div>
             </div>
-        </div>
-        <?php get_sidebar(); ?>
+        <?php endif; ?>
 
+        <?php get_sidebar(); ?>
     </div>
 </div>
-
 
 <?php get_footer(); ?>

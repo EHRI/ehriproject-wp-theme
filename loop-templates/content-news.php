@@ -32,11 +32,10 @@ if (!defined('ABSPATH')) {
         </div>
 
         <div class="field field-name-field-body">
-            <?php echo drupal_text_summary(get_the_content(), $max_length = 600); ?>
+            <?php echo get_the_excerpt(); ?>
         </div>
         <div class="field field-name-node-link">
-            <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo get_the_title(); ?>"
-               alt="<?php echo get_the_title(); ?>">
+            <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo get_the_title(); ?>">
                 <?php echo __('Read more', 'ehri'); ?>
             </a>
         </div>
