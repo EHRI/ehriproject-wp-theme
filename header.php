@@ -23,6 +23,10 @@
 
     <?php wp_head(); ?>
 
+    <?php if ($plausible_domain = get_theme_mod('ehriproject_plausible_domain')): ?>
+        <script async defer data-domain="<?php echo $plausible_domain; ?>" src="https://plausible.io/js/plausible.js"></script>
+    <?php endif; ?>
+
     <!-- include style.css -->
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css"/>
 

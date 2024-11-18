@@ -9,6 +9,8 @@ $ehriproject_includes = [
     'widgets',
     'queries',
     'drupal',
+    'customizer',
+    'theme-settings',
 ];
 
 
