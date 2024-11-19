@@ -51,7 +51,7 @@ get_header();
                             <?php while ($news_query->have_posts()) : $news_query->the_post(); ?>
                                 <div class="podcast-episode" id="podcast-episode-<?php the_ID(); ?>">
                                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                        <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                        <img src="<?php echo get_the_post_thumbnail_url(null, "medium"); ?>" alt="<?php the_title(); ?>">
                                     </a>
 
                                     <h3>
