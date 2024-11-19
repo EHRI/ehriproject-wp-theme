@@ -11,6 +11,7 @@ $ehriproject_includes = [
     'drupal',
     'customizer',
     'theme-settings',
+    'top-bar',
 ];
 
 

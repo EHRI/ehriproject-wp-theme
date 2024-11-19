@@ -9,15 +9,18 @@ if (!function_exists("ehriproject_homepage_teaser_args")) {
         // to match the (buggy) Drupal homepage teasers view. The logic for this incorporates the
         // inherent randomness of comparing NULL values in MySQL, which is why we need to use a
         // custom ORDER BY clause.
+        // We also ensure that all front-page items have a featured image.
         $results = $wpdb->get_results("
             SELECT DISTINCT p.ID
             FROM {$wpdb->posts} p
             LEFT JOIN {$wpdb->term_relationships} rels ON (p.ID = rels.object_id)
             LEFT JOIN {$wpdb->postmeta} pm1 ON (p.ID = pm1.post_id AND pm1.meta_key = '_promote_to_home')
             LEFT JOIN {$wpdb->postmeta} pm2 ON (p.ID = pm2.post_id AND pm2.meta_key = '_homepage_order')
+            LEFT JOIN {$wpdb->postmeta} pm3 ON (p.ID = pm3.post_id AND pm3.meta_key = '_thumbnail_id')
             WHERE p.post_type IN ('post', 'page')
             AND p.post_status = 'publish'
             AND (pm1.meta_value = 'yes')
+            AND (pm3.meta_value IS NOT NULL)
             ORDER BY
                 CASE WHEN pm2.meta_value IS NOT NULL THEN 0 ELSE 1 END,
                 pm2.meta_value ASC,

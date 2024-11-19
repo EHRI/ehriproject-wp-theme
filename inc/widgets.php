@@ -96,7 +96,7 @@ if (!function_exists("ehriproject_promote_to_home_html")) {
         ?>
         <label for="promote_to_home">
             <input type="checkbox" id="promote_to_home" name="promote_to_home" <?php checked($value, 'yes'); ?> />
-            Promote this content to homepage
+            Promote to homepage
         </label>
         <?php
     }
@@ -127,7 +127,7 @@ if (!function_exists("ehriproject_add_homepage_order_meta_box")) {
         foreach ($screens as $screen) {
             add_meta_box(
                 'homepage_order',           // Unique ID
-                'Homepage Order',        // Box title
+                'Homepage Priority',        // Box title
                 'ehriproject_homepage_order_html',      // Content callback, must be of type callable
                 $screen,                      // Post type,
                 'side'                  // Position
@@ -146,7 +146,6 @@ if (!function_exists("ehriproject_homepage_order_html")) {
         <label for="homepage_order">
             <input type="number" id="homepage_order" name="homepage_order" min="1" max="999"
                    value="<?php echo $value; ?>"/>
-            Set order on homepage
         </label>
         <?php
     }
