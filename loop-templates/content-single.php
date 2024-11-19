@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 <?php if (has_post_thumbnail()): ?>
     <div class="ds-1col node node-news view-mode-full">
         <div class="field field-name-field-photo">
-            <?php the_post_thumbnail('large'); ?>
+            <?php the_post_thumbnail('medium'); ?>
         </div>
     </div>
 <?php endif; ?>
