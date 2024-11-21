@@ -14,7 +14,6 @@ $ehriproject_includes = [
     'top-bar',
 ];
 
-
 foreach ($ehriproject_includes as $file) {
     if (!$filepath = locate_template("inc/$file.php")) {
         trigger_error("Error locating /inc/$file.php", E_USER_ERROR);
@@ -356,6 +355,9 @@ add_action('delete_post', 'ehriproject_delete_homepage_transients');
 add_action('save_post_gallery_item', 'ehriproject_delete_gallery_transients');
 add_action('delete_post', 'ehriproject_delete_gallery_transients');
 
+
+// Add support for excerpts on pages
+add_post_type_support( 'page', 'excerpt' );
 
 //function ehriproject_custom_wp_title( $title ) {
 //    if ( is_404() ) {

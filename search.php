@@ -20,8 +20,6 @@
                             <h2 class="text-muted"><?php echo "\"$q\""; ?></h2>
                         <?php endif; ?>
 
-                        </header><!-- .page-header -->
-
                         <?php while (have_posts()) : the_post(); ?>
                             <?php get_template_part('loop-templates/content', 'news'); ?>
                         <?php endwhile; ?>

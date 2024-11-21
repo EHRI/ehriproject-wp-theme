@@ -18,14 +18,9 @@ get_header();
                 <div id="content-inner">
                     <a id="main-content"></a>
                     <?php while (have_posts()) : the_post(); ?>
-                        <h1 class="page__title title" id="page-title"><?php the_title(); ?></h1>
-
-                        <div class="field field-name-body">
-                            <?php the_excerpt(); ?>
-                        </div>
+                        <?php get_template_part('loop-templates/content', 'single'); ?>
                     <?php endwhile; ?>
 
-                    <hr>
                     <!-- Fetch all posts with the 'news' category and list them in reverse chronological order with pagination -->
                     <?php
                     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
