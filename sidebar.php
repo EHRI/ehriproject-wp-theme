@@ -9,15 +9,15 @@
         <div id="block-block-21" class="block block-block first odd">
 
 
-            <div class="socmed">follow us on: <br/>
-                <a href="https://twitter.com/EHRIproject" target="_blank"><img alt="Twitter"
-                                                                               src="<?php echo get_theme_file_uri('images/twitter.png'); ?>"></a>
+            <div class="socmed">
+                <a href="https://bsky.app/profile/ehri-project.eu" target="_blank" title="Follow us on Bluesky"><img alt="Bluesky"
+                                                                               src="<?php echo get_theme_file_uri('images/bluesky.png'); ?>"></a>
 
-                <a href="https://facebook.com/EHRIproject" target="_blank"><img alt="Facebook"
+                <a href="https://facebook.com/EHRIproject" target="_blank" title="Follow us on Facebook"><img alt="Facebook"
                                                                                 src="<?php echo get_theme_file_uri('images/facebook.png'); ?>"/></a>
 
                 <a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/"
-                   target="_blank"><img alt="LinkedIn" src="<?php echo get_theme_file_uri('images/linkedin2.png'); ?>"/></a>
+                   target="_blank" title="Find us on LinkedIn"><img alt="LinkedIn" src="<?php echo get_theme_file_uri('images/linkedin2.png'); ?>"/></a>
             </div>
         </div>
         <div id="block-block-27" class="block block-block even">

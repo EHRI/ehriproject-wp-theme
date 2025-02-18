@@ -85,6 +85,9 @@ $newsletter_edition_name = get_queried_object()->name;
         td#social {
             text-align: center;
         }
+        td#social a img {
+            margin: 10px;
+        }
 
         td#video {
             text-align: center;
@@ -345,77 +348,42 @@ $newsletter_edition_name = get_queried_object()->name;
             <td>
                 <table class="footer">
                     <tr>
-                        <th colspan="2" scope="col">EHRI partners</th>
-                    </tr>
-                    <tr>
-                        <td class="institution_list">
-                            <ul>
-                                <li>KNAW – NIOD Institute for War, Holocaust and Genocide Studies (NL)</li>
-                                <li>KNAW – DANS Data Archiving and Networked Services (NL)</li>
-                                <li>Belgian State Archives/CegeSoma (BE)</li>
-                                <li>Masaryk Institute and Archives of the Czech Academy of Sciences (CZ)</li>
-                                <li>Yad Vashem (IL)</li>
-                                <li>Leibniz Institute for Contemporary History (DE)</li>
-                                <li>King's College London (UK)</li>
-                                <li>Holocaust Documentation Center (SK)</li>
-                                <li>Kazerne Dossin (BE)</li>
-                                <li>The Wiener Holocaust Library (UK)</li>
-                                <li>’Elie Wiesel’ National Institute for the Study of the Holocaust in Romania (RO)</li>
-                                <li>Vienna Wiesenthal Institute for Holocaust Studies (AT)</li>
-                            </ul>
-                        </td>
-                        <td class="institution_list">
-                            <ul>
-                                <li>Shoah Memorial (FR)</li>
-                                <li>Jewish Historical Institute (PL)</li>
-                                <li>US Holocaust Memorial Museum (US)</li>
-                                <li>National Research Council (IT)</li>
-                                <li>Arolsen Archives (DE)</li>
-                                <li>Federal Archives (DE)</li>
-                                <li>Inria – team ALMAnaCH (FR)</li>
-                                <li>Polish Center for Holocaust Research (PL)</li>
-                                <li>Contemporary Jewish Documentation Center Foundation (IT)</li>
-                                <li>Aristotle University of Thessaloniki (GR)</li>
-                                <li>Vilna Gaon Museum of Jewish History (LT)</li>
-                                <li>Hungarian Jewish Museum and Archives (HU)</li>
-                                <li>Center for Urban History of East Central Europe (UA)</li>
-                                <li>Jewish Museum in Prague (CZ)</li>
-                                <li>Jewish Museum of Greece (GR)</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="border">
+                        <td class="border">
                             <p>EHRI, European Holocaust Research Infrastructure, NIOD. Institute for War, Holocaust and
                                 Genocide Studies, Herengracht 380, NL-1016 CJ Amsterdam, The
                                 Netherlands, +31(0)20-5233800 &copy; 2011 EHRI</p>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">&nbsp;</td>
+                        <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td colspan="2" id="video">
+                        <td id="video">
                             Watch a <a class="active" target="_blank" href="https://youtu.be/IUFqR7l5qW8">video
                                 introduction to the EHRI Portal</a>
                         </td>
                     <tr>
-                        <td colspan="2">&nbsp;</td>
+                        <td>&nbsp;</td>
                     </tr>
+                </table>
+            </td>
         </tr>
         <tr>
             <td id="social">
-                <a href="https://twitter.com/EHRIproject">
-                    <img border="0" alt="EHRI on Twitter"
-                         src="<?php echo get_theme_file_uri('images/newsletter/follow-us-on-twitter.jpg'); ?>"
-                         width="100" height="50">
+                <a href="https://bsky.app/profile/ehri-project.eu">
+                    <img border="0" alt="Bluesky Icon"
+                         src="<?php echo get_theme_file_uri('images/bluesky.png'); ?>"
+                         width="50" height="50">
                 </a>
-            </td>
-            <td id="social">
                 <a href="https://facebook.com/EHRIproject">
-                    <img border="0" alt="EHRI on Facebook"
-                         src="<?php echo get_theme_file_uri('images/newsletter/find-us-on-facebook.png'); ?>"
-                         width="100" height="50">
+                    <img border="0" alt="Facebook Icon"
+                         src="<?php echo get_theme_file_uri('images/facebook.png'); ?>"
+                         width="50" height="50">
+                </a>
+                <a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/">
+                    <img border="0" alt="LinkedIn Icon"
+                         src="<?php echo get_theme_file_uri('images/linkedin2.png'); ?>"
+                         width="50" height="50">
                 </a>
             </td>
         </tr>
