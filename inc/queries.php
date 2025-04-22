@@ -38,3 +38,21 @@ if (!function_exists("ehriproject_homepage_teaser_args")) {
         return $args;
     }
 }
+
+if (!function_exists("ehriproject_homepage_news_args")) {
+    function ehriproject_homepage_news_args($limit = 6)
+    {
+        // List all posts in the 'news' category
+        $args = array(
+            'post_type' => 'post',
+            'category_name' => 'news',
+            'posts_per_page' => $limit,
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'status' => 'publish',
+            // include sticky
+            'ignore_sticky_posts' => 0,
+        );
+        return $args;
+    }
+}

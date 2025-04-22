@@ -8,7 +8,15 @@
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
+
+$post_status = get_post_status();
 ?>
+
+<?php if ($post_status === 'private') : ?>
+    <div class="alert alert-warning">
+        <?php _e('This post is only visible to admins and editors.', 'ehriproject'); ?>
+    </div>
+<?php endif; ?>
 
 
 <h1 class="page__title title" id="page-title"><?php the_title(); ?></h1>
