@@ -26,7 +26,6 @@ get_header();
 					$args       = array(
 						'category_name' => 'news',
 						'paged'         => $paged,
-						'posts_per_page' => 2,
 						'orderby'       => 'date',
 						'order'         => 'DESC',
 					);

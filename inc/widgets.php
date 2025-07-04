@@ -169,7 +169,6 @@ if ( ! function_exists( 'ehriproject_homepage_order_html' ) ) {
 	function ehriproject_homepage_order_html( $post ) {
 		$value = get_post_meta( $post->ID, '_homepage_order', true );
 		?>
-		// Form nonce.
 		<?php wp_nonce_field( 'ehriproject_homepage_order_nonce', 'homepage_order_nonce' ); ?>
 		<label for="homepage_order">
 			<input type="number" id="homepage_order" name="homepage_order" min="1" max="999" value="<?php echo esc_attr( $value ); ?>"/>

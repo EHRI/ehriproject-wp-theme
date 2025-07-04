@@ -11,20 +11,15 @@
 
 
 			<div class="socmed">
-				<a href="https://bsky.app/profile/ehri-project.eu" target="_blank" title="Follow us on Bluesky"><img
-						alt="Bluesky"
-						src="<?php
-						echo get_theme_file_uri( 'images/bluesky.png' ); ?>"></a>
-
-				<a href="https://facebook.com/EHRIproject" target="_blank" title="Follow us on Facebook"><img
-						alt="Facebook"
-						src="<?php
-						echo get_theme_file_uri( 'images/facebook.png' ); ?>"/></a>
-
-				<a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/"
-				   target="_blank" title="Find us on LinkedIn"><img alt="LinkedIn"
-																	src="<?php
-																	echo get_theme_file_uri( 'images/linkedin2.png' ); ?>"/></a>
+				<a href="https://bsky.app/profile/ehri-project.eu" target="_blank" title="Follow us on Bluesky">
+					<img alt="Bluesky" src="<?php echo get_theme_file_uri( 'images/bluesky.png' ); ?>">
+				</a>
+				<a href="https://facebook.com/EHRIproject" target="_blank" title="Follow us on Facebook">
+					<img alt="Facebook" src="<?php echo get_theme_file_uri( 'images/facebook.png' ); ?>">
+				</a>
+				<a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/" target="_blank" title="Find us on LinkedIn">
+					<img alt="LinkedIn" src="<?php echo get_theme_file_uri( 'images/linkedin2.png' ); ?>">
+				</a>
 			</div>
 		</div>
 		<div id="block-block-27" class="block block-block even">
@@ -34,24 +29,25 @@
 				<h2>Resources</h2>
 				<!-- Render the sidebar menu resources menu -->
 				<?php
-				wp_nav_menu( array(
-					'menu'           => 'resources-menu',
-					'theme_location' => 'primary',
-					'fallback_cb'    => false
-				) ); ?>
+				wp_nav_menu(
+					array(
+						'menu'           => 'resources-menu',
+						'theme_location' => 'primary',
+						'fallback_cb'    => false,
+					)
+				);
+				?>
 			</div>
 
 		</div>
 		<div id="block-views-latestnews-block-2" class="block block-views news last odd">
-
 			<h2 class="block__title block-title"><a href="/latestnews" class="block-title-link"></a></h2>
-
-			<div
-				class="view view-latestnews view-id-latestnews view-display-id-block_2 view-dom-id-cd819287d9ba73b1478531a088de54d4">
+			<div class="view view-latestnews view-id-latestnews view-display-id-block_2 view-dom-id-cd819287d9ba73b1478531a088de54d4">
 
 				<!-- Fetch a random gallery_item and use it as the header image -->
 				<?php
-				if ( false === ( $latest_news_query = get_transient( 'ehri_latest_news' ) ) ) {
+				$latest_news_query = get_transient( 'ehri_latest_news' );
+				if ( false === $latest_news_query ) {
 					$args              = array(
 						'post_type'      => 'post',
 						'posts_per_page' => 3,
@@ -64,8 +60,8 @@
 								'taxonomy' => 'newsletter_category',
 								'field'    => 'slug',
 								'terms'    => array( 'Online' ),
-								'operator' => 'OR'
-							)
+								'operator' => 'OR',
+							),
 						),
 					);
 					$latest_news_query = new WP_Query( $args );
@@ -74,37 +70,23 @@
 				?>
 
 				<div class="view-content">
-					<?php
-					if ( $latest_news_query->have_posts() ) : ?>
-						<?php
-						$num = 1; ?>
-						<?php
-						while ( $latest_news_query->have_posts() ) : $latest_news_query->the_post(); ?>
-							<div class="views-row views-row-<?php
-							echo $num; ?> views-row-odd views-row-first">
+					<?php if ( $latest_news_query->have_posts() ) : ?>
+						<?php $num = 1; ?>
+						<?php while ( $latest_news_query->have_posts() ) : $latest_news_query->the_post(); ?>
+							<div class="views-row views-row-<?php echo $num; ?>	views-row-odd views-row-first">
 								<div>
 									<h3>
-										<a href="<?php
-										echo esc_url( get_permalink() ); ?>"
-										   title="<?php
-										   echo get_the_title(); ?>">
-											<?php
-											the_title(); ?>
-										</a>
+										<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>"><?php echo esc_html( the_title() ); ?></a>
 									</h3>
 								</div>
 							</div>
-							<?php
-							$num ++; ?>
-						<?php
-						endwhile; ?>
-					<?php
-					endif; ?>
+							<?php $num ++; ?>
+							<?php endwhile; ?>
+						<?php endif; ?>
 				</div>
 
 				<div class="more-link">
-					<a href="/latestnews">
-						More news... </a>
+					<a href="/latestnews">More news... </a>
 				</div>
 			</div>
 		</div>
