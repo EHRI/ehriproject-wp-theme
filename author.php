@@ -9,12 +9,18 @@ get_header(); ?>
 
 					<!-- This sets the $curauth variable -->
 					<?php
-					$curauth = ( get_query_var( 'author_name' ) ) ? get_user_by( 'slug',
-						get_query_var( 'author_name' ) ) : get_userdata( get_query_var( 'author' ) );
+					$curauth = ( get_query_var( 'author_name' ) ) ? get_user_by(
+						'slug',
+						get_query_var( 'author_name' )
+					) : get_userdata( get_query_var( 'author' ) );
 					?>
 
-					<h2>Posts by <?php echo $curauth->nickname; ?>:</h2>
-					<h2><?php esc_html_e( 'Posts by %s ') . $curauth->nickname; ?></h2>
+					<h2>
+						<?php
+						// translators: %s is the author's nickname.
+						printf( __( 'Posts by %s' ), $curauth->nickname );
+						?>
+					</h2>
 
 					<ul>
 						<!-- The Loop -->
@@ -42,7 +48,8 @@ get_header(); ?>
 				</div>
 			</div>
 			<?php
-			get_sidebar(); ?>
+			get_sidebar();
+			?>
 		</div>
 	</div>
 <?php
