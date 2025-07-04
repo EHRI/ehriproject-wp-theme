@@ -2,7 +2,7 @@
 /**
  * Check and setup theme's default settings
  *
- * @package ehriproject
+ * @package ehriproject-wp-theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,32 +10,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! function_exists( 'ehriproject_setup_theme_default_settings' ) ) {
+	/**
+	 * Setup theme's default settings.
+	 *
+	 * This function checks if the theme settings are set, and if not, sets them to default values.
+	 */
 	function ehriproject_setup_theme_default_settings() {
-
 		// check if settings are set, if not set defaults.
 		// Caution: DO NOT check existence using === always check with == .
 
-        // Twitter URL
-        $ehriproject_twitter_url = get_theme_mod( 'ehriproject_twitter_url' );
-        if ( $ehriproject_twitter_url == '' ) {
-            set_theme_mod( 'ehriproject_twitter_url', '' );
-        }
+		// Twitter URL.
+		$ehriproject_twitter_url = get_theme_mod( 'ehriproject_twitter_url' );
+		if ( '' === $ehriproject_twitter_url ) {
+			set_theme_mod( 'ehriproject_twitter_url', '' );
+		}
 
-        // Bluesky URL
-        $ehriproject_twitter_url = get_theme_mod( 'ehriproject_bluesky_url' );
-        if ( $ehriproject_twitter_url == '' ) {
-            set_theme_mod( 'ehriproject_bluesky_url', '' );
-        }
+		// Bluesky URL.
+		$ehriproject_twitter_url = get_theme_mod( 'ehriproject_bluesky_url' );
+		if ( '' === $ehriproject_twitter_url ) {
+			set_theme_mod( 'ehriproject_bluesky_url', '' );
+		}
 
-        // LinkedIn URL
-        $ehriproject_linkedin_url = get_theme_mod( 'ehriproject_linkedin_url' );
-        if ( $ehriproject_linkedin_url == '' ) {
-            set_theme_mod( 'ehriproject_linkedin_url', '' );
-        }
+		// LinkedIn URL.
+		$ehriproject_linkedin_url = get_theme_mod( 'ehriproject_linkedin_url' );
+		if ( '' === $ehriproject_linkedin_url ) {
+			set_theme_mod( 'ehriproject_linkedin_url', '' );
+		}
 
-		// Facebook URL
+		// Facebook URL.
 		$ehriproject_facebook_url = get_theme_mod( 'ehriproject_facebook_url' );
-		if ( $ehriproject_facebook_url == '' ) {
+		if ( '' === $ehriproject_facebook_url ) {
 			set_theme_mod( 'ehriproject_facebook_url', '' );
 		}
 	}

@@ -5,34 +5,46 @@
 
 ?>
 
-<?php get_header(); ?>
+<?php
+get_header(); ?>
 
-    <div id="main">
-        <div id="main-inner">
-            <div id="content" class="column" role="main">
-                <div id="content-inner">
-                    <a id="main-content"></a>
-                    <?php if (have_posts()) : ?>
+<div id="main">
+	<div id="main-inner">
+		<div id="content" class="column" role="main">
+			<div id="content-inner">
+				<a id="main-content"></a>
+				<?php
+				if ( have_posts() ) : ?>
 
-                        <h1 class="page__title title" id="page-title">Search Results</h1>
+					<h1 class="page__title title" id="page-title">Search Results</h1>
 
-                        <?php if ($q = trim(get_search_query())): ?>
-                            <h2 class="text-muted"><?php echo "\"$q\""; ?></h2>
-                        <?php endif; ?>
+					<?php
+					$query = get_search_query();
+					if ( $q = trim( $query ) ): ?>
+						<h2 class="text-muted"><?php
+							echo "\"$q\""; ?></h2>
+					<?php
+					endif; ?>
 
-                        <?php while (have_posts()) : the_post(); ?>
-                            <?php get_template_part('loop-templates/content', 'news'); ?>
-                        <?php endwhile; ?>
+					<?php
+					while ( have_posts() ) : the_post(); ?>
+						<?php
+						get_template_part( 'loop-templates/content', 'news' ); ?>
+					<?php
+					endwhile; ?>
 
-                        <!-- The pagination component -->
-                        <?php ehri_pagination(); ?>
-                    <?php endif; ?>
-                </div>
-            </div>
+					<!-- The pagination component -->
+					<?php ehriproject_pagination( $query ); ?>
+				<?php
+				endif; ?>
+			</div>
+		</div>
 
-            <?php get_sidebar(); ?>
+		<?php
+		get_sidebar(); ?>
 
-        </div>
-    </div>
+	</div>
+</div>
 
-<?php get_footer(); ?>
+<?php
+get_footer(); ?>
