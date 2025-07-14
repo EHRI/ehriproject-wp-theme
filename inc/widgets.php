@@ -102,11 +102,7 @@ if ( ! function_exists( 'ehriproject_promote_to_home_html' ) ) {
 		$value = get_post_meta( $post->ID, '_promote_to_home', true );
 		?>
 		<label for="promote_to_home">
-			<input type="checkbox" id="promote_to_home" name="promote_to_home"
-			<?php
-			checked( $value, 'yes' );
-			?>
-			/>
+			<input type="checkbox" id="promote_to_home" name="promote_to_home" <?php checked( $value, 'yes' ); ?>/>
 			Promote to homepage
 		</label>
 		<?php
@@ -121,10 +117,22 @@ if ( ! function_exists( 'ehriproject_save_promote_to_home_meta' ) ) {
 	 * @param int $post_id The ID of the post being saved.
 	 */
 	function ehriproject_save_promote_to_home_meta( $post_id ) {
-		// Check if our nonce is set.
-		if ( ! isset( $_POST['promote_to_home_nonce'] ) || ! check_admin_referer( 'ehriproject_promote_to_home_nonce', 'promote_to_home_nonce' ) ) {
-			wp_die( 'Security check failed. Please try again.' );
+		// Check if nonce field exists before validating.
+		if ( ! isset( $_POST['promote_to_home_nonce'] ) ) {
+			return $post_id; // Meta box not present, skip validation.
 		}
+
+		// Now validate the nonce.
+		$nonce = sanitize_text_field( wp_unslash( $_POST['promote_to_home_nonce'] ) );
+		if ( ! wp_verify_nonce( $nonce, 'ehriproject_promote_to_home_nonce' ) ) {
+			return $post_id; // Invalid nonce.
+		}
+
+		// Check user capabilities.
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return $post_id;
+		}
+
 		if ( isset( $_POST['promote_to_home'] ) ) {
 			update_post_meta(
 				$post_id,
@@ -184,10 +192,22 @@ if ( ! function_exists( 'ehriproject_save_homepage_order_meta' ) ) {
 	 * @param int $post_id The ID of the post being saved.
 	 */
 	function ehriproject_save_homepage_order_meta( $post_id ) {
-		// Check if our nonce is set.
-		if ( ! isset( $_POST['homepage_order_nonce'] ) || ! check_admin_referer( 'ehriproject_homepage_order_nonce', 'homepage_order_nonce' ) ) {
-			wp_die( 'Security check failed. Please try again.' );
+		// Check if nonce field exists before validating.
+		if ( ! isset( $_POST['homepage_order_nonce'] ) ) {
+			return $post_id; // Meta box not present, skip validation.
 		}
+
+		// Now validate the nonce.
+		$nonce = sanitize_text_field( wp_unslash( $_POST['homepage_order_nonce'] ) );
+		if ( ! wp_verify_nonce( $nonce, 'ehriproject_homepage_order_nonce' ) ) {
+			return $post_id; // Invalid nonce.
+		}
+
+		// Check user capabilities.
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return $post_id;
+		}
+
 		if ( array_key_exists( 'homepage_order', $_POST ) && '' !== $_POST['homepage_order'] ) {
 			update_post_meta(
 				$post_id,
