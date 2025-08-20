@@ -29,16 +29,16 @@ foreach ( $ehriproject_includes as $file ) {
 	require_once $filepath;
 }
 
-if ( ! function_exists( 'ehriproject_enqueue_scripts' ) ) {
+if ( ! function_exists( 'ehriproject_enqueue_styles' ) ) {
 	/**
 	 * Enqueue theme scripts and styles.
 	 */
-	function ehriproject_enqueue_scripts() {
+	function ehriproject_enqueue_styles() {
 		wp_enqueue_style( 'ehri-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
-		wp_enqueue_script( 'ehri-typekit', '//use.typekit.com/yha1waw.js', array(), '1.21.0', false );
+		wp_enqueue_style( 'ehri-typekit', '//use.typekit.net/xhz5yfl.css', array(), wp_get_theme()->get( 'Version' ) );
 	}
 
-	add_action( 'wp_enqueue_scripts', 'ehriproject_enqueue_scripts' );
+	add_action( 'wp_enqueue_scripts', 'ehriproject_enqueue_styles' );
 }
 
 
