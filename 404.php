@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts.
  *
- * @package understrap
+ * @package ehriproject-wp-theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,8 +24,7 @@ get_header();
 			</div>
 		</div>
 
-		<?php
-		get_sidebar(); ?>
+		<?php get_sidebar(); ?>
 
 	</div>
 </div>

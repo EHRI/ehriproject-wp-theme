@@ -1,6 +1,8 @@
 <?php
 /**
  * The main template file.
+ *
+ * @package ehriproject-wp-theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

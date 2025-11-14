@@ -13,10 +13,10 @@ if ( ! function_exists( 'ehriproject_pagination' ) ) {
 	/**
 	 * Pagination function.
 	 *
-	 * @param array  $args   Arguments for pagination.
-	 * @param string $class  CSS class for the pagination container.
+	 * @param WP_Query $query Arguments for pagination.
+	 * @param string   $class CSS class for the pagination container.
 	 */
-	function ehriproject_pagination( $query, $class = 'pagination' ) {
+	function ehriproject_pagination( WP_Query $query, $class = 'pagination' ) {
 		if ( $query->max_num_pages <= 1 ) {
 			return;
 		}

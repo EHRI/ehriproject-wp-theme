@@ -2,7 +2,7 @@
 /**
  * Single post partial template.
  *
- * @package understrap
+ * @package ehriproject-wp-theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
