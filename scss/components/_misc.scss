@@ -1,0 +1,92 @@
+@import "../variables";
+@import "../mixins";
+
+// Traditional clearfix, to clear floats
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+// Date line on posts/news items
+.news-date {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bolder);
+  margin-bottom: $space-md;
+}
+
+// Page summary lists
+.page-summaries {
+  padding: $space-lg 0;
+}
+
+// A page summary in a single list
+.page-summary {
+  margin-bottom: $space-xl;
+  border-bottom: 1px dashed var(--grey-mid);
+  display: flow-root; // box expands around floating images
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .page-summary-content {
+    display: flow-root; // box expands around floating images
+    clear: both;
+  }
+
+  .page-summary-header {
+    font-family: var(--font-family-headings);
+    font-size: var(--font-size-xl);
+    line-height: 2rem;
+    font-weight: var(--font-weight-bolder);
+    margin-bottom: $space-lg;
+  }
+
+  .read-more {
+    @include content-nav-link();
+    float: right;
+  }
+
+  .featured-image img {
+    display: block;
+    max-width: 100%;
+    margin: 0 0 $space-md 0;
+    width: 100%;
+    height: auto;
+    float: left;
+
+    @media (min-width: $breakpoint-tablet) {
+      // the following pulls the news image to the right
+      // outside of its containing box and allows text
+      // to flow around it
+      //margin: 0 1rem 1rem calc(calc(-1 * var(--padding-page-content-h) + var(--margin-page-h)));
+      margin: 0 $space-md $space-md 0;
+      width: 16rem;
+    }
+  }
+}
+
+// Footnote body
+.footnotes {
+  font-family: var(--font-family-headings);
+  ol {
+    margin-top: 3rem;
+    padding-left: 1rem;
+  }
+  a,
+  a:hover
+  {
+    background-image: none;
+  }
+}
+
+// Textured background to any component
+.paper {
+  background-image: url(../images/doc-paper-bgd-yellow.jpg);
+}

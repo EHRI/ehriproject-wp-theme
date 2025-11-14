@@ -12,10 +12,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<div id="main">
+<main id="main">
 	<div id="main-inner">
 		<?php if ( have_posts() ) : ?>
-			<div id="content" class="column" role="main">
+			<div id="content" class="column">
 				<div id="content-inner">
 					<a id="main-content"></a>
 					<?php while ( have_posts() ) : ?>
@@ -44,7 +44,7 @@ get_header();
 
 		<?php get_sidebar(); ?>
 	</div>
-</div>
+</main>
 
 
 <?php

@@ -7,41 +7,51 @@
 
 ?>
 
-<footer id="footer" class="region region-footer">
-	<!-- Render the menus -->
-	<?php
-	wp_nav_menu(
-		array(
-			'menu'           => 'secondary-menu',
-			'theme_location' => 'primary',
-			'container'      => 'nav',
-			'menu_class'     => 'menu',
-			'menu_id'        => 'secondary-menu',
-			'fallback_cb'    => false,
-		)
-	);
-	?>
-
-	<div class="funding">
-		<a href="https://europa.eu/" target="_blank"><?php esc_html_e( 'EHRI is funded by the European Union' ); ?></a>
-	</div>
-
-	<div class="ars">
-		<a href="http://prix2018.aec.at/prixwinner/28933/" target="_blank">
-			<img alt="Ars Electronica" width="200" height="100" src="<?php echo get_theme_file_uri( 'images/ars_logo_cropped.jpg' ); ?>"/>
-		</a>
+<footer id="footer" class="footer main">
+	<div class="footer-content">
+		<div class="navbar">
+			<ul class="footer-menu" id="footer-menu-items">
+				<!-- Render the menus -->
+				<?php
+				wp_nav_menu(
+					array(
+						'menu'       => 'footer-menu',
+						'container'  => false,
+						'items_wrap' => '%3$s', // don't wrap the items in a <ul>.
+					)
+				);
+				?>
+			</ul>
+		</div>
+		<div class="footer-bottom">
+			<div class="footer-copyright">
+				<p>
+					<?php
+					printf(
+						/* translators: 1: Copyright symbol, 2: Current year, 3: Site name */
+						esc_html__( '%1$s %2$s %3$s', 'ehriproject' ),
+						'&copy;',
+						esc_html( gmdate( 'Y' ) ),
+						esc_html( get_bloginfo( 'name' ) )
+					);
+					?>
+				</p>
+			</div>
+			<div class="footer-social">
+				<a href="https://bsky.app/profile/ehri-project.eu" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Follow EHRI on Bluesky (opens in new window)', 'ehriproject' ); ?>">
+					<i class="fab fa-bluesky" aria-hidden="true"></i>
+				</a>
+				<a href="https://facebook.com/EHRIproject" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Follow EHRI on Facebook (opens in new window)', 'ehriproject' ); ?>">
+					<i class="fab fa-facebook" aria-hidden="true"></i>
+				</a>
+				<a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Follow EHRI on LinkedIn (opens in new window)', 'ehriproject' ); ?>">
+					<i class="fab fa-linkedin" aria-hidden="true"></i>
+				</a>
+			</div>
+		</div>
 	</div>
 </footer>
 
-</div> <!-- /#page -->
-
 <?php wp_footer(); ?>
-<script>
-	// Toggle menu class on body when #menubutton is clicked
-	document.getElementById('menubutton').addEventListener('click', function () {
-		document.body.classList.toggle('menu');
-	});
-
-</script>
 </body>
 </html>

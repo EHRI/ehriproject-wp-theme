@@ -1,2 +1,9 @@
 .idea
 *.iml
+
+# Style is generated:
+style.css
+node_modules
+vendor
+css
+*.css.map

@@ -17,6 +17,8 @@ $ehriproject_includes = array(
 	'customizer',
 	'theme-settings',
 	'top-bar',
+	'search',
+	'class-ehri-project-icon-menu-walker',
 );
 
 foreach ( $ehriproject_includes as $file ) {
@@ -36,6 +38,17 @@ if ( ! function_exists( 'ehriproject_enqueue_styles' ) ) {
 	function ehriproject_enqueue_styles() {
 		wp_enqueue_style( 'ehri-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
 		wp_enqueue_style( 'ehri-typekit', '//use.typekit.net/xhz5yfl.css', array(), wp_get_theme()->get( 'Version' ) );
+
+		// Enqueue front page parallax script only on the front page.
+		if ( is_front_page() ) {
+			wp_enqueue_script(
+				'ehri-front-page-parallax',
+				get_template_directory_uri() . '/js/front-page-parallax.js',
+				array(),
+				wp_get_theme()->get( 'Version' ),
+				true
+			);
+		}
 	}
 
 	add_action( 'wp_enqueue_scripts', 'ehriproject_enqueue_styles' );
@@ -89,9 +102,6 @@ if ( ! function_exists( 'ehriproject_teaser_image_data' ) ) {
 		);
 	}
 }
-
-// Temporarily required to import media from the same host.
-add_filter( 'http_request_host_is_external', '__return_true' );
 
 if ( ! function_exists( 'ehriproject_theme_setup' ) ) {
 	/**
@@ -380,6 +390,20 @@ add_action( 'init', 'ehriproject_register_newsletter_edition_taxonomy' );
 add_action( 'init', 'ehriproject_register_newsletter_category_taxonomy' );
 add_action( 'init', 'ehriproject_register_fellowship_year_taxonomy' );
 add_action( 'init', 'ehriproject_register_fellowship_institution_taxonomy' );
+
+/**
+ * Blocks!
+ */
+if ( ! function_exists( 'ehriproject_create_blocks_block_init' ) ) {
+	/**
+	 * Register custom blocks.
+	 */
+	function ehriproject_create_blocks_block_init() {
+		register_block_type( __DIR__ . '/build/front-page-resource' );
+	}
+}
+add_action( 'init', 'ehriproject_create_blocks_block_init' );
+
 
 /**
  * Transients!

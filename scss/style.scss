@@ -1,5 +1,95 @@
-@import "system.base";
+// Wordpress theme metadata
+/*!
+Theme Name: EHRI-ERIC 2.0
+Theme URI: http://www.ehri-project.eu
+Author: EHRI
+Author URI: http://www.ehri-project.eu
+Description: EHRI-ERIC site styling, revamped.
+Version: 0.1
+License: EUPL-1.2
+License URI: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+Tags: custom-header, custom-background, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+Text Domain: ehriproject
+ */
+$fa-font-path: "./fonts";
+
+@import "variables";
+@import "mixins";
+@import "base";
 @import "fonts";
-@import "views";
-@import "project-theme";
-@import "style-overrides";
+
+@import "layouts/header";
+@import "layouts/header-wide";
+@import "layouts/footer";
+
+@import "layouts/page";
+@import "layouts/post";
+@import "layouts/post-body";
+@import "layouts/front-page";
+@import "layouts/post-list";
+@import "layouts/search";
+
+@import "components/buttons";
+@import "components/misc";
+@import "components/figures";
+@import "components/pagination";
+@import "components/hero";
+@import "components/breadcrumbs";
+@import "components/resource-teaser";
+
+// Wordpress-specific.
+@import "blocks/wp-block-button";
+
+@import "fa/fontawesome";
+@import "fa/solid";
+@import "fa/brands";
+@import "fa/regular";
+@import "fa/shims";
+
+// Page imports
+@import "pages/page-ehri-podcast-for-the-living-and-the-dead";
+@import "pages/fellowship";
+
+.post-thumbnail > a > picture > img {
+	width: 100%;
+}
+
+.map-container {
+	// Look ma, an actual deliberate use of margin collapse.
+	> .wp-block-latest-posts,
+	> .wp-block-heading,
+	> .wp-block-group,
+	> .wp-block-columns,
+	> .wp-block-cover
+	{
+		padding: 0 var(--margin-page-h);
+		margin: var(--margin-page-v) 0;
+	}
+
+	> .wp-block-group,
+	> .wp-block-columns,
+	> .wp-block-cover
+	{
+		padding: var(--margin-page-v) var(--margin-page-h);
+		margin: 0;
+		row-gap: var(--margin-page-v);
+	}
+	.feature-popup h3 {
+		@include header-font-3();
+	}
+
+	.feature-popup-content {
+		margin-bottom: $space-lg;
+	}
+
+	.feature-popup-content a {
+		color: var(--theme-fg-accent);
+	}
+
+	.feature-popup-content img {
+		max-width: 100%;
+		height: auto;
+	}
+
+}
+
