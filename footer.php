@@ -7,7 +7,7 @@
 
 ?>
 
-<footer id="footer" class="region region-footer">
+<footer id="footer" class="footer">
 	<!-- Render the menus -->
 	<?php
 	wp_nav_menu(
@@ -21,19 +21,7 @@
 		)
 	);
 	?>
-
-	<div class="funding">
-		<a href="https://europa.eu/" target="_blank"><?php esc_html_e( 'EHRI is funded by the European Union' ); ?></a>
-	</div>
-
-	<div class="ars">
-		<a href="http://prix2018.aec.at/prixwinner/28933/" target="_blank">
-			<img alt="Ars Electronica" width="200" height="100" src="<?php echo get_theme_file_uri( 'images/ars_logo_cropped.jpg' ); ?>"/>
-		</a>
-	</div>
 </footer>
-
-</div> <!-- /#page -->
 
 <?php wp_footer(); ?>
 <script>

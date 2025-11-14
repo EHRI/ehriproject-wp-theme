@@ -13,21 +13,17 @@ get_header();
 ?>
 
 <div id="main">
-	<div id="main-inner">
-		<?php if ( have_posts() ) : ?>
-			<div id="content" class="column" role="main">
-				<div id="content-inner">
-					<a id="main-content"></a>
-					<?php while ( have_posts() ) : ?>
-						<?php the_post(); ?>
-						<?php get_template_part( 'loop-templates/content', 'single' ); ?>
-					<?php endwhile; ?>
-				</div>
+	<?php if ( have_posts() ) : ?>
+		<div id="content" class="column" role="main">
+			<div id="content-inner">
+				<a id="main-content"></a>
+				<?php while ( have_posts() ) : ?>
+					<?php the_post(); ?>
+					<?php get_template_part( 'loop-templates/content', 'single' ); ?>
+				<?php endwhile; ?>
 			</div>
-		<?php endif; ?>
-
-		<?php get_sidebar(); ?>
-	</div>
+		</div>
+	<?php endif; ?>
 </div>
 
 <?php get_footer(); ?>
