@@ -12,17 +12,14 @@ get_header();
 
 <div id="main">
 	<div id="main-inner">
-		<?php
-		if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
 			<div id="content" class="column" role="main">
 				<div id="content-inner">
 					<a id="main-content"></a>
-					<?php
-					while ( have_posts() ) : the_post(); ?>
-						<?php
-						get_template_part( 'loop-templates/content', 'single' ); ?>
-					<?php
-					endwhile; ?>
+					<?php while ( have_posts() ) : ?>
+						<?php the_post(); ?>
+						<?php get_template_part( 'loop-templates/content', 'single' ); ?>
+					<?php endwhile; ?>
 					<?php
 					$args         = array(
 						'tag'      => 'fellows-list',
@@ -33,24 +30,17 @@ get_header();
 					$people_query = new WP_Query( $args );
 					?>
 
-					<?php
-					if ( $people_query->have_posts() ) : ?>
-						<?php
-						while ( $people_query->have_posts() ) : $people_query->the_post(); ?>
-							<?php
-							get_template_part( 'loop-templates/content', 'fellowship' ); ?>
-						<?php
-						endwhile; ?>
-					<?php
-					endif; ?>
+					<?php if ( $people_query->have_posts() ) : ?>
+						<?php while ( $people_query->have_posts() ) : ?>
+							<?php $people_query->the_post(); ?>
+							<?php get_template_part( 'loop-templates/content', 'fellowship' ); ?>
+						<?php endwhile; ?>
+					<?php endif; ?>
 				</div>
 			</div>
-		<?php
-		endif; ?>
+		<?php endif; ?>
 
-
-		<?php
-		get_sidebar(); ?>
+		<?php get_sidebar(); ?>
 	</div>
 </div>
 

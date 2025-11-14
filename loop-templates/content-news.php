@@ -11,45 +11,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 
-<div class="clearfix views-row" <?php
-post_class(); ?> id="post-<?php
-the_ID(); ?>">
+<div class="clearfix views-row" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	<div class="ds-1col node node-news view-mode-full">
-		<?php
-		if ( has_post_thumbnail() ): ?>
+		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="field field-name-field-photo">
-				<?php
-				the_post_thumbnail( 'medium' ); ?>
+				<?php the_post_thumbnail( 'medium' ); ?>
 			</div>
-		<?php
-		endif; ?>
+		<?php endif; ?>
 		<div class="field field-name-field-title">
 			<h2>
-				<a href="<?php
-				echo esc_url( get_permalink() ); ?>" title="<?php
-				echo get_the_title(); ?>">
-					<?php
-					the_title(); ?>
+				<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo get_the_title(); ?>">
+					<?php the_title(); ?>
 				</a>
 			</h2>
 		</div>
 		<div class="field field-name-field-datum">
-            <span class="date-display-single">
-                <?php
-				echo get_the_date( 'l, F jS, Y' ); ?>
-            </span>
+			<span class="date-display-single">
+				<?php echo get_the_date( 'l, F jS, Y' ); ?>
+			</span>
 		</div>
 
 		<div class="field field-name-field-body">
-			<?php
-			echo get_the_excerpt(); ?>
+			<?php echo get_the_excerpt(); ?>
 		</div>
 		<div class="field field-name-node-link">
-			<a href="<?php
-			echo esc_url( get_permalink() ); ?>" title="<?php
-			echo get_the_title(); ?>">
-				<?php
-				echo __( 'Read more', 'ehri' ); ?>
+			<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo get_the_title(); ?>">
+				<?php esc_html_e( 'Read more', 'ehri' ); ?>
 			</a>
 		</div>
 	</div>
