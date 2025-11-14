@@ -1,56 +1,60 @@
 <?php
+/**
+ * The template for displaying author pages.
+ *
+ * @package ehriproject-wp-theme
+ */
+
 get_header(); ?>
-	<div id="main">
-		<div id="main-inner">
+<div id="main">
+	<div id="main-inner">
 
-			<div id="content" class="column" role="main">
-				<div id="content-inner">
-					<a id="main-content"></a>
+		<div id="content" class="column" role="main">
+			<div id="content-inner">
+				<a id="main-content"></a>
 
-					<!-- This sets the $curauth variable -->
+				<!-- This sets the $curauth variable -->
+				<?php
+				$curauth = ( get_query_var( 'author_name' ) ) ? get_user_by(
+					'slug',
+					get_query_var( 'author_name' )
+				) : get_userdata( get_query_var( 'author' ) );
+				?>
+
+				<h2>
 					<?php
-					$curauth = ( get_query_var( 'author_name' ) ) ? get_user_by(
-						'slug',
-						get_query_var( 'author_name' )
-					) : get_userdata( get_query_var( 'author' ) );
+					// translators: %s is the author's nickname.
+					printf( __( 'Posts by %s' ), $curauth->nickname );
 					?>
+				</h2>
 
-					<h2>
-						<?php
-						// translators: %s is the author's nickname.
-						printf( __( 'Posts by %s' ), $curauth->nickname );
-						?>
-					</h2>
+				<ul>
+					<!-- The Loop -->
+					<?php if ( have_posts() ) : ?>
+						<?php while ( have_posts() ) : ?>
+							<?php the_post(); ?>
+							<li>
+								<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>">
+									<?php the_title(); ?></a>,
+								<?php the_time( 'd M Y' ); ?> in <?php the_category( '&' ); ?>
+							</li>
+						<?php endwhile; ?>
+					<?php else : ?>
+						<p><?php esc_html_e( 'No posts by this author.' ); ?></p>
+					<?php endif; ?>
+					<!-- End Loop -->
 
-					<ul>
-						<!-- The Loop -->
-						<?php if ( have_posts() ) : ?>
-							<?php while ( have_posts() ) : ?>
-								<?php the_post(); ?>
-								<li>
-									<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>">
-										<?php the_title(); ?></a>,
-									<?php the_time( 'd M Y' ); ?> in <?php the_category( '&' ); ?>
-								</li>
-							<?php endwhile; ?>
-						<?php else : ?>
-							<p><?php esc_html_e( 'No posts by this author.' ); ?></p>
-						<?php endif; ?>
-						<!-- End Loop -->
+				</ul>
 
-					</ul>
-
-					<!-- The pagination component -->
-					<?php
-					global $wp_query;
-					ehriproject_pagination( $wp_query );
-					?>
-				</div>
+				<!-- The pagination component -->
+				<?php
+				global $wp_query;
+				ehriproject_pagination( $wp_query );
+				?>
 			</div>
-			<?php
-			get_sidebar();
-			?>
 		</div>
+		<?php get_sidebar(); ?>
 	</div>
-<?php
-get_footer(); ?>
+</div>
+
+<?php get_footer(); ?>

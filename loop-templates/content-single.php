@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $post_status = get_post_status();
 ?>
 
-<?php if ( $post_status === 'private' ) : ?>
+<?php if ( 'private' === $post_status ) : ?>
 	<div class="alert alert-warning">
 		<?php esc_html_e( 'This post is only visible to admins and editors.', 'ehriproject' ); ?>
 	</div>

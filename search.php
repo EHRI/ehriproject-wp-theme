@@ -1,50 +1,43 @@
 <?php
 /**
  * The search results template file.
+ *
+ * @package ehriproject-wp-theme
  */
 
 ?>
 
-<?php
-get_header(); ?>
+<?php get_header(); ?>
 
 <div id="main">
 	<div id="main-inner">
 		<div id="content" class="column" role="main">
 			<div id="content-inner">
 				<a id="main-content"></a>
-				<?php
-				if ( have_posts() ) : ?>
-
+				<?php if ( have_posts() ) : ?>
 					<h1 class="page__title title" id="page-title">Search Results</h1>
-
-					<?php
-					$query = get_search_query();
-					if ( $q = trim( $query ) ): ?>
-						<h2 class="text-muted"><?php
-							echo "\"$q\""; ?></h2>
-					<?php
-					endif; ?>
-
-					<?php
-					while ( have_posts() ) : the_post(); ?>
-						<?php
-						get_template_part( 'loop-templates/content', 'news' ); ?>
-					<?php
-					endwhile; ?>
+					<?php $q = trim( get_search_query() ); ?>
+					<?php if ( $q ) : ?>
+						<h2 class="text-muted">
+							<?php echo '"' . esc_html( $q ) . '"'; ?>
+						</h2>
+						<?php endif; ?>
+					<?php while ( have_posts() ) : ?>
+						<?php the_post(); ?>
+						<?php get_template_part( 'loop-templates/content', 'news' ); ?>
+						<?php endwhile; ?>
 
 					<!-- The pagination component -->
-					<?php ehriproject_pagination( $query ); ?>
-				<?php
-				endif; ?>
+					<?php ehriproject_pagination( $q ); ?>
+					<?php
+				endif;
+				?>
 			</div>
 		</div>
 
-		<?php
-		get_sidebar(); ?>
+		<?php get_sidebar(); ?>
 
 	</div>
 </div>
 
-<?php
-get_footer(); ?>
+<?php get_footer(); ?>

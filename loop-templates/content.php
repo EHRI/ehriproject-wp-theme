@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="views-row" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<div <?php post_class( 'views-row' ); ?> id="post-<?php the_ID(); ?>">
 	<div class="views-field views-field-field-photo">
 		<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo get_the_title(); ?>">
 			<?php the_post_thumbnail( null, 'medium' ); ?>

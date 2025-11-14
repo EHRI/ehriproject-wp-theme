@@ -27,8 +27,8 @@
 
 	<?php wp_head(); ?>
 
-	<?php
-	if ( $plausible_domain = get_theme_mod( 'ehriproject_plausible_domain' ) ) :?>
+	<?php $plausible_domain = get_theme_mod( 'ehriproject_plausible_domain' ); ?>
+	<?php if ( $plausible_domain ) : ?>
 		<script async defer data-domain="<?php echo $plausible_domain; ?>" src="https://plausible.io/js/plausible.js"></script>
 	<?php endif; ?>
 </head>
@@ -42,16 +42,12 @@
 		<div id="logoregion">
 			<div class="region region-highlighted">
 				<div id="block-block-20" class="block block-block first odd">
-
-
 					<div id="menubutton">menu</div>
 				</div>
 				<div id="block-block-9" class="block block-block even">
 					<h1 id="logo"><a href="<?php echo $home; ?>">EHRI- European Holocaust Research Infrastructure</a></h1>
 				</div>
 				<div id="block-search-form" class="block block-search last odd" role="search">
-
-
 					<form action="/" id="search-block-form" accept-charset="UTF-8">
 						<div>
 							<div class="container-inline">

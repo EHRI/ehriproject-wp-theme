@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for latest news items.
+ *
+ * @package ehriproject-wp-theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,25 +18,26 @@ get_header();
 			<div id="content" class="column" role="main">
 				<div id="content-inner">
 					<a id="main-content"></a>
-					<?php while ( have_posts() ) : the_post(); ?>
+					<?php while ( have_posts() ) : ?>
+						<?php the_post(); ?>
 						<?php get_template_part( 'loop-templates/content', 'single' ); ?>
 					<?php endwhile; ?>
 					<?php wp_reset_postdata(); ?>
 					<!-- Fetch all posts with the 'news' category and list them in reverse chronological order with pagination -->
 					<?php
-					$paged      = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-					$args       = array(
+					$current_page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+					$args         = array(
 						'category_name' => 'news',
-						'paged'         => $paged,
+						'paged'         => $current_page,
 						'orderby'       => 'date',
 						'order'         => 'DESC',
 					);
-					$news_query = new WP_Query( $args );
+					$news_query   = new WP_Query( $args );
 					?>
 
-					<?php
-					if ( $news_query->have_posts() ) : ?>
-						<?php while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
+					<?php if ( $news_query->have_posts() ) : ?>
+						<?php while ( $news_query->have_posts() ) : ?>
+							<?php $news_query->the_post(); ?>
 							<?php get_template_part( 'loop-templates/content', 'news' ); ?>
 						<?php endwhile; ?>
 
@@ -50,5 +53,4 @@ get_header();
 	</div>
 </div>
 
-<?php
-get_footer(); ?>
+<?php get_footer(); ?>

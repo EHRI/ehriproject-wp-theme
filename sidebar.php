@@ -1,6 +1,8 @@
 <?php
 /**
  * The sidebar containing the main widget area.
+ *
+ * @package ehriproject-wp-theme
  */
 
 ?>
@@ -42,7 +44,7 @@
 		</div>
 		<div id="block-views-latestnews-block-2" class="block block-views news last odd">
 			<h2 class="block__title block-title"><a href="/latestnews" class="block-title-link"></a></h2>
-			<div class="view view-latestnews view-id-latestnews view-display-id-block_2 view-dom-id-cd819287d9ba73b1478531a088de54d4">
+			<div class="view view-latestnews view-id-latestnews view-display-id-block_2">
 
 				<!-- Fetch a random gallery_item and use it as the header image -->
 				<?php
@@ -55,6 +57,7 @@
 						'orderby'        => 'date',
 						'order'          => 'DESC',
 						'category_name'  => 'News',
+						// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- Required for filtering.
 						'tax_query'      => array(
 							array(
 								'taxonomy' => 'newsletter_category',
@@ -72,11 +75,14 @@
 				<div class="view-content">
 					<?php if ( $latest_news_query->have_posts() ) : ?>
 						<?php $num = 1; ?>
-						<?php while ( $latest_news_query->have_posts() ) : $latest_news_query->the_post(); ?>
+						<?php while ( $latest_news_query->have_posts() ) : ?>
+							<?php $latest_news_query->the_post(); ?>
 							<div class="views-row views-row-<?php echo $num; ?>	views-row-odd views-row-first">
 								<div>
 									<h3>
-										<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>"><?php echo esc_html( the_title() ); ?></a>
+										<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
+											<?php echo esc_html( the_title() ); ?>
+										</a>
 									</h3>
 								</div>
 							</div>

@@ -1,6 +1,8 @@
 <?php
 /**
- * The template for latest news items.
+ * The template for 2012 fellows.
+ *
+ * @package ehriproject-wp-theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for latest news items.
+ *
+ * @package ehriproject-wp-theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
