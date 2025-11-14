@@ -29,7 +29,7 @@
 					<?php endwhile; ?>
 
 					<!-- The pagination component -->
-					<?php ehriproject_pagination( $query ); ?>
+<!--					--><?php //ehriproject_pagination( $query ); ?>
 				<?php else : ?>
 					<h4><?php echo esc_html( sprintf( 'No results found for "%s"', $query ) ); ?> </h4>
 				<?php endif; ?>
