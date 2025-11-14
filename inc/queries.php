@@ -30,7 +30,8 @@ if ( ! function_exists( 'ehriproject_homepage_teaser_args' ) ) {
 			// custom ORDER BY clause.
 			// We also ensure that all front-page items have a featured image.
 			$results = $wpdb->get_results( // phpcs:ignore WordPress.DB.DirectDatabaseQuery
-				"
+				$wpdb->prepare(
+					"
             SELECT DISTINCT p.ID
             FROM {$wpdb->posts} p
             LEFT JOIN {$wpdb->term_relationships} rels ON (p.ID = rels.object_id)
@@ -45,9 +46,11 @@ if ( ! function_exists( 'ehriproject_homepage_teaser_args' ) ) {
                 CASE WHEN pm2.meta_value IS NOT NULL THEN 0 ELSE 1 END,
                 pm2.meta_value ASC,
                 p.post_date DESC
-            LIMIT " . intval( $limit )
+            LIMIT %d",
+					$limit
+				)
 			);
-			set_transient( $transient_key, $results, MINUTE_IN_SECONDS );
+			set_transient( $transient_key, $results, HOUR_IN_SECONDS );
 		}
 
 		// Now we've got the post IDs, we can fetch the full post objects.

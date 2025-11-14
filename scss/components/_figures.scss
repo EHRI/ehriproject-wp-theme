@@ -1,0 +1,47 @@
+@import "../variables";
+@import "../mixins";
+
+// A figure with the caption on the side
+// NB: these are typically used via the
+// figure shortcodes in the Markdown content
+// and are thus scoped to the page-content class.
+// Without the page-content class, the styles
+// will not apply because they are overridden by
+// the more specific styles on the figure element
+// in the _page-content.scss file.
+.page-content {
+  .fig-side {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+
+    img {
+      flex: 2;
+    }
+
+    figcaption {
+      flex: 1;
+    }
+  }
+
+  .fig-float,
+  .fig-right {
+    float: none;
+    margin: 0 0 1rem 0;
+    width: 100%;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    .fig-float {
+      float: left;
+      margin: 0 1rem 1rem 0;
+      width: calc(50% - .5rem);
+    }
+
+    .fig-right {
+      float: right;
+      margin: 0 0 1rem 1rem;
+    }
+  }
+}
+

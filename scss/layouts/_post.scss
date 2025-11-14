@@ -1,0 +1,79 @@
+body.single-post main .page-content,
+body.error404 main .page-content,
+body.page main .page-content
+{
+
+	.page-section {
+		padding: var(--margin-section-v) var(--margin-section-h);
+	}
+
+	> .post-header {
+		> .post-title {
+			padding: 0 var(--margin-page-h);
+			@include header-font-2();
+			margin: 0;
+		}
+	}
+
+	> .post-header.has-featured-image {
+		background-color: var(--grey-light);
+
+		> .post-title {
+			padding: var(--margin-page-v) var(--margin-page-h);
+			margin: 0;
+		}
+
+		> .post-featured-image {
+			min-height: 100%;
+
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	.post-date {
+		grid-area: date;
+
+		font-weight: var(--font-weight-bolder);
+	}
+
+	> .post-body {
+		grid-area: body;
+
+		padding: var(--margin-section-v) var(--margin-section-h);
+	}
+
+	@media (min-width: $breakpoint-laptop) {
+
+		> .post-header.has-featured-image {
+			padding: 0;
+			display: grid;
+			// This expression looks a little insane: within the "content" width of the page, the header takes
+			// up 1/3 and the featured image 2/3. However, the featured image also extends into the margin area,
+			// whereas the title has a left padding equal to the left margin. This expression means: take the
+			// full width of the page, subtract the width of both margins, divide by 3, and add the page margin
+			// to get the width of the title. Then the featured image takes up the remaining space.
+			grid-template-columns: calc(((100% - (2* var(--margin-page-h))) / 3) + var(--margin-page-h)) 1fr;
+			grid-auto-rows: auto;
+			grid-template-areas: "title image";
+
+			> .post-title {
+				grid-area: title;
+				padding: min(3vw, 6rem) $space-xl min(3vw, 6rem) var(--margin-page-h);
+			}
+			> .post-featured-image {
+				grid-area: image;
+				padding: 0;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-wide) {
+		> .post-header > .post-featured-image {
+			max-height: 30rem;
+		}
+	}
+}

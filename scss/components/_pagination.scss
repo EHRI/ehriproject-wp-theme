@@ -1,0 +1,31 @@
+/**
+ * Pagination component.
+ */
+
+.pagination {
+
+	padding: var(--margin-page-v) var(--margin-page-h);
+
+	.pager {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0;
+
+		.pager-item {
+			list-style: none;
+			display: flex;
+
+			.page-link {
+				font-weight: var(--font-weight-bold);
+				padding: $space-md $space-lg;
+			}
+		}
+		.pager-current {
+			.page-link {
+				color: var(--white);
+				background-color: var(--theme-fg-accent);
+				border-radius: 3px;
+			}
+		}
+	}
+}

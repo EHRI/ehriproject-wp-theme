@@ -1,0 +1,106 @@
+/**
+  Styling for hero block components. Note: this is included
+  by the React block so is standalone, importing its dependencies.
+ */
+
+@import "../variables";
+@import "../mixins";
+@import "../base";
+
+// Editor CSS (TODO: move to another file?)
+.wp-block-ehriproject-hero-section .hero .hero-header,
+.wp-block-ehriproject-hero-section .hero-body
+{
+	padding: $space-lg $space-xl;
+}
+
+.hero-header {
+	padding: 10rem var(--margin-section-h);
+
+	overflow: hidden;
+	//background: rgb(var(--theme-fg) / 40%);
+	background-image: linear-gradient(
+			70deg,
+			hsl(279deg 32% 25%) 0%,
+			hsl(279deg 32% 25%) 12%,
+			hsl(278deg 32% 24%) 23%,
+			hsl(278deg 33% 24%) 34%,
+			hsl(278deg 33% 23%) 44%,
+			hsl(278deg 33% 23%) 53%,
+			hsl(278deg 33% 22%) 61%,
+			hsl(278deg 33% 22%) 69%,
+			hsl(278deg 33% 21%) 75%,
+			hsl(278deg 33% 20%) 80%,
+			hsl(278deg 34% 20%) 85%,
+			hsl(278deg 34% 19%) 90%,
+			hsl(278deg 34% 18%) 100%
+	);
+
+	> .hero-bg,
+	> .hero-image,
+	> .hero-parallax-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+	}
+
+	position: relative;
+
+	#parallax-bg {
+		background-image: url('./images/hero/warsaw_teunisse-crop-bw.jpg');
+		z-index: 0;
+		opacity: 5%;
+	}
+
+	> .hero-image {
+		background-image: url('./images/hero/blocks-p1.svg');
+		z-index: 1;
+		filter: drop-shadow(.5rem .5rem 2rem rgba(0, 0, 0, .5));
+	}
+
+	#parallax-mid {
+		background-image: url('./images/hero/blocks-p2.svg');
+		z-index: 2;
+		filter: drop-shadow(.4rem .4rem 2rem rgba(0, 0, 0, .5));
+	}
+
+	#parallax-front {
+		background-image: url('./images/hero/blocks-p3.svg');
+		z-index: 3;
+		filter: drop-shadow(.3rem .3rem 2rem rgba(0, 0, 0, .5));
+	}
+
+	.hero-title {
+		color: var(--white);
+		position: inherit;
+		margin: 0;
+		margin-bottom: $space-lg;
+		z-index: 3;
+		filter: drop-shadow(.5rem .5rem 2rem rgba(0, 0, 0, .5));
+	}
+
+	.hero-tagline {
+		position: inherit;
+		font-size: var(--font-size-lg);
+		font-weight: var(--font-weight-reg);
+		line-height: var(--line-height-lg);
+		color: var(--white);
+		margin: 0;
+		z-index: 3;
+		filter: drop-shadow(.5rem .5rem 2rem rgba(0, 0, 0, .5));
+	}
+}
+
+.hero-body {
+	color: var(--theme-bg);
+	background-color: var(--theme-fg);
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+}
+

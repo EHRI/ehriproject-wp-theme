@@ -1,0 +1,12 @@
+// Overrides for the podcast page
+
+.podcast-episode {
+	.post-thumbnail img {
+		aspect-ratio: 1;
+	}
+
+	.post-header h2 {
+		font-weight: normal;
+		font-size: var(--font-size-base);
+	}
+}

@@ -1,0 +1,95 @@
+
+.form-controls {
+
+	padding: $space-lg var(--margin-section-h);
+
+	.form-group {
+		display: grid;
+		grid-gap: $space-lg;
+		grid-template-columns: 1fr;
+
+		@media (min-width: $breakpoint-tablet) {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.form-control {
+		margin-bottom: $space-md;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 8px;
+		font-weight: 600;
+		color: #23282d;
+		font-size: 14px;
+	}
+
+	select {
+		width: 100%;
+		padding: 12px 16px;
+		font-size: 16px;
+		line-height: 1.5;
+		color: #32373c;
+		background-color: #fff;
+		border: 1px solid #8c8f94;
+		border-radius: 4px;
+		transition: border-color 0.2s ease;
+		cursor: pointer;
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23555' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 12px center;
+		padding-right: 40px;
+	}
+
+	select:hover {
+		border-color: #2271b1;
+	}
+
+	select:focus {
+		outline: none;
+		border-color: #2271b1;
+		box-shadow: 0 0 0 1px #2271b1;
+	}
+
+	.submit-btn {
+		width: 100%;
+		padding: 12px 24px;
+		font-size: 16px;
+		font-weight: 600;
+		color: #fff;
+		background-color: #2271b1;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+	}
+
+	.submit-btn:hover {
+		background-color: #135e96;
+	}
+
+	.submit-btn:active {
+		background-color: #0a4b78;
+	}
+
+	.submit-btn:focus {
+		outline: 2px solid #2271b1;
+		outline-offset: 2px;
+	}
+
+}
+
+.post-list {
+	.fellowship {
+		.post-thumbnail img {
+			aspect-ratio: 1;
+		}
+
+		.post-header h2 {
+			font-weight: normal;
+			font-size: var(--font-size-base);
+		}
+	}
+}

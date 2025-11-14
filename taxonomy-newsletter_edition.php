@@ -10,10 +10,10 @@ $newsletter_edition_name = get_queried_object()->name;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
 	<meta charset="utf-8"/>
-	<link rel="shortcut icon" href="<?php echo get_theme_file_uri( 'favicon.png' ); ?>" type="image/png"/>
+	<link rel="shortcut icon" href="<?php echo esc_url( get_theme_file_uri( 'favicon.png' ) ); ?>" type="image/png"/>
 	<link rel="canonical" href="<?php echo esc_attr( get_term_link( $newsletter_edition_slug, 'newsletter_edition' ) ); ?>"/>
 	<link rel="shortlink" href="<?php echo esc_attr( get_term_link( $newsletter_edition_slug, 'newsletter_edition' ) ); ?>"/>
 	<meta name="dcterms.title" content="EHRI Newsletter - <?php echo esc_html( $newsletter_edition_name ); ?>"/>
@@ -174,7 +174,7 @@ $newsletter_edition_name = get_queried_object()->name;
 
 		.footer li {
 			color: #666666;
-			background: url(<?php echo get_theme_file_uri( 'images/newsletter/bullet.gif' ); ?>) no-repeat 0 5px;
+			background: url(<?php echo esc_url( get_theme_file_uri( 'images/newsletter/bullet.gif' ) ); ?>) no-repeat 0 5px;
 			padding-left: 10px;
 		}
 
@@ -254,10 +254,10 @@ $newsletter_edition_name = get_queried_object()->name;
 			<td id="top1" class="topborder">&nbsp;</td>
 		</tr>
 		<tr>
-			<td id="top2"><img src="<?php echo get_theme_file_uri( 'images/newsletter/logo.gif' ); ?>" alt=""/></td>
+			<td id="top2"><img src="<?php echo esc_url( get_theme_file_uri( 'images/newsletter/logo.gif' ) ); ?>" alt=""/></td>
 		</tr>
 		<tr>
-			<td id="top3"><img src="<?php echo get_theme_file_uri( 'images/newsletter/visual.jpg' ); ?>" alt=""/></td>
+			<td id="top3"><img src="<?php echo esc_url( get_theme_file_uri( 'images/newsletter/visual.jpg' ) ); ?>" alt=""/></td>
 		</tr>
 		<tr>
 			<td id="top4" class="td_padding"><b>EHRI Newsletter - <?php echo esc_html( $newsletter_edition_name ); ?></b></td>
@@ -299,7 +299,7 @@ $newsletter_edition_name = get_queried_object()->name;
 								<td colspan="2">
 									<div class="field field-title">
 										<h2>
-											<a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+											<a href="<?php echo esc_url( get_the_permalink() ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
 												<?php the_title(); ?>
 											</a>
 										</h2>
@@ -311,12 +311,12 @@ $newsletter_edition_name = get_queried_object()->name;
 								<td>
 									<?php if ( has_post_thumbnail() ) : ?>
 										<div class="field field-photo">
-											<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' ); ?>" alt="<?php echo get_the_title(); ?>"/>
+											<img src="<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' ) ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>"/>
 										</div>
 									<?php endif; ?>
 									<div class="field field-datum">
 								<span class="date-display-single">
-									<?php echo get_the_date( 'd/m/Y' ); ?>
+									<?php echo esc_html( get_the_date( 'd/m/Y' ) ); ?>
 								</span>
 									</div>
 									<div class="field field-body">
@@ -327,7 +327,7 @@ $newsletter_edition_name = get_queried_object()->name;
 							<tr>
 								<td colspan="2">
 									<span class="readmore">
-										<a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>">Read more &gt;
+										<a href="<?php echo esc_url( get_the_permalink() ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">Read more &gt;
 									</span>
 								</td>
 							</tr>
@@ -366,17 +366,17 @@ $newsletter_edition_name = get_queried_object()->name;
 			<td id="social">
 				<a href="https://bsky.app/profile/ehri-project.eu">
 					<img alt="Bluesky Icon"
-						src="<?php echo get_theme_file_uri( 'images/bluesky.png' ); ?>"
+						src="<?php echo esc_url( get_theme_file_uri( 'images/bluesky.png' ) ); ?>"
 						width="50" height="50">
 				</a>
 				<a href="https://facebook.com/EHRIproject">
 					<img alt="Facebook Icon"
-						src="<?php echo get_theme_file_uri( 'images/facebook.png' ); ?>"
+						src="<?php echo esc_url( get_theme_file_uri( 'images/facebook.png' ) ); ?>"
 						width="50" height="50">
 				</a>
 				<a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/">
 					<img alt="LinkedIn Icon"
-						src="<?php echo get_theme_file_uri( 'images/linkedin2.png' ); ?>"
+						src="<?php echo esc_url( get_theme_file_uri( 'images/linkedin2.png' ) ); ?>"
 						width="50" height="50">
 				</a>
 			</td>

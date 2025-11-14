@@ -1,0 +1,53 @@
+/**
+ * Globals
+ */
+// region Global
+$headings-font-family: 'Barlow', sans-serif;
+$font-family-base: $headings-font-family;
+
+// Font sizing
+$font-size-base: 1rem;
+$font-size-xs: 0.625rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1.125rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.75rem;
+$font-size-title: 2.5rem;
+
+// Font weightings
+$font-weight-reg: 400;
+$font-weight-bold: 500;
+$font-weight-bolder: 600;
+
+// General spacing
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+
+// Common colours
+$wine-red: #6C003B;
+$wine-red-highlight: #980756;
+$purple: #472C56;
+$purple-light: #F7F3FF;
+$grey-lighter: #F1F1F1;
+$grey-light: #EDEAEE;
+$grey-dark: #46463D;
+$grey-darker: #3B3B3B;
+$beige: #DAD7BE;
+$white: #FFF;
+$black: #46463D;
+
+// Backgrounds
+$beige-light: linear-gradient(0deg, rgba(213, 210, 184, 0.2), rgba(213, 210, 184, 0.2)), #FFFFFF;
+
+// Logo sizes
+$logo-width-lg: 24rem;
+$logo-width-md: 20rem;
+$logo-width-sm: 16rem;
+
+// Breakpoints
+//$max-width: 1742px; // of design
+$breakpoint-wide: 1440px;
+$breakpoint-laptop: 1024px;
+$breakpoint-tablet: 576px;

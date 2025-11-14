@@ -5,40 +5,59 @@
  * @package ehriproject-wp-theme
  */
 
+// Get the search query for pagination.
+global $wp_query;
+
 ?>
 
 <?php get_header(); ?>
 
-<div id="main">
-	<div id="main-inner">
-		<div id="content" class="column" role="main">
-			<div id="content-inner">
-				<a id="main-content"></a>
-				<?php $query = get_search_query(); ?>
-				<?php if ( have_posts() ) : ?>
-					<h1 class="page__title title" id="page-title">Search Results</h1>
-					<?php $q = trim( $query ); ?>
-					<?php if ( $q ) : ?>
-						<h2 class="text-muted">
-							<?php echo '"' . esc_html( $q ) . '"'; ?>
-						</h2>
-					<?php endif; ?>
-					<?php while ( have_posts() ) : ?>
-						<?php the_post(); ?>
-						<?php get_template_part( 'loop-templates/content', 'news' ); ?>
-					<?php endwhile; ?>
+<main id="content">
+	<?php $query = get_search_query(); ?>
+	<?php $q = trim( $query ); ?>
+	<section class="hero">
+		<header class="hero-header">
+			<h1 class="hero-title"><?php esc_html_e( 'Search the EHRI website', 'ehriproject' ); ?></h1>
 
-					<!-- The pagination component -->
-<!--					--><?php //ehriproject_pagination( $query ); ?>
-				<?php else : ?>
-					<h4><?php echo esc_html( sprintf( 'No results found for "%s"', $query ) ); ?> </h4>
-				<?php endif; ?>
+			<form method="get">
+				<div class="hero-search-box">
+					<label class="sr-only" for="hero-search-box">Search</label>
+					<i class="fa fa-2x fa-search" aria-hidden="true"></i>
+					<input name="s" id="hero-search-box" class="hero-search-box-input" type="text"
+						placeholder="<?php esc_attr_e( 'What are you looking for?', 'ehriproject' ); ?>"
+						value="<?php echo esc_attr( $q ); ?>">
+					<button type="submit" class="hero-search-box-button button-primary">
+						<?php esc_html_e( 'Search', 'ehriproject' ); ?>
+					</button>
+				</div>
+			</form>
+		</header>
+	</section>
+	<section class="page-content">
+		<?php if ( have_posts() ) : ?>
+			<?php if ( $q ) : ?>
+				<section class="breadcrumbs">
+					<div class="text-muted">
+						<?php echo '"' . esc_html( $q ) . '"'; ?>
+					</div>
+				</section>
+			<?php endif; ?>
+
+			<div class="post-list">
+				<?php while ( have_posts() ) : ?>
+					<?php the_post(); ?>
+					<?php get_template_part( 'loop-templates/content', 'news' ); ?>
+				<?php endwhile; ?>
 			</div>
-		</div>
 
-		<?php get_sidebar(); ?>
-
-	</div>
-</div>
+			<!-- The pagination component -->
+			<?php ehriproject_pagination( $wp_query ); ?>
+		<?php else : ?>
+			<div class="post-list">
+				<h4><?php echo esc_html( sprintf( 'No results found for "%s"', $query ) ); ?> </h4>
+			</div>
+		<?php endif; ?>
+	</section>
+</main>
 
 <?php get_footer(); ?>
