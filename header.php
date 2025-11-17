@@ -37,9 +37,11 @@
 		<div class="banner">
 			<div class="logo">
 				<a href="<?php echo esc_url( home_url() ); ?>">
-					<img src="<?php echo esc_url( get_theme_file_uri( 'images/ehri-logo.svg' ) ); ?>" alt="EHRI Logo"/></a>
+					<img src="<?php echo esc_url( get_theme_file_uri( 'images/ehri-logo-ng.png' ) ); ?>"
+						alt="EHRI Logo"
+						title="<?php bloginfo( 'name' ); ?>"/>
+				</a>
 			</div>
-			<a href="<?php echo esc_url( home_url() ); ?>" class="title"><?php bloginfo( 'name' ); ?></a>
 		</div>
 		<nav class="nav main-navbar navbar-container" role="navigation">
 			<label for="hamburger-toggle">Show menu</label>
@@ -49,18 +51,26 @@
 			<span class="hamburger-part"></span>
 
 			<div class="navbar">
-				<ul class="text-items header-menu">
-					<?php $menu_page = get_queried_object(); ?>
-					<?php foreach ( wp_get_nav_menu_items( 'main-menu' ) as $menu_item ) : ?>
-						<li class="header-menu-item	<?php echo ( $menu_page->ID === $menu_item->object_id ? 'active' : '' ); ?>">
-							<a href="<?php echo esc_url( $menu_item->url ); ?>">
-								<?php echo esc_html( $menu_item->title ); ?>
-							</a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+				<ul class="main-menu header-menu" id="main-menu-items">
+					<?php
+					wp_nav_menu(
+						array(
+							'menu'       => 'main-menu',
+							'container'  => false,
+							'items_wrap' => '%3$s', // don't wrap the items in a <ul>.
+						)
+					);
+					?>
 
-				<?php get_template_part( 'social' ); ?>
+					<li class="menu-item" id="menu-item-search">
+						<div class="search-controls">
+							<form role="search" method="get" id="search-form" class="search-form" action="<?php echo $home; ?>">
+								<label class="screen-reader-text" for="search-input">Search for:</label>
+								<input type="text" value="" name="s" id="search-input" placeholder="<?php esc_html_e( 'Search', 'ehriproject' ); ?>" autofocus>
+							</form>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</nav>
 	</header>

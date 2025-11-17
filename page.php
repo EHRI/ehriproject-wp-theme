@@ -12,22 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<div id="main">
-	<div id="main-inner">
-		<?php if ( have_posts() ) : ?>
-			<div id="content" class="column" role="main">
-				<div id="content-inner">
-					<a id="main-content"></a>
-					<?php while ( have_posts() ) : ?>
-						<?php the_post(); ?>
-						<?php get_template_part( 'loop-templates/content', 'page' ); ?>
-					<?php endwhile; ?>
-				</div>
-			</div>
-		<?php endif; ?>
-
-		<?php get_sidebar(); ?>
-	</div>
-</div>
+<main id="content">
+	<?php if ( have_posts() ) : ?>
+		<section class="page-content" role="main">
+			<?php while ( have_posts() ) : ?>
+				<?php the_post(); ?>
+				<?php get_template_part( 'loop-templates/content', 'page' ); ?>
+			<?php endwhile; ?>
+		</section>
+	<?php endif; ?>
+</main>
 
 <?php get_footer(); ?>

@@ -24,12 +24,5 @@
 </footer>
 
 <?php wp_footer(); ?>
-<script>
-	// Toggle menu class on body when #menubutton is clicked
-	document.getElementById('menubutton').addEventListener('click', function () {
-		document.body.classList.toggle('menu');
-	});
-
-</script>
 </body>
 </html>

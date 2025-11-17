@@ -12,22 +12,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<div id="main">
-	<div id="main-inner">
+<main id="content">
+	<section class="page-content" role="main">
+		<h1><?php esc_html_e( '404: Page not found', 'ehriproject' ); ?></h1>
 
-		<div id="content" class="column" role="main">
-			<div id="content-inner">
-				<h1>404: Page not found</h1>
-
-				<p>Sorry, the page you are looking for does not exist at this address.
-					The search function might help you locate it.</p>
-			</div>
-		</div>
-
-		<?php get_sidebar(); ?>
-
-	</div>
-</div>
-
+		<p>
+		<?php
+		esc_html_e(
+			'Sorry, the page you are looking for does not exist at this address. The search function might help you locate it.',
+			'ehriproject'
+		);
+		?>
+			</p>
+	</section>
+</main>
 
 <?php get_footer(); ?>

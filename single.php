@@ -12,18 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<div id="main">
+<main id="content">
 	<?php if ( have_posts() ) : ?>
-		<div id="content" class="column" role="main">
-			<div id="content-inner">
-				<a id="main-content"></a>
-				<?php while ( have_posts() ) : ?>
-					<?php the_post(); ?>
-					<?php get_template_part( 'loop-templates/content', 'single' ); ?>
-				<?php endwhile; ?>
-			</div>
-		</div>
+		<section class="page-content" role="main">
+			<?php while ( have_posts() ) : ?>
+				<?php the_post(); ?>
+				<?php get_template_part( 'loop-templates/content', 'single' ); ?>
+			<?php endwhile; ?>
+		</section>
 	<?php endif; ?>
-</div>
+</main>
 
 <?php get_footer(); ?>
