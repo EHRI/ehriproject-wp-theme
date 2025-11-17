@@ -99,6 +99,10 @@ body {
   --margin-page-v: max(1rem, min(3.1875rem, 5vw));
   --margin-page-h: max(1rem, 5vw);
 
+	@media (min-width: $breakpoint-laptop) {
+		--margin-page-h: max(1rem, 10vw);
+	}
+
   --margin-section-v: max(2rem, min(5rem, 7vw));
   --margin-section-h: var(--margin-page-h);
 

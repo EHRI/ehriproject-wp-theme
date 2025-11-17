@@ -39,7 +39,7 @@
 @mixin button() {
   border-radius: var(--input-border-radius);
   border: 2px solid transparent;
-  padding: .75rem 1.25rem;
+  padding: $space-md $space-lg;
   display: inline-block;
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-bold);

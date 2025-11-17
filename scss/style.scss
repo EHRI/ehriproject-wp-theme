@@ -25,3 +25,11 @@ $fa-font-path: "./fonts";
 @import "fa/brands";
 @import "fa/regular";
 @import "fa/shims";
+
+.post-thumbnail > a > picture > img {
+	width: 100%;
+}
+
+.page-content {
+	margin: var(--margin-page-v) var(--margin-page-h);
+}

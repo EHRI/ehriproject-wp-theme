@@ -62,14 +62,14 @@
 					);
 					?>
 
-					<li class="menu-item" id="menu-item-search">
-						<div class="search-controls">
-							<form role="search" method="get" id="search-form" class="search-form" action="<?php echo $home; ?>">
-								<label class="screen-reader-text" for="search-input">Search for:</label>
-								<input type="text" value="" name="s" id="search-input" placeholder="<?php esc_html_e( 'Search', 'ehriproject' ); ?>" autofocus>
-							</form>
-						</div>
-					</li>
+<!--					<li class="menu-item" id="menu-item-search">-->
+<!--						<div class="search-controls">-->
+<!--							<form role="search" method="get" id="search-form" class="search-form" action="--><?php //echo $home; ?><!--">-->
+<!--								<label class="screen-reader-text" for="search-input">Search for:</label>-->
+<!--								<input type="text" value="" name="s" id="search-input" placeholder="--><?php //esc_html_e( 'Search', 'ehriproject' ); ?><!--" autofocus>-->
+<!--							</form>-->
+<!--						</div>-->
+<!--					</li>-->
 				</ul>
 			</div>
 		</nav>
