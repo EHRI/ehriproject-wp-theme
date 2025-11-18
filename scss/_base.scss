@@ -62,10 +62,10 @@ body {
   --theme-header-fg-muted: var(--theme-fg-muted);
 
   // Footer varieties of above
-  --theme-footer-bg: #{$grey-darker};
+  --theme-footer-bg: #{$beige};
   --theme-footer-bg-accent: var(--theme-footer-bg);
   --theme-footer-bg-accent-gradient: var(--theme-footer-bg-accent);
-  --theme-footer-fg: #{$beige};
+  --theme-footer-fg: #{$black};
   --theme-footer-fg-accent: var(--theme-footer-fg);
   --theme-footer-fg-muted: var(--theme-footer-fg);
 

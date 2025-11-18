@@ -322,6 +322,12 @@
 			margin-bottom: 0;
 			display: flex;
 			align-items: center;
+
+		}
+
+		.menu-item > .description {
+			// Don't currently display top-level menu item descriptions.
+			display: none;
 		}
 
 		> .menu-item:last-child {
@@ -342,6 +348,7 @@
 
 		.menu-item:hover > .sub-menu {
 			position: absolute;
+
 			background-color: #F4F4F4;
 			top: calc(100% + var(--margin-page-v));
 			left: -#{$logo-width-lg};
@@ -360,6 +367,7 @@
 
 			display: grid;
 			grid-template-columns: 1fr 1fr;
+			grid-auto-rows: 1fr;
 			justify-content: start;
 			align-items: start;
 			gap: $space-lg;
@@ -370,9 +378,14 @@
 
 			a {
 				color: var(--black);
+				font-size: var(--font-size-md);
 			}
 			a:hover {
-				color: var(--grey-mid);
+				font-weight: var(--font-weight-bolder);
+			}
+			.description {
+				display: block;
+				color: var(--grey-darker);
 			}
 		}
 
@@ -381,7 +394,7 @@
 			margin-top: calc(var(--margin-page-v) + 1px);
 			position: absolute;
 			top: calc(100% - var(--margin-page-v)); /* Position above the sub-menu */
-			transform: translate(40px);
+			//transform: translate(40px);
 			//left: 3rem; /* Adjust horizontal position as needed */
 
 			/* Create triangle using borders */
