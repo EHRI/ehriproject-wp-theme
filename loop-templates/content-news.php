@@ -12,32 +12,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-	<div class="news">
-		<?php if ( has_post_thumbnail() ) : ?>
+	<?php if ( has_post_thumbnail() ) : ?>
+		<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo get_the_title(); ?>">
 			<div class="post-thumbnail">
 				<?php the_post_thumbnail( 'medium' ); ?>
 			</div>
-		<?php endif; ?>
-		<header class="post-header">
-			<h2>
-				<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo get_the_title(); ?>">
-					<?php the_title(); ?>
-				</a>
-			</h2>
-		</header>
-		<div class="post-date">
+		</a>
+	<?php endif; ?>
+	<header class="post-header">
+		<h2>
+			<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo get_the_title(); ?>">
+				<?php the_title(); ?>
+			</a>
+		</h2>
+	</header>
+	<div class="post-date">
 			<span class="date-display-single">
 				<?php echo get_the_date( 'l, F jS, Y' ); ?>
 			</span>
-		</div>
+	</div>
 
-		<div class="post-excerpt">
-			<?php echo get_the_excerpt(); ?>
-		</div>
-		<div class="post-read-more">
-			<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo get_the_title(); ?>">
-				<?php esc_html_e( 'Read more', 'ehri' ); ?>
-			</a>
-		</div>
+	<div class="post-excerpt">
+		<?php echo get_the_excerpt(); ?>
+	</div>
+	<div class="post-read-more">
+		<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo get_the_title(); ?>">
+			<?php esc_html_e( 'Read more', 'ehri' ); ?>
+		</a>
 	</div>
 </div>

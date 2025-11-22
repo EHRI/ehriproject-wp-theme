@@ -1,5 +1,5 @@
-.page main .page-content  {
-	.post-header h1 {
+body.page main .page-content  {
+	> .post-header h1 {
 		@include header-font-2();
 	}
 

@@ -348,16 +348,18 @@
 
 		// Hide all sub-menus by default...
 		.menu-item > .sub-menu {
-			display: none;
-		}
-
-		.menu-item:hover > .sub-menu {
+			//display: none;
+			opacity: 0;
+			z-index: 1;
+			-webkit-transition: opacity 100ms linear 700ms;
+			transition: opacity 100ms linear 700ms;
 			position: absolute;
 
 			background-color: #F4F4F4;
 			top: calc(100% + var(--margin-page-v));
 			left: -#{$logo-width-lg};
 			right: 0;
+			pointer-events: none;
 			box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
 			list-style: none;
 			min-height: 10vw;
@@ -394,7 +396,17 @@
 			}
 		}
 
-		> .menu-item:hover::after {
+		.menu-item:hover > .sub-menu {
+			opacity: 1;
+			z-index: 1000;
+			pointer-events: auto;
+		}
+
+		> .menu-item::after {
+			opacity: 0;
+			pointer-events: none;
+			-webkit-transition: opacity 100ms linear 700ms;
+			transition: opacity 100ms linear 700ms;
 			content: '';
 			margin-top: calc(var(--margin-page-v) + 1px);
 			position: absolute;
@@ -408,6 +420,11 @@
 			border-left: var(--margin-page-v) solid transparent;
 			border-right: var(--margin-page-v) solid transparent;
 			border-bottom: var(--margin-page-v) solid #F4F4F4; /* Match sub-menu background */
+		}
+		> .menu-item:hover::after {
+			opacity: 1;
+			z-index: 1000;
+			pointer-events: auto;
 		}
 
 		// Remove default padding from input.

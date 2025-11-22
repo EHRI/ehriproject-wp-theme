@@ -25,8 +25,11 @@ $fa-font-path: "./fonts";
 @import "layouts/post";
 @import "layouts/post-body";
 @import "layouts/front-page";
+@import "layouts/latest-news";
 
 @import "components/buttons";
+@import "components/misc";
+@import "components/figures";
 
 @import "fa/fontawesome";
 @import "fa/solid";
