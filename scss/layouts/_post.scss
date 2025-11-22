@@ -1,0 +1,42 @@
+.single-post main .page-content  {
+	display: grid;
+
+	grid-template-areas: "header" "image" "date" "body";
+
+	.post-header {
+		grid-area: header;
+		background-color: var(--grey-mid);
+	}
+
+	.post-featured-image {
+		grid-area: image;
+		width: 100%;
+
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.post-date {
+		grid-area: date;
+
+		font-weight: var(--font-weight-bolder);
+	}
+
+	.post-body {
+		grid-area: body;
+
+		padding: var(--margin-page-v) var(--margin-page-h);
+	}
+
+	@media (min-width: $breakpoint-laptop) {
+		grid-template-areas: "header image" "date date" "body body" ;
+		grid-template-columns: 1fr 1fr;
+
+		.post-header {
+			padding: min(3vw, 6rem) $space-xl min(3vw, 6rem) var(--margin-page-h);
+		}
+	}
+}

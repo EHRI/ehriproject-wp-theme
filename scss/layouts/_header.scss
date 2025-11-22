@@ -253,7 +253,7 @@
 		background-color: transparent;
 		color: var(--theme-footer-fg);
 		font-weight: var(--font-weight-bolder);
-		font-size: var(--font-size-lg);
+		font-size: var(--font-size-base);
 	}
 
 	// At wide widths the menu changes completely to a simple horizontal list of menu items
@@ -298,6 +298,11 @@
 		color: var(--theme-footer-fg);
 	}
 
+	> .menu-item.current-menu-item > a {
+		color: var(--theme-fg-accent);
+		text-shadow: 0 0 1px var(--black);
+	}
+
 	// At wide widths the menu changes completely to a
 	// simple horizontal list of menu items:
 	@media (min-width: $breakpoint-laptop) {
@@ -335,7 +340,7 @@
 		}
 
 		> .menu-item > a {
-			font-size: var(--font-size-md);
+			font-size: var(--font-size-base);
 			text-transform: uppercase;
 			color: var(--theme-fg);
 			padding: $space-md $space-md;
@@ -378,7 +383,7 @@
 
 			a {
 				color: var(--black);
-				font-size: var(--font-size-md);
+				font-size: var(--font-size-base);
 			}
 			a:hover {
 				font-weight: var(--font-weight-bolder);

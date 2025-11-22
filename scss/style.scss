@@ -21,6 +21,13 @@ $fa-font-path: "./fonts";
 @import "layouts/header";
 @import "layouts/footer";
 
+@import "layouts/page";
+@import "layouts/post";
+@import "layouts/post-body";
+@import "layouts/front-page";
+
+@import "components/buttons";
+
 @import "fa/fontawesome";
 @import "fa/solid";
 @import "fa/brands";
@@ -31,6 +38,3 @@ $fa-font-path: "./fonts";
 	width: 100%;
 }
 
-.page-content {
-	margin: var(--margin-page-v) var(--margin-page-h);
-}

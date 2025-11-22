@@ -50,6 +50,8 @@ body {
   --theme-bg-accent-gradient: #{$beige-light};
   // Accented text e.g. links
   --theme-fg-accent: #{$wine-red};
+  // Hovered accented text
+  --theme-fg-accent-highlight: #{$wine-red-highlight};
   // Muted text, e.g. disabled links
   --theme-fg-muted: #{$grey-darker};
 
@@ -81,7 +83,7 @@ body {
   --black: #{$black};
 
   // Defaults for fonts and spacing
-  --input-border-radius: 5px;
+  --input-border-radius: 4px;
   --card-border-radius: 10px;
   --font-size-base: #{$font-size-base};
   --font-size-xs: #{$font-size-xs};
@@ -148,33 +150,15 @@ h1, h2, h3, h4, h5, h6
 }
 
 h1 {
-  font-size: var(--font-size-title);
-  line-height: 2.125rem;
-
-  @media (min-width: $breakpoint-tablet) {
-    font-size: 3.375rem;
-    line-height: 3.625rem;
-  }
-
-  @media (min-width: $breakpoint-laptop) {
-    font-size: 4rem;
-    line-height: 4.25rem;
-  }
+	@include header-font-1();
 }
 
 h2 {
-  font-size: 1.625rem;
-  line-height: 1.75rem;
-
-  @media (min-width: $breakpoint-laptop) {
-    font-size: 2.25rem;
-    line-height: 2.375rem;
-  }
+	@include header-font-2();
 }
 
 h3 {
-  font-size: var(--font-size-lg);
-  line-height: 1.625rem;
+	@include header-font-3();
 }
 
 h4 {

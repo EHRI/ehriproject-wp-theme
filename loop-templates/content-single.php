@@ -28,14 +28,14 @@ $post_status = get_post_status();
 	</div>
 <?php endif; ?>
 
-<?php if ( has_category( 'news' ) ) : ?>
-	<div class="post-date">
+<div class="post-body">
+	<?php if ( has_category( 'news' ) ) : ?>
+		<div class="post-date">
 		<span class="date-display-single">
 			<?php echo get_the_date( 'l, F jS, Y' ); ?>
 		</span>
-	</div>
-<?php endif; ?>
+		</div>
+	<?php endif; ?>
 
-<div class="post-body">
 	<?php the_content(); ?>
 </div>

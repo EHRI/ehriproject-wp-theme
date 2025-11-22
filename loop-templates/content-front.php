@@ -26,5 +26,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</a>
 			</h3>
 		</header>
+		<div class="post-body">
+			<?php the_excerpt(); ?>
+		</div>
 	</div>
 </div><!-- #post-## -->

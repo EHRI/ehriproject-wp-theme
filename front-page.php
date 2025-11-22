@@ -15,16 +15,20 @@
 		$args      = ehriproject_homepage_teaser_args();
 		$the_query = new WP_Query( $args );
 		?>
-		<div class="front-page">
-			<div class="front-page-teasers">
-				<?php if ( $the_query->have_posts() ) : ?>
+		<?php if ( $the_query->have_posts() ) : ?>
+			<div class="front-page">
+				<h2><?php esc_html_e( 'Latest News', 'ehriproject' ); ?></h2>
+				<div class="front-page-teasers">
 					<?php while ( $the_query->have_posts() ) : ?>
 						<?php $the_query->the_post(); ?>
 						<?php get_template_part( 'loop-templates/content-front', get_post_format() ); ?>
 					<?php endwhile; ?>
-				<?php endif; ?>
+				</div>
+				<div class="section-footer">
+					<a class="button-primary" href="/latestnews"><?php esc_html_e( 'More News', 'ehriproject' ); ?></a>
+				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 	</section>
 </main>
 
