@@ -1,0 +1,37 @@
+
+.post-list {
+	padding: var(--margin-page-v) var(--margin-page-h);
+
+	@include auto-grid(15rem, 2rem, 3);
+
+	.post-header {
+		padding: 1rem 0;
+
+		h2 {
+			margin: 0;
+			@include header-font-3();
+		}
+	}
+
+	.post-thumbnail img {
+		aspect-ratio: 36 / 20;
+		object-fit: cover;
+		width: 100%;
+		height: auto;
+	}
+
+	.post-header a {
+		font-size: var(--font-size-base);
+		font-weight: var(--font-weight-bolder);
+		color: var(--black);
+	}
+
+	.post-read-more {
+		font-weight: var(--font-weight-bold);
+	}
+}
+
+.section-footer {
+	display: flex;
+	justify-content: center;
+}

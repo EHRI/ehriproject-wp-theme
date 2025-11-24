@@ -42,7 +42,7 @@ get_header();
 			?>
 
 			<?php if ( $podcast_query->have_posts() ) : ?>
-				<div class="podcast-episode-list">
+				<div class="podcast-episode-list post-list">
 					<?php while ( $podcast_query->have_posts() ) : ?>
 						<?php $podcast_query->the_post(); ?>
 						<div class="podcast-episode" id="podcast-episode-<?php the_ID(); ?>">
@@ -63,8 +63,6 @@ get_header();
 			<?php endif; ?>
 			<?php wp_reset_postdata(); ?>
 		<?php endif; ?>
-
-		<?php get_sidebar(); ?>
 	</div>
 </main>
 

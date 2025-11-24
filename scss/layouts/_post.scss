@@ -1,21 +1,35 @@
-body.single-post main .page-content  {
-	display: grid;
+body.single-post main .page-content,
+body.page main .page-content
+{
 
-	grid-template-areas: "header" "image" "date" "body";
-
-	.post-header {
-		grid-area: header;
-		background-color: var(--grey-mid);
+	.page-section {
+		padding: var(--margin-page-v) var(--margin-page-h);
 	}
 
-	.post-featured-image {
-		grid-area: image;
-		width: 100%;
+	> .post-header {
+		.post-title {
+			padding: 0 var(--margin-page-h);
+			@include header-font-2();
+			margin: 0;
+		}
+	}
 
-		img {
-			object-fit: cover;
-			width: 100%;
-			height: 100%;
+	> .post-header.has-featured-image {
+		background-color: var(--grey-light);
+
+		> .post-title {
+			padding: var(--margin-page-v) var(--margin-page-h);
+			margin: 0;
+		}
+
+		> .post-featured-image {
+			min-height: 100%;
+
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
 		}
 	}
 
@@ -32,11 +46,29 @@ body.single-post main .page-content  {
 	}
 
 	@media (min-width: $breakpoint-laptop) {
-		grid-template-areas: "header image" "date date" "body body" ;
-		grid-template-columns: 1fr 1fr;
 
-		.post-header {
-			padding: min(3vw, 6rem) $space-xl min(3vw, 6rem) var(--margin-page-h);
+		> .post-header.has-featured-image {
+			padding: 0;
+
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			grid-auto-rows: auto;
+			grid-template-areas: "title image";
+
+			.post-title {
+				grid-area: title;
+				padding: min(3vw, 6rem) $space-xl min(3vw, 6rem) var(--margin-page-h);
+			}
+			.post-featured-image {
+				grid-area: image;
+				padding: 0;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-wide) {
+		> .post-header > .post-featured-image {
+			max-height: 30rem;
 		}
 	}
 }

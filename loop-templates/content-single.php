@@ -18,15 +18,15 @@ $post_status = get_post_status();
 	</div>
 <?php endif; ?>
 
-<header class="post-header">
+<header class="post-header<?php echo has_post_thumbnail() ? ' has-featured-image' : ''; ?> ">
 	<h1 class="post-title" id="post-title"><?php the_title(); ?></h1>
-</header>
 
-<?php if ( has_post_thumbnail() ) : ?>
-	<div class="post-featured-image">
-		<?php the_post_thumbnail( 'medium' ); ?>
-	</div>
-<?php endif; ?>
+	<?php if ( has_post_thumbnail() ) : ?>
+		<div class="post-featured-image">
+			<?php the_post_thumbnail( 'medium' ); ?>
+		</div>
+	<?php endif; ?>
+</header>
 
 <div class="post-body">
 	<?php if ( has_category( 'news' ) ) : ?>

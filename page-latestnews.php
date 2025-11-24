@@ -33,7 +33,7 @@ get_header();
 			?>
 
 			<?php if ( $news_query->have_posts() ) : ?>
-				<div class="news">
+				<div class="news post-list">
 					<?php while ( $news_query->have_posts() ) : ?>
 						<?php $news_query->the_post(); ?>
 						<?php get_template_part( 'loop-templates/content', 'news' ); ?>
