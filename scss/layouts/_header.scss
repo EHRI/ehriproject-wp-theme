@@ -313,7 +313,6 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-end;
-		gap: $space-md;
 		position: relative;
 		align-items: stretch;
 
@@ -350,16 +349,33 @@
 			padding: $space-md $space-md;
 		}
 
+		> .menu-item:has(.sub-menu) > a {
+			position: relative;
+		}
+
+
+		$menu-gap: 2rem;
+
 		// Hide all sub-menus by default...
 		> .menu-item > .sub-menu {
+			--menu-offset: calc(100% + #{$menu-gap});
+
+			position: absolute;
+
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-auto-rows: 1fr;
+			justify-content: start;
+			align-items: start;
+			gap: $space-lg;
+
 			opacity: 0;
 			z-index: 1;
 			//-webkit-transition: opacity 100ms linear 700ms;
 			//transition: opacity 100ms linear 700ms;
-			position: absolute;
 
 			background-color: var(--grey-lighter);
-			top: calc(100% + var(--margin-page-v));
+			top: var(--menu-offset);
 			left: -#{$logo-width-lg};
 			right: 0;
 			pointer-events: none;
@@ -369,16 +385,8 @@
 			padding: 2 * $space-lg;
 			padding-right: 30%;
 
-			.sub-menu {
-				display: none; // TEMPORARY hide sub-sub menus.
-			}
-
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			grid-auto-rows: 1fr;
-			justify-content: start;
-			align-items: start;
-			gap: $space-lg;
+			//border-top: 4rem solid transparent;
+			//margin-top: -4rem;
 
 			> .menu-item {
 				text-align: left;
@@ -390,6 +398,10 @@
 				&:hover {
 					background-color: var(--grey-light);
 					font-weight: var(--font-weight-bold);
+				}
+
+				.sub-menu {
+					display: none; // TEMPORARY hide sub-sub menus.
 				}
 			}
 
@@ -413,38 +425,42 @@
 			pointer-events: auto;
 		}
 
-		.menu-item:hover > .sub-menu::before {
+		.menu-item:has(.sub-menu):hover > .sub-menu::before {
 			content: '';
 			position: absolute;
 			bottom: 100%; /* Extends upward from dropdown */
 			left: 0;
 			right: 0;
-			height: var(--margin-page-v); /* Adjust based on gap size */
+			height: $menu-gap; /* Adjust based on gap size */
 			clip-path: polygon(25% 0%,80% 0%, 100% 100%, 0% 100%);
 			background: transparent;
 			pointer-events: auto;
 		}
 
-		> .menu-item::after {
+		// Little triangle thing that points to the open menu...
+		> .menu-item:has(.sub-menu) > a::after {
+			position: absolute;
 			opacity: 0;
 			pointer-events: none;
 			//-webkit-transition: opacity 100ms linear 700ms;
 			//transition: opacity 100ms linear 700ms;
 			content: '';
-			margin-top: calc(var(--margin-page-v) + 1px);
-			position: absolute;
-			top: calc(100% - var(--margin-page-v)); /* Position above the sub-menu */
+			margin-top: calc(#{$menu-gap} + 2px);
+			top: calc(100% - #{$menu-gap}); /* Position above the sub-menu */
 			//transform: translate(40px);
 			//left: 3rem; /* Adjust horizontal position as needed */
+			left: 50%;
+			transform: translateX(-50%);
 
 			/* Create triangle using borders */
 			width: 0;
 			height: 0;
-			border-left: var(--margin-page-v) solid transparent;
-			border-right: var(--margin-page-v) solid transparent;
-			border-bottom: var(--margin-page-v) solid #F4F4F4; /* Match sub-menu background */
+			border-left: $menu-gap solid transparent;
+			border-right: $menu-gap solid transparent;
+			border-bottom: $menu-gap solid var(--grey-lighter); /* Match sub-menu background */
 		}
-		> .menu-item:hover::after {
+
+		> .menu-item:has(.sub-menu):hover > a::after {
 			opacity: 1;
 			z-index: 1000;
 			pointer-events: auto;
