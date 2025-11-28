@@ -300,11 +300,14 @@
 		white-space: break-spaces;
 		background-color: transparent;
 		color: var(--theme-footer-fg);
+		width: fit-content;
 	}
 
 	> .menu-item.current-menu-item > a {
 		color: var(--theme-fg-accent);
 		text-shadow: 0 0 1px var(--black);
+		//text-decoration: underline;
+		//background: linear-gradient(to bottom, transparent calc(100% - 1px), var(--theme-fg-accent) calc(100% - 1px));
 	}
 
 	// At wide widths the menu changes completely to a
@@ -347,6 +350,22 @@
 			text-transform: uppercase;
 			color: var(--theme-fg);
 			padding: $space-md $space-md;
+			align-self: stretch;
+			display: flex;
+			align-items: center;
+		}
+
+		> .menu-item.current-menu-item > a::before {
+			// using a before element here is a hack, but we're already
+			// using the ::after for the mega-menu arrow indicator
+			content: '';
+			width: 90%;
+			height: 1px;
+			position: absolute;
+			bottom: $space-sm;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: var(--theme-fg-accent);
 		}
 
 		> .menu-item:has(.sub-menu) > a {
@@ -438,7 +457,7 @@
 		}
 
 		// Little triangle thing that points to the open menu...
-		> .menu-item:has(.sub-menu) > a::after {
+		> .menu-item > a::after {
 			position: absolute;
 			opacity: 0;
 			pointer-events: none;
@@ -457,6 +476,10 @@
 			height: 0;
 			border-left: $menu-gap solid transparent;
 			border-right: $menu-gap solid transparent;
+			border-bottom: $menu-gap solid transparent;
+		}
+
+		.menu-item:has(.sub-menu) > a::after {
 			border-bottom: $menu-gap solid var(--grey-lighter); /* Match sub-menu background */
 		}
 
