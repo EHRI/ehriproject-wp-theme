@@ -370,6 +370,8 @@
 
 		> .menu-item:has(.sub-menu) > a {
 			position: relative;
+
+			pointer-events: auto;
 		}
 
 
@@ -421,6 +423,14 @@
 
 				.sub-menu {
 					display: none; // TEMPORARY hide sub-sub menus.
+				}
+
+				i.fa {
+					margin-right: $space-sm;
+				}
+				.description {
+					// Font-awesome fixed-width (1.25em)
+					margin-left: calc(1.25em + #{$space-sm});
 				}
 			}
 
