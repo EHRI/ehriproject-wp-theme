@@ -12,6 +12,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	position: relative;
 
 	a {
 		font-size: var(--font-size-base);
@@ -20,12 +21,6 @@
 
 	background-color: var(--theme-header-bg);
 	color: var(--theme-header-fg);
-
-	@media (min-width: $breakpoint-laptop) {
-		// Switch to relative positioning at wide widths for the
-		// mega menu to display.
-		position: relative;
-	}
 }
 
 .header.main .banner {
@@ -33,10 +28,14 @@
 	flex-direction: row;
 	align-items: center;
 	margin-right: auto;
-	padding-right: var(--font-size-lg);
+	//padding-right: var(--font-size-lg);
+
+	a {
+		display: flex;
+	}
 }
 
-.header.main .logo img {
+.header.main .logo a img {
 	width: $logo-width-sm;
 
 	@media (min-width: $breakpoint-tablet) {
@@ -60,55 +59,6 @@
 	@media (min-width: $breakpoint-laptop) {
 		margin-left: 44px;
 		margin-right: 1rem;
-	}
-}
-
-// Language switcher...
-.language-switcher {
-	font-family: var(--font-family-headings);
-	display: flex;
-	flex-direction: row;
-	margin: 0 1rem;
-	font-size: var(--font-size-sm);
-
-	.language-switcher-item {
-		list-style: none;
-		padding: 0 .5rem;
-		//border-left: 1px solid #686867;
-		line-height: 1rem;
-		display: block;
-	}
-
-	.language-switcher-item.active {
-		display: none;
-	}
-
-	.language-switcher-item a {
-		color: var(--theme-header-fg-accent);
-		font-weight: var(--font-weight-bold);
-	}
-
-	.language-switcher-item.active a {
-		color: var(--theme-header-fg-muted);
-	}
-
-	.language-switcher-item:first-child {
-		border-left: none;
-	}
-
-	@media (min-width: $breakpoint-tablet) {
-		margin-right: 0;
-		text-transform: uppercase;
-		position: absolute;
-		top: $space-lg;
-		right: $space-md;
-
-		.language-switcher-item.active {
-			display: unset;
-		}
-		.language-switcher-item + .language-switcher-item {
-			border-left: 1px solid #686867;
-		}
 	}
 }
 
@@ -190,11 +140,12 @@
 
 	// ... and position the menu onscreen
 	.hamburger-toggle:checked ~ .hamburger-part ~ .hamburger-part ~ .hamburger-part ~ .navbar {
-		padding-left: var(--margin-page-h);
+		//padding-left: var(--margin-page-h);
 		/* to stop flickering of text in safari */
 		-webkit-font-smoothing: antialiased;
 		transition: width 0.4s, padding-left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 		width: 100%;
+		height: 100vh;
 	}
 
 	// At tablet widths, the menu is more or less the same, but a bit larger
@@ -235,24 +186,24 @@
 
 
 .navbar-container .navbar {
-	background-color: var(--theme-footer-bg);
+	background-color: var(--grey-light);
 	color: var(--theme-footer-fg);
 	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
 
 	box-sizing: border-box;
 	position: absolute;
 	z-index: 1000;
-	top: 0;
+	top: 100%;
 	right: 0;
 	width: 0; // 0 size until toggle is clicked
-	bottom: 0;
-	overflow: hidden;
-	padding: calc(var(--margin-page-v) + #{$space-md}) 0; // fudge!
+	//bottom: 0;
+	overflow-x: hidden; // this is key to hiding contents
+
 
 	a {
 		background-color: transparent;
 		color: var(--theme-footer-fg);
-		font-weight: var(--font-weight-bolder);
+		//font-weight: var(--font-weight-bolder);
 		font-size: var(--font-size-base);
 	}
 
@@ -283,24 +234,72 @@
 	margin: 0;
 	padding: 0;
 
-	> .menu-item {
+	.menu-item {
 		list-style: none;
+	}
+
+	.sub-menu {
+		display: none;
+		margin: 0;
+		padding: $space-md $space-lg;
+
+		.menu-item {
+			margin-bottom: $space-md;
+		}
+	}
+
+	> .menu-item.current-menu-item > .sub-menu {
+		display: block;
+	}
+
+	> .menu-item {
 		margin-bottom: $space-lg;
+		font-weight: var(--font-weight-reg);
 		margin-left: 0;
 		// important to prevent an odd resize in transition
-		white-space: nowrap;
+		//white-space: nowrap;
 
-		&:hover {
+		&:hover > a {
 			text-shadow: 0 0 1px var(--black);
+		}
+
+		$icon-size: 1.5em;
+
+		i.fa {
+			margin-right: $space-sm;
+			font-size: $icon-size;
+			color: var(--grey-dark);
+		}
+		.description {
+			display: block;
+			font-weight: lighter;
+			color: var(--grey-darker);
+			// Font-awesome fixed-width (1.25em)
+			margin-left: calc($icon-size + #{$space-md});
+		}
+	}
+
+	// Don't currently display top-level menu item descriptions.
+	> .menu-item > .description {
+		display: none;
+	}
+
+	> .menu-item-search {
+		> a > i.fa {
+			white-space: nowrap;
+			font-size: var(--font-size-lg);
+			margin-right: $space-sm;
 		}
 	}
 
 	> .menu-item > a {
 		@include button();
-		white-space: break-spaces;
+		//white-space: break-spaces;
 		background-color: transparent;
-		color: var(--theme-footer-fg);
 		width: fit-content;
+		font-size: var(--font-size-base);
+		text-transform: uppercase;
+		color: var(--theme-fg);
 	}
 
 	> .menu-item.current-menu-item > a {
@@ -308,7 +307,24 @@
 		text-shadow: 0 0 1px var(--black);
 		//text-decoration: underline;
 		//background: linear-gradient(to bottom, transparent calc(100% - 1px), var(--theme-fg-accent) calc(100% - 1px));
+		position: relative;
+		width: 100%;
 	}
+
+	> .menu-item.current-menu-item > a::before {
+		// using a before element here is a hack, but we're already
+		// using the ::after for the mega-menu arrow indicator
+		content: '';
+		width: Calc(100% - (2* #{$space-lg}));
+		height: 1px;
+		position: absolute;
+		bottom: $space-sm;
+		left: 0;
+		margin-left: $space-lg;
+		background-color: var(--theme-fg-accent);
+	}
+
+
 
 	// At wide widths the menu changes completely to a
 	// simple horizontal list of menu items:
@@ -328,28 +344,18 @@
 		padding: 0;
 
 		> .menu-item {
-			list-style: none;
 			text-align: center;
 			margin-bottom: 0;
 			display: flex;
 			align-items: center;
-
 		}
 
-		.menu-item > .description {
-			// Don't currently display top-level menu item descriptions.
-			display: none;
-		}
-
-		> .menu-item:last-child {
-			margin-right: 0;
-		}
+		//> .menu-item:last-child {
+		//	margin-right: 0;
+		//}
 
 		> .menu-item > a {
-			font-size: var(--font-size-base);
-			text-transform: uppercase;
-			color: var(--theme-fg);
-			padding: $space-md $space-md;
+			padding: $space-md 0;
 			align-self: stretch;
 			display: flex;
 			align-items: center;
@@ -358,11 +364,8 @@
 		> .menu-item.current-menu-item > a::before {
 			// using a before element here is a hack, but we're already
 			// using the ::after for the mega-menu arrow indicator
-			content: '';
+			margin-left: 0;
 			width: 90%;
-			height: 1px;
-			position: absolute;
-			bottom: $space-sm;
 			left: 50%;
 			transform: translateX(-50%);
 			background-color: var(--theme-fg-accent);
@@ -395,7 +398,7 @@
 			//-webkit-transition: opacity 100ms linear 700ms;
 			//transition: opacity 100ms linear 700ms;
 
-			background-color: var(--grey-lighter);
+			background-color: var(--grey-light);
 			top: var(--menu-offset);
 			left: -#{$logo-width-lg};
 			right: 0;
@@ -413,7 +416,6 @@
 				text-align: left;
 				width: 100%;
 				height: 100%;
-				padding: $space-sm;
 				text-shadow: none;
 
 				&:hover {
@@ -423,14 +425,6 @@
 
 				.sub-menu {
 					display: none; // TEMPORARY hide sub-sub menus.
-				}
-
-				i.fa {
-					margin-right: $space-sm;
-				}
-				.description {
-					// Font-awesome fixed-width (1.25em)
-					margin-left: calc(1.25em + #{$space-sm});
 				}
 			}
 
@@ -490,7 +484,7 @@
 		}
 
 		.menu-item:has(.sub-menu) > a::after {
-			border-bottom: $menu-gap solid var(--grey-lighter); /* Match sub-menu background */
+			border-bottom: $menu-gap solid var(--grey-light); /* Match sub-menu background */
 		}
 
 		> .menu-item:has(.sub-menu):hover > a::after {

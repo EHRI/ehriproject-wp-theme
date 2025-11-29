@@ -3,7 +3,12 @@
 	padding: var(--margin-page-v) var(--margin-page-h);
 
 	.front-page-teasers {
-		@include auto-grid(15rem, 2rem, 3);
+		//@include auto-grid(15rem, 2rem, 3);
+
+		display: grid;
+		grid-template-columns: 1fr;
+		width: 100%;
+		grid-gap: 2rem;
 
 		.post-thumbnail picture img {
 			aspect-ratio: 36 / 20;
@@ -14,6 +19,10 @@
 			font-size: var(--font-size-base);
 			font-weight: var(--font-weight-bolder);
 			color: var(--black);
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			grid-template-columns: 1fr 1fr 1fr;
 		}
 	}
 

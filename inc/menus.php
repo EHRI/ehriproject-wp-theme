@@ -18,15 +18,17 @@ if ( ! function_exists( 'ehriproject_add_description_to_menu' ) ) {
 	 */
 	function ehriproject_add_description_to_menu( $item_output, $item, $depth, $args ) {
 
-		$fa_class = '';
-		foreach ( $item->classes as $class_name ) {
-			if ( substr( $class_name, 0, 8 ) === 'icon-fa-' ) {
-				$fa_class = 'fa-' . substr( $class_name, 8);
-				break;
+		if ( $depth > 0 ) {
+			$fa_class = '';
+			foreach ($item->classes as $class_name) {
+				if (substr($class_name, 0, 8) === 'icon-fa-') {
+					$fa_class = 'fa-' . substr($class_name, 8);
+					break;
+				}
 			}
+			$item_output = '<i class="fa fa-fw ' . $fa_class . '"></i>' . $item_output;
 		}
 
-		$item_output = '<i class="fa fa-fw ' . $fa_class . '"></i>' . $item_output;
 		if ( strlen( $item->description ) > 0 ) {
 			// append description after link.
 			$item_output .= sprintf( '<span class="description">%s</span>', esc_html( $item->description ) );

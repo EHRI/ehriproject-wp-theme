@@ -61,15 +61,20 @@
 						)
 					);
 					?>
-
-<!--					<li class="menu-item" id="menu-item-search">-->
-<!--						<div class="search-controls">-->
-<!--							<form role="search" method="get" id="search-form" class="search-form" action="--><?php //echo $home; ?><!--">-->
-<!--								<label class="screen-reader-text" for="search-input">Search for:</label>-->
-<!--								<input type="text" value="" name="s" id="search-input" placeholder="--><?php //esc_html_e( 'Search', 'ehriproject' ); ?><!--" autofocus>-->
-<!--							</form>-->
-<!--						</div>-->
-<!--					</li>-->
+					<li class="menu-item menu-item-has-children menu-item-search" id="menu-item-search">
+						<a href="?s=">
+							<i class="fa fa-search"></i>
+							<?php esc_html_e( 'Search', 'ehriproject' ); ?>
+						</a>
+						<ul class="search-controls sub-menu">
+							<li class="menu-item">
+								<form role="search" method="get" id="search-form" class="search-form" action="<?php echo $home; ?>">
+									<label class="screen-reader-text" for="search-input">Search for:</label>
+									<input type="text" value="" name="s" id="search-input" placeholder="<?php esc_html_e( 'Search', 'ehriproject' ); ?>">
+								</form>
+							</li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</nav>

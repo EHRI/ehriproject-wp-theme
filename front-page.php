@@ -12,7 +12,7 @@
 <main id="content">
 	<section class="page-content" role="main">
 		<?php
-		$args      = ehriproject_homepage_teaser_args();
+		$args      = ehriproject_homepage_teaser_args(3);
 		$the_query = new WP_Query( $args );
 		?>
 		<?php if ( $the_query->have_posts() ) : ?>
