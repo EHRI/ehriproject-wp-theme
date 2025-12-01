@@ -253,7 +253,7 @@
 	}
 
 	.sub-menu {
-		display: none;
+		//display: none;
 		margin: 0;
 		padding: $space-md $space-lg;
 
@@ -263,7 +263,7 @@
 	}
 
 	> .menu-item.current-menu-item > .sub-menu {
-		display: block;
+		//display: block;
 	}
 
 	> .menu-item {

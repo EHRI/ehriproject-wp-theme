@@ -1,5 +1,6 @@
 // Text and links within the main page content
 main .page-content .post-body {
+	display: flow-root;
 
 	h1 {
 		font-size: 3rem;
@@ -78,11 +79,10 @@ main .page-content .post-body {
 		display: flex;
 		flex-direction: column;
 
-		margin: 0 0 2rem;
-		background-color: var(--beige);
+		margin: $space-md;
 
 		figcaption {
-			padding: 0.4vw 1.2vw
+			padding: 0.4vw 0;
 		}
 
 		img {
@@ -98,5 +98,13 @@ main .page-content .post-body {
 		p {
 			font-size: $font-size-sm;
 		}
+		> img {
+			margin: 0;
+		}
+	}
+
+	// Plain images in posts
+	img {
+		margin: $space-md;
 	}
 }
