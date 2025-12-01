@@ -17,7 +17,9 @@ get_header();
 		<section class="page-content" role="main">
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
-				<?php get_template_part( 'loop-templates/content', 'single' ); ?>
+				<header class="post-header">
+					<h1 class="post-title" id="post-title"><?php the_title(); ?></h1>
+				</header>
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 			<!-- Fetch all posts with the 'news' category and list them in reverse chronological order with pagination -->

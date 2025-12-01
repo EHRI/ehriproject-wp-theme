@@ -23,6 +23,7 @@ global $wp_query;
 				<form method="get">
 					<div class="hero-search-box">
 						<label class="sr-only" for="hero-search-box">Search</label>
+						<i class="fa fa-2x fa-search"></i>
 						<input name="s" id="hero-search-box" class="hero-search-box-input" type="text"
 							placeholder="<?php esc_attr_e( 'What are you looking for?', 'ehriproject' ); ?>"
 							value="<?php echo esc_attr( $q ); ?>">
