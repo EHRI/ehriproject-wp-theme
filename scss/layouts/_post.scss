@@ -7,7 +7,7 @@ body.page main .page-content
 	}
 
 	> .post-header {
-		.post-title {
+		> .post-title {
 			padding: 0 var(--margin-page-h);
 			@include header-font-2();
 			margin: 0;
@@ -39,7 +39,7 @@ body.page main .page-content
 		font-weight: var(--font-weight-bolder);
 	}
 
-	.post-body {
+	> .post-body {
 		grid-area: body;
 
 		padding: var(--margin-page-v) var(--margin-page-h);
@@ -55,11 +55,11 @@ body.page main .page-content
 			grid-auto-rows: auto;
 			grid-template-areas: "title image";
 
-			.post-title {
+			> .post-title {
 				grid-area: title;
 				padding: min(3vw, 6rem) $space-xl min(3vw, 6rem) var(--margin-page-h);
 			}
-			.post-featured-image {
+			> .post-featured-image {
 				grid-area: image;
 				padding: 0;
 			}

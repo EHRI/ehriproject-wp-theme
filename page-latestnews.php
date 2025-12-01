@@ -24,10 +24,11 @@ get_header();
 			<?php
 			$current_page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 			$args         = array(
-				'category_name' => 'news',
-				'paged'         => $current_page,
-				'orderby'       => 'date',
-				'order'         => 'DESC',
+				'category_name'  => 'news',
+				'paged'          => $current_page,
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'posts_per_page' => 12,
 			);
 			$news_query   = new WP_Query( $args );
 			?>

@@ -10,9 +10,18 @@
 <?php get_header(); ?>
 
 <main id="content">
+	<?php $show_on_front = get_option( 'show_on_front' ); ?>
+	<?php if ( 'page' === $show_on_front ) : ?>
+	<section class="hero">
+		<?php while ( have_posts() ) : ?>
+			<?php the_post(); ?>
+			<?php get_template_part( 'loop-templates/content', 'hero' ); ?>
+		<?php endwhile; ?>
+	</section>
+	<?php endif; ?>
 	<section class="page-content" role="main">
 		<?php
-		$args      = ehriproject_homepage_teaser_args(3);
+		$args      = ehriproject_homepage_teaser_args( 3 );
 		$the_query = new WP_Query( $args );
 		?>
 		<?php if ( $the_query->have_posts() ) : ?>

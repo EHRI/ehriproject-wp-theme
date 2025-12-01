@@ -143,9 +143,18 @@
 		//padding-left: var(--margin-page-h);
 		/* to stop flickering of text in safari */
 		-webkit-font-smoothing: antialiased;
-		transition: width 0.4s, padding-left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+		transition: width .4s, padding-left .4s cubic-bezier(0.77, 0.2, 0.05, 1.0), height .4s;
 		width: 100%;
-		height: 100vh;
+		height: calc(100vh - 100%);
+
+		.menu-item {
+			// This keeps the menu items in the slide-in menu in a fixed position,
+			// but the downside is that with with really long items and really small
+			// page widths they could exceed the bounds and clip. However, even long
+			// menu items have plenty of space relative to e.g. the logo, so other
+			// things will clip first.
+			width: max-content;
+		}
 	}
 
 	// At tablet widths, the menu is more or less the same, but a bit larger
@@ -180,6 +189,11 @@
 		// Unset any styles on the navbar
 		.hamburger-toggle:checked ~ .hamburger-part ~ .hamburger-part ~ .hamburger-part ~ .navbar {
 			width: unset;
+			height: unset;
+
+			.menu-item {
+				width: unset;
+			}
 		}
 	}
 }

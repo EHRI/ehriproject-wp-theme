@@ -18,6 +18,7 @@ $ehriproject_includes = array(
 	'theme-settings',
 	'top-bar',
 	'menus',
+	'search',
 );
 
 foreach ( $ehriproject_includes as $file ) {

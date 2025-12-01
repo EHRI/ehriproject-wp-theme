@@ -1,0 +1,39 @@
+
+.hero {
+	> .hero-title {
+
+		> header {
+			padding: var(--margin-section-v) var(--margin-section-h);
+			position: relative;
+			> .hero-image {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+
+				> img {
+					object-fit: cover;
+					z-index: -1;
+					width: 100%;
+					height: 100%;
+				}
+			}
+
+			h1 {
+				color: var(--white);
+				position: inherit;
+			}
+		}
+	}
+
+	> .hero-body {
+		padding: var(--margin-section-v) var(--margin-section-h);
+		color: var(--theme-bg);
+		background-color: var(--theme-fg);
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+	}
+}
+
