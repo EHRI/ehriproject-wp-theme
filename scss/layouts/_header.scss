@@ -337,10 +337,11 @@
 
 		&:has(:nth-child(4)) {
 			justify-content: space-between;
-			gap: unset;
+			gap: $space-md;
 		}
 
 		margin: 0;
+		margin-left: $space-lg;
 		padding: 0;
 
 		> .menu-item {
@@ -365,7 +366,7 @@
 			// using a before element here is a hack, but we're already
 			// using the ::after for the mega-menu arrow indicator
 			margin-left: 0;
-			width: 90%;
+			width: 100%;
 			left: 50%;
 			transform: translateX(-50%);
 			background-color: var(--theme-fg-accent);
