@@ -351,7 +351,11 @@
 
 		&:has(:nth-child(4)) {
 			justify-content: space-between;
-			gap: $space-md;
+
+			// NOTE: Do not put a flex gap between menu
+			// items because it makes the mega menu feel
+			// janky when moving between items
+			//gap: $space-md;
 		}
 
 		margin: 0;
@@ -360,9 +364,10 @@
 
 		> .menu-item {
 			text-align: center;
-			margin-bottom: 0;
 			display: flex;
 			align-items: center;
+			margin-bottom: 0;
+			padding: 0 $space-sm;
 		}
 
 		//> .menu-item:last-child {
