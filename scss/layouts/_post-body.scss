@@ -107,4 +107,10 @@ main .page-content .post-body {
 	img {
 		margin: $space-md;
 	}
+
+	// Iframes, e.g. Youtube video. On default mobile
+	// views set max-width and auto height.
+	iframe {
+		max-width: 100%;
+	}
 }
