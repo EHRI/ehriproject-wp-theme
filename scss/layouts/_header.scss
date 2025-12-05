@@ -279,22 +279,26 @@
 
 		$icon-size: 1.5em;
 
-		i.fa {
-			margin-right: $space-sm;
-			font-size: $icon-size;
-			color: var(--grey-dark);
-		}
-		.description {
+		a {
 			display: block;
-			font-weight: lighter;
-			color: var(--grey-darker);
-			// Font-awesome fixed-width (1.25em)
-			margin-left: calc($icon-size + #{$space-md});
+			border-radius: var(--border-radius);
+			i.fa {
+				margin-right: $space-sm;
+				font-size: $icon-size;
+				color: var(--grey-dark);
+			}
+			.menu-description {
+				display: block;
+				font-weight: lighter;
+				color: var(--grey-darker);
+				// Font-awesome fixed-width (1.25em)
+				margin-left: calc($icon-size + #{$space-md});
+			}
 		}
 	}
 
 	// Don't currently display top-level menu item descriptions.
-	> .menu-item > .description {
+	> .menu-item > a > .menu-description {
 		display: none;
 	}
 
@@ -411,7 +415,7 @@
 			grid-auto-rows: 1fr;
 			justify-content: start;
 			align-items: start;
-			gap: $space-lg;
+			//gap: $space-sm;
 
 			opacity: 0;
 			z-index: 1;
@@ -425,9 +429,9 @@
 			pointer-events: none;
 			box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
 			list-style: none;
-			min-height: 10vw;
+			min-height: 21rem;
 			padding: 2 * $space-lg;
-			padding-right: 30%;
+			padding-right: #{$logo-width-lg};
 
 			//border-top: 4rem solid transparent;
 			//margin-top: -4rem;
@@ -437,6 +441,7 @@
 				width: 100%;
 				height: 100%;
 				text-shadow: none;
+				margin-bottom: 0;
 
 				&:hover {
 					background-color: var(--grey-light);
@@ -451,14 +456,46 @@
 			a {
 				color: var(--black);
 				font-size: var(--font-size-base);
+				padding: $space-md $space-lg;
 			}
 			a:hover {
-				font-weight: var(--font-weight-bolder);
+				//font-weight: var(--font-weight-bolder);
+				text-shadow: 0 0 1px var(--black);
+				background-color: lighten($grey-light, 3%);
 			}
-			.description {
+			.menu-description {
 				display: block;
 				color: var(--grey-darker);
 			}
+		}
+
+		// Place an image in the menu, which is positioned inside
+		> .menu-item > .sub-menu::after {
+			content: '';
+			background-size: cover;
+			position: absolute;
+
+			top: 3rem;
+			bottom: 3rem;
+			right: 3rem;
+			//height: 15rem;
+			width: 20rem;
+		}
+
+		.menu-item:nth-child(1) > .sub-menu::after {
+			background-image: url(images/megamenu/hands.png);
+		}
+
+		.menu-item:nth-child(2) > .sub-menu::after {
+			background-image: url(images/megamenu/cards-still-1.png);
+		}
+
+		.menu-item:nth-child(3) > .sub-menu::after {
+			background-image: url(images/megamenu/doklady-1.png);
+		}
+
+		.menu-item:nth-child(4) > .sub-menu::after {
+			background-image: url(images/megamenu/names-2.png);
 		}
 
 		> .menu-item:hover > .sub-menu {

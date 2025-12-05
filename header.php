@@ -58,6 +58,7 @@
 							'menu'       => 'main-menu',
 							'container'  => false,
 							'items_wrap' => '%3$s', // don't wrap the items in a <ul>.
+							'walker'     => new Ehri_Project_Icon_Menu_Walker()
 						)
 					);
 					?>
