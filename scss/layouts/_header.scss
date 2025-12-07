@@ -67,6 +67,8 @@
 // by clicking on the hamburger toggle, the menu is displayed. This is done by using
 // the adjacent sibling selector to target the menu when the input is checked.
 .navbar-container {
+	// Prevent bumping into logo.
+	margin-left: $space-md;
 
 	// Hide hamburger toggle label, for accessibility only
 	label[for='hamburger-toggle'] {
@@ -77,11 +79,13 @@
 	// the hamburger is drawn.
 	.hamburger-toggle {
 		display: block;
-		width: 40px;
+		width: 23px;
 		height: 2rem;
 		position: relative;
 		float: right;
-		right: 7px;
+		//right: 7px;
+		padding: 0;
+		margin: 0;
 
 		cursor: pointer;
 
@@ -160,16 +164,19 @@
 	// At tablet widths, the menu is more or less the same, but a bit larger
 	@media(min-width: $breakpoint-tablet) {
 		.hamburger-toggle {
-			width: 40px;
+			width: 29px;
 		}
 
 		.hamburger-part {
-			width: 30px;
+			height: 4px;
+			width: 29px;
 		}
 
 		.hamburger-toggle:checked ~ .hamburger-part {
-			transform: rotate(45deg) translate(-2px, -1px);
+			// Hand-tuned values here...
+			transform: rotate(45deg) translate(0, 2px);
 		}
+
 
 		// At table widths, the menu takes up 50% of the screen or 500px, whichever is larger
 		.hamburger-toggle:checked ~ .hamburger-part ~ .hamburger-part ~ .hamburger-part ~ .navbar {
