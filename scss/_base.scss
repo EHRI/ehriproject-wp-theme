@@ -101,6 +101,10 @@ body {
   --font-weight-bold: #{$font-weight-bold};
   --font-weight-bolder: #{$font-weight-bolder};
 
+
+  --max-page-width: 90rem;
+  --max-content-width: 60rem;
+
   --margin-page-v: max(1rem, min(3.1875rem, 5vw));
   --margin-page-h: max(1rem, 5vw);
 
@@ -111,8 +115,8 @@ body {
   --padding-page-content-h: 18vw;
 
 	@media (min-width: $breakpoint-laptop) {
-		--margin-page-h: max(1rem, 10vw);
-		--margin-section-h: max(1rem, 20vw);
+		--margin-page-h: max(calc((100vw - var(--max-page-width)) / 2), max(1rem, 15vw));
+		--margin-section-h: max(calc((100vw - var(--max-content-width)) / 2), max(1rem, 20vw));
 	}
 }
 

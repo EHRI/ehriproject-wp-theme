@@ -3,7 +3,7 @@ body.page main .page-content
 {
 
 	.page-section {
-		padding: var(--margin-page-v) var(--margin-page-h);
+		padding: var(--margin-section-v) var(--margin-section-h);
 	}
 
 	> .post-header {
@@ -42,7 +42,7 @@ body.page main .page-content
 	> .post-body {
 		grid-area: body;
 
-		padding: var(--margin-page-v) var(--margin-page-h);
+		padding: var(--margin-section-v) var(--margin-section-h);
 	}
 
 	@media (min-width: $breakpoint-laptop) {
