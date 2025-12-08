@@ -28,20 +28,13 @@ class Ehri_Project_Icon_Menu_Walker extends Walker_Nav_Menu {
 
 		$output .= '<li' . $class_names . '>';
 
-		$attributes  = '';
-		$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
+		$attributes  = ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
 
 		$item_output = '<a' . $attributes . '>';
 
 		if ( $depth > 0 ) {
-			foreach ( $item->classes as $class_name ) {
-				if ( substr( $class_name, 0, 8 ) === 'icon-fa-' ) {
-					$fa_class     = 'fa-' . substr( $class_name, 8 );
-					$item_output .= '<i class="fa fa-fw ' . $fa_class . '"></i>';
-					break;
-				}
-			}
+			$item_output .= $this->get_icon_markup( $item );
 		}
 
 		// Add title.
@@ -54,40 +47,37 @@ class Ehri_Project_Icon_Menu_Walker extends Walker_Nav_Menu {
 
 		$item_output .= '</a>';
 
+		// For top level (depth 0) items we are going to append the
+		// description as an alternative link (which will appear in
+		// the mega menu.
+		if ( 0 === $depth ) {
+			$alt_link_text   = empty( $item->description ) ? $item->title : $item->description;
+			$alt_attributes  = ! empty( $item->url ) ? ' href="' . $item->url . '"' : '';
+			$alt_attributes .= ' class="menu-item-link-alt"';
+			$alt_attributes .= ! empty( $item->target ) ? ' target=' . esc_attr( $item->target ) : '';
+			$item_output    .= '<a' . $alt_attributes . '>';
+			$item_output    .= $this->get_icon_markup( $item );
+			$item_output    .= '<span class="menu-title-alt">' . esc_html( $alt_link_text ) . '</span></a>';
+		}
+
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
+
+	/**
+	 * If the user has included 'icon-fa-[IDENTIFIER]' in the menu item
+	 * classes, return the Font Awesome class.
+	 *
+	 * @param WP_Post $item the menu item.
+	 *
+	 * @return string the Font Awesome class
+	 */
+	private function get_icon_markup( WP_Post $item ) {
+		foreach ( $item->classes as $class_name ) {
+			if ( substr( $class_name, 0, 8 ) === 'icon-fa-' ) {
+				$fa_class = 'fa-' . substr( $class_name, 8 );
+				return '<i class="fa fa-fw ' . $fa_class . '"></i>';
+			}
+		}
+		return '';
+	}
 }
-//
-//if ( ! function_exists( 'ehriproject_add_description_to_menu' ) ) {
-//	/**
-//	 * Add a description for menu items that have that attribute set.
-//	 *
-//	 * @param string   $item_output the existing text.
-//	 * @param WP_Post  $item the menu item.
-//	 * @param int      $depth the current depth.
-//	 * @param stdClass $args additional arguments.
-//	 *
-//	 * @return mixed|string
-//	 */
-//	function ehriproject_add_description_to_menu( $item_output, $item, $depth, $args ) {
-//
-//		if ( $depth > 0 ) {
-//			$fa_class = '';
-//			foreach ( $item->classes as $class_name ) {
-//				if ( substr( $class_name, 0, 8 ) === 'icon-fa-' ) {
-//					$fa_class = 'fa-' . substr( $class_name, 8 );
-//					break;
-//				}
-//			}
-//			$item_output = '<i class="fa fa-fw ' . $fa_class . '"></i>' . $item_output;
-//		}
-//
-//		if ( strlen( $item->description ) > 0 ) {
-//			// append description after link.
-//			$item_output .= sprintf( '<span class="description">%s</span>', esc_html( $item->description ) );
-//		}
-//
-//		return $item_output;
-//	}
-//}
-//add_filter( 'walker_nav_menu_start_el', 'ehriproject_add_description_to_menu', 10, 4 );
