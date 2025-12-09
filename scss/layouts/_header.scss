@@ -378,8 +378,7 @@
 			//gap: $space-md;
 		}
 
-		margin: 0;
-		margin-left: $space-lg;
+		margin: 0 0 0 $space-lg;
 		padding: 0;
 
 		> .menu-item {
@@ -390,10 +389,6 @@
 			padding: 0 $space-sm;
 		}
 
-		//> .menu-item:last-child {
-		//	margin-right: 0;
-		//}
-
 		> .menu-item > a {
 			padding: $space-md 0;
 			align-self: stretch;
@@ -402,10 +397,12 @@
 		}
 
 		> .menu-item.current-menu-item > a::before {
-			// using a before element here is a hack, but we're already
+			// This is an offset "underline" effect on the current menu
+			// item. Using a before element here is a hack, but we're already
 			// using the ::after for the mega-menu arrow indicator
 			margin-left: 0;
 			width: 100%;
+			height: 2px;
 			left: 50%;
 			transform: translateX(-50%);
 			background-color: var(--theme-fg-accent);
@@ -425,20 +422,55 @@
 			content: none;
 		}
 
-
+		// Space between the top-level menu item and the mega-menu
 		$menu-gap: 2rem;
 
-		.menu-item:has(.sub-menu):hover > a.menu-item-link-alt {
-			--menu-offset: calc(100% + #{$menu-gap});
-			color: var(--theme-fg-accent);
+		// Little triangle thing that points to the open menu, filling
+		// the space between the top-level and the mega-menu
+		> .menu-item > a:not(.menu-item-link-alt)::after {
+			transition: all 0s ease;
+			position: absolute;
+			opacity: 0;
+			pointer-events: none;
+			//-webkit-transition: opacity 100ms linear 700ms;
+			//transition: opacity 100ms linear 700ms;
+			content: '';
+			margin-top: calc(#{$menu-gap} + 2px);
+			top: calc(100% - #{$menu-gap}); /* Position above the sub-menu */
+			//transform: translate(40px);
+			//left: 3rem; /* Adjust horizontal position as needed */
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 1003; // higher than menu to avoid drop-shadow issues.
+
+			/* Create triangle using borders */
+			width: 0;
+			height: 0;
+			border-left: $menu-gap solid transparent;
+			border-right: $menu-gap solid transparent;
+			border-bottom: $menu-gap solid var(--grey-light); /* Match sub-menu background */
+		}
+
+		> .menu-item:has(.sub-menu):hover > a:not(.menu-item-link-alt)::after {
+			transition-delay: .25s;
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		> .menu-item:has(.sub-menu) > .menu-item-link-alt {
+			//display: none;
+			transition: opacity 0s ease;
+			pointer-events: none;
+			//z-index: -1;
+			align-items: center;
+			opacity: 0;
+			//left: -#{$logo-width-lg - (3 * $space-lg)};
+			left: -999em;
+			top: calc(var(--menu-offset) + #{$space-lg});
 			position: absolute;
 			display: flex;
-			align-items: center;
-			top: calc(var(--menu-offset) + #{$space-lg});
-			//left: -#{$logo-width-lg - (3 * $space-lg)};
-			left: $space-lg;
-			z-index: 1001;
 			width: unset;
+			z-index: 1001;
 			padding: 0;
 			margin-top: $space-md;
 			text-shadow: unset;
@@ -446,6 +478,18 @@
 			> i.fa {
 				color: var(--theme-fg-accent);
 			}
+		}
+
+		> .menu-item:has(.sub-menu):hover > .menu-item-link-alt {
+			--menu-offset: calc(100% + #{$menu-gap});
+
+			color: var(--theme-fg-accent);
+			opacity: 1;
+
+			transition-delay: 0.25s;
+			transition-property: opacity;
+			left: $space-lg;
+			pointer-events: auto;
 
 			&:hover,
 			&:hover > i.fa
@@ -454,12 +498,13 @@
 			}
 		}
 
-		// Hide all sub-menus by default...
+
+		// Main mega-menu
 		> .menu-item > .sub-menu {
 			--menu-offset: calc(100% + #{$menu-gap});
 
+			//transition: all 0s ease;
 			position: absolute;
-
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			grid-auto-rows: min-content;
@@ -467,6 +512,7 @@
 			align-items: start;
 			//gap: $space-sm;
 
+			// Hide all sub-menus by default...
 			opacity: 0;
 			z-index: 1;
 			//-webkit-transition: opacity 100ms linear 700ms;
@@ -482,7 +528,7 @@
 			min-height: 21rem;
 			padding: 2 * $space-lg;
 			padding-left: #{$logo-width-lg};
-			padding-top: 4 * $space-lg; // this space allows for the alt. link.
+			padding-top: 4 * $space-lg; // this space allows for the alt link.
 
 			//border-top: 4rem solid transparent;
 			//margin-top: -4rem;
@@ -502,69 +548,63 @@
 				.sub-menu {
 					display: none; // TEMPORARY hide sub-sub menus.
 				}
+
+				a {
+					color: var(--black);
+					font-size: var(--font-size-base);
+					padding: $space-md $space-lg;
+				}
+				a:hover {
+					//font-weight: var(--font-weight-bolder);
+					text-shadow: 0 0 1px var(--black);
+					background-color: lighten($grey-light, 3%);
+				}
+				.menu-description {
+					display: block;
+					color: var(--grey-darker);
+				}
 			}
 
-			a {
-				color: var(--black);
-				font-size: var(--font-size-base);
-				padding: $space-md $space-lg;
+			// Place an image in the menu, which is positioned inside it on the left.
+			&::after {
+				content: '';
+				background-size: cover;
+				background-image: url(images/megamenu/hands.png);
+				position: absolute;
+
+				top: 3rem;
+				bottom: 3rem;
+				left: 3rem;
+				//height: 15rem;
+				width: 20rem;
 			}
-			a:hover {
-				//font-weight: var(--font-weight-bolder);
-				text-shadow: 0 0 1px var(--black);
-				background-color: lighten($grey-light, 3%);
-			}
-			.menu-description {
-				display: block;
-				color: var(--grey-darker);
-			}
-		}
-
-		// Place an image in the menu, which is positioned inside
-		> .menu-item > .sub-menu::after {
-			content: '';
-			background-size: cover;
-			position: absolute;
-
-			top: 3rem;
-			bottom: 3rem;
-			left: 3rem;
-			//height: 15rem;
-			width: 20rem;
-		}
-
-		.menu-item:nth-child(1) > .sub-menu::after {
-			background-image: url(images/megamenu/hands.png);
-		}
-
-		.menu-item:nth-child(2) > .sub-menu::after {
-			background-image: url(images/megamenu/cards-still-1.png);
-		}
-
-		.menu-item:nth-child(3) > .sub-menu::after {
-			background-image: url(images/megamenu/doklady-1.png);
-		}
-
-		.menu-item:nth-child(4) > .sub-menu::after {
-			background-image: url(images/megamenu/names-2.png);
-		}
-
-		.menu-item:nth-child(5) > .sub-menu::after {
-			background-image: url(images/megamenu/hands.png);
-		}
-
-		.menu-item:nth-child(6) > .sub-menu::after {
-			background-image: url(images/megamenu/hands.png);
 		}
 
 		> .menu-item:hover > .sub-menu {
+			transition-delay: .25s;
 			opacity: 1;
 			display: grid;
 			z-index: 1000;
 			pointer-events: auto;
 		}
 
-		.menu-item:has(.sub-menu):hover > .sub-menu::before {
+		// Mega menu background images
+		> .menu-item:nth-child(2) > .sub-menu::after {
+			background-image: url(images/megamenu/cards-still-1.png);
+		}
+
+		> .menu-item:nth-child(3) > .sub-menu::after {
+			background-image: url(images/megamenu/doklady-1.png);
+		}
+
+		> .menu-item:nth-child(4) > .sub-menu::after {
+			background-image: url(images/megamenu/names-2.png);
+		}
+
+		// This is a transparent polygon that extends above the menu to make it
+		// a bigger hover target.
+		> .menu-item:has(.sub-menu):hover > .sub-menu::before {
+			transition-delay: .25s;
 			content: '';
 			position: absolute;
 			bottom: 100%; /* Extends upward from dropdown */
@@ -575,65 +615,6 @@
 			background: transparent;
 			pointer-events: auto;
 		}
-
-		// Little triangle thing that points to the open menu...
-		> .menu-item > a::after {
-			position: absolute;
-			opacity: 0;
-			pointer-events: none;
-			//-webkit-transition: opacity 100ms linear 700ms;
-			//transition: opacity 100ms linear 700ms;
-			content: '';
-			margin-top: calc(#{$menu-gap} + 2px);
-			top: calc(100% - #{$menu-gap}); /* Position above the sub-menu */
-			//transform: translate(40px);
-			//left: 3rem; /* Adjust horizontal position as needed */
-			left: 50%;
-			transform: translateX(-50%);
-
-			/* Create triangle using borders */
-			width: 0;
-			height: 0;
-			border-left: $menu-gap solid transparent;
-			border-right: $menu-gap solid transparent;
-			border-bottom: $menu-gap solid transparent;
-		}
-
-		.menu-item:has(.sub-menu) > a::after {
-			border-bottom: $menu-gap solid var(--grey-light); /* Match sub-menu background */
-		}
-
-		> .menu-item:has(.sub-menu):hover > a::after {
-			opacity: 1;
-			z-index: 1003; // higher than menu to avoid drop-shadow issues.
-			pointer-events: auto;
-		}
-
-		// Remove default padding from input.
-		input {
-			margin: 0;
-			min-width: 16rem;
-			margin-left: $space-lg;
-		}
 	}
 }
-
-.navbar .social {
-	display: block;
-	margin-bottom: $space-lg;
-	padding: 0.75rem 1.25rem;
-
-	a {
-		font-size: 1rem;
-	}
-
-	// Hide social icons on wide screens where
-	// menu items are displayed horizontally
-	@media (min-width: $breakpoint-laptop) {
-		display: none;
-	}
-}
-
-
-
 
