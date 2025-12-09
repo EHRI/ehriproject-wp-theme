@@ -269,10 +269,6 @@
 		}
 	}
 
-	> .menu-item.current-menu-item > .sub-menu {
-		//display: block;
-	}
-
 	> .menu-item {
 		margin-bottom: $space-lg;
 		font-weight: var(--font-weight-reg);
@@ -281,7 +277,7 @@
 		//white-space: nowrap;
 
 		&:hover > a {
-			text-shadow: 0 0 1px var(--black);
+			text-shadow: 0 0 2px var(--grey-mid);
 		}
 
 		$icon-size: 1.5em;
@@ -310,11 +306,9 @@
 	}
 
 	// Don't display the alternative menu item link.
-	.menu-item-link-alt {
-		display: none;
-	}
-
-	.menu-item:has(.sub-menu) > .menu-item-link-alt {
+	.menu-item-link-alt,
+	.menu-item:has(.sub-menu) > .menu-item-link-alt
+	{
 		display: none;
 	}
 
@@ -327,7 +321,7 @@
 	}
 
 	> .menu-item > a {
-		@include button();
+		//@include button();
 		//white-space: break-spaces;
 		background-color: transparent;
 		width: fit-content;
@@ -337,24 +331,26 @@
 	}
 
 	> .menu-item.current-menu-item > a {
-		color: var(--theme-fg-accent);
-		text-shadow: 0 0 1px var(--black);
-		//text-decoration: underline;
-		//background: linear-gradient(to bottom, transparent calc(100% - 1px), var(--theme-fg-accent) calc(100% - 1px));
 		position: relative;
 		width: 100%;
+
+		color: var(--theme-fg-accent);
+		text-shadow: 0 0 1px var(--grey-mid);
 	}
 
-	> .menu-item.current-menu-item > a::before {
-		// using a before element here is a hack, but we're already
+	> .menu-item.current-menu-item > .menu-item-link::before {
+		// Add an offset underline to the current menu item.
+		// Using a before element here is a hack, but we're already
 		// using the ::after for the mega-menu arrow indicator
 		content: '';
-		width: Calc(100% - (2* #{$space-lg}));
-		height: 1px;
 		position: absolute;
 		bottom: $space-sm;
 		left: 0;
+		width: Calc(100% - (2* #{$space-lg}));
+		height: 1px;
+
 		margin-left: $space-lg;
+
 		background-color: var(--theme-fg-accent);
 	}
 
@@ -363,11 +359,18 @@
 	// At wide widths the menu changes completely to a
 	// simple horizontal list of menu items:
 	@media (min-width: $breakpoint-laptop) {
+		// Space between the top-level menu item and the mega-menu
+		$menu-gap: 2rem;
+
+		position: relative;
+
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-end;
-		position: relative;
 		align-items: stretch;
+
+		margin: 0 0 0 $space-lg;
+		padding: 0;
 
 		&:has(:nth-child(4)) {
 			justify-content: space-between;
@@ -377,9 +380,6 @@
 			// janky when moving between items
 			//gap: $space-md;
 		}
-
-		margin: 0 0 0 $space-lg;
-		padding: 0;
 
 		> .menu-item {
 			text-align: center;
@@ -391,43 +391,31 @@
 
 		> .menu-item > a {
 			padding: $space-md 0;
-			align-self: stretch;
 			display: flex;
 			align-items: center;
+			align-self: stretch;
 		}
 
-		> .menu-item.current-menu-item > a::before {
+		> .menu-item.current-menu-item > .menu-item-link::before {
 			// This is an offset "underline" effect on the current menu
 			// item. Using a before element here is a hack, but we're already
 			// using the ::after for the mega-menu arrow indicator
-			margin-left: 0;
 			width: 100%;
 			height: 2px;
 			left: 50%;
 			transform: translateX(-50%);
+			margin-left: 0;
 			background-color: var(--theme-fg-accent);
 		}
 
 		> .menu-item:has(.sub-menu) > a {
 			position: relative;
-
 			pointer-events: auto;
 		}
 
-		> .menu_item > a.menu-item-link-alt::before,
-		> .menu-item > a.menu-item-link-alt::after,
-		> .menu-item.current-menu-item > a.menu-item-link-alt::before,
-		> .menu-item.current-menu-item > a.menu-item-link-alt::after
-		{
-			content: none;
-		}
-
-		// Space between the top-level menu item and the mega-menu
-		$menu-gap: 2rem;
-
 		// Little triangle thing that points to the open menu, filling
 		// the space between the top-level and the mega-menu
-		> .menu-item > a:not(.menu-item-link-alt)::after {
+		> .menu-item > .menu-item-link::after {
 			transition: all 0s ease;
 			position: absolute;
 			opacity: 0;
@@ -451,7 +439,7 @@
 			border-bottom: $menu-gap solid var(--grey-light); /* Match sub-menu background */
 		}
 
-		> .menu-item:has(.sub-menu):hover > a:not(.menu-item-link-alt)::after {
+		> .menu-item:has(.sub-menu):hover > .menu-item-link::after {
 			transition-delay: .25s;
 			opacity: 1;
 			pointer-events: auto;
@@ -465,13 +453,13 @@
 			align-items: center;
 			opacity: 0;
 			//left: -#{$logo-width-lg - (3 * $space-lg)};
-			left: -999em;
+			//left: -999em;
 			top: calc(var(--menu-offset) + #{$space-lg});
 			position: absolute;
 			display: flex;
 			width: unset;
 			z-index: 1001;
-			padding: 0;
+			padding: $space-sm 0;
 			margin-top: $space-md;
 			text-shadow: unset;
 
@@ -494,7 +482,10 @@
 			&:hover,
 			&:hover > i.fa
 			{
-				color: var(--black);
+				text-shadow: 0 0 1px var(--grey-mid);
+			}
+			&:hover > .menu-title-alt {
+				text-decoration: underline;
 			}
 		}
 
@@ -555,8 +546,7 @@
 					padding: $space-md $space-lg;
 				}
 				a:hover {
-					//font-weight: var(--font-weight-bolder);
-					text-shadow: 0 0 1px var(--black);
+					text-shadow: 0 0 1px var(--grey-mid);
 					background-color: lighten($grey-light, 3%);
 				}
 				.menu-description {

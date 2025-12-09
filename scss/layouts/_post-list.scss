@@ -2,7 +2,7 @@
 .post-list {
 	padding: var(--margin-page-v) var(--margin-page-h);
 
-	@include auto-grid(15rem, 2rem, 3);
+	@include auto-grid(15rem, 3rem, 3);
 
 	.post-header {
 		padding: 1rem 0;

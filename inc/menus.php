@@ -30,6 +30,7 @@ class Ehri_Project_Icon_Menu_Walker extends Walker_Nav_Menu {
 
 		$attributes  = ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
 		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
+		$attributes .= ' class="menu-item-link"';
 
 		$item_output = '<a' . $attributes . '>';
 
