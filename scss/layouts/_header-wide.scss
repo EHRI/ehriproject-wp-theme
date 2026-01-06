@@ -1,0 +1,256 @@
+
+.navbar-container .navbar .header-menu {
+	// At wide widths the menu changes completely to a
+	// simple horizontal list of menu items:
+	@media (min-width: $breakpoint-laptop) {
+		// Space between the top-level menu item and the mega-menu
+		$menu-gap: 2rem;
+		--menu-offset: calc(100% + #{$menu-gap});
+		$transition-delay: 0.4s;
+
+		position: relative;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: stretch;
+
+		margin: 0 0 0 $space-lg;
+		padding: 0;
+
+		&:has(:nth-child(4)) {
+			justify-content: space-between;
+
+			// NOTE: Do not put a flex gap between menu
+			// items because it makes the mega menu feel
+			// janky when moving between items
+			//gap: $space-md;
+		}
+
+		> .menu-item {
+			position: unset;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			margin-bottom: 0;
+			padding: 0 $space-sm;
+		}
+
+		> .menu-item > .menu-item-link {
+			padding: $space-md 0;
+			display: flex;
+			align-items: center;
+			align-self: stretch;
+		}
+
+		> .menu-item.current-menu-item > .menu-item-link::before,
+		> .menu-item.current-menu-ancestor > .menu-item-link::before,
+		> .menu-item.current-menu-parent > .menu-item-link::before
+		{
+			// This is an offset "underline" effect on the current menu
+			// item. Using a before element here is a hack, but we're already
+			// using the ::after for the mega-menu arrow indicator
+			width: 100%;
+			height: 2px;
+			left: 50%;
+			transform: translateX(-50%);
+			margin-left: 0;
+			background-color: var(--theme-fg-accent);
+		}
+
+		> .menu-item:has(.sub-menu) > .menu-item-link {
+			position: relative;
+			pointer-events: auto;
+		}
+
+		// Little triangle thing that points to the open menu, filling
+		// the space between the top-level and the mega-menu
+		> .menu-item:has(.sub-menu) > .menu-item-link::after {
+			transition: all 0s ease;
+			position: absolute;
+			opacity: 0;
+			pointer-events: none;
+			//-webkit-transition: opacity 100ms linear 700ms;
+			//transition: opacity 100ms linear 700ms;
+			content: '';
+			margin-top: calc(#{$menu-gap} + 2px);
+			top: calc(100% - #{$menu-gap}); /* Position above the sub-menu */
+			//transform: translate(40px);
+			//left: 3rem; /* Adjust horizontal position as needed */
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 1003; // higher than menu to avoid drop-shadow issues.
+
+			/* Create triangle using borders */
+			width: 0;
+			height: 0;
+			border-left: $menu-gap solid transparent;
+			border-right: $menu-gap solid transparent;
+			border-bottom: $menu-gap solid var(--grey-light); /* Match sub-menu background */
+		}
+
+		> .menu-item:has(.sub-menu):hover > .menu-item-link::after {
+			transition-delay: $transition-delay;
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		// This is an alternative link to clicking the menu item proper, because when
+		// there's a sub-menu, the user might not know they can also click the item itself.
+		// The alternate link displays at the top of the dropdown menu.
+		> .menu-item:has(.sub-menu) > .menu-item-link-alt {
+			color: var(--theme-fg-accent);
+			transition: opacity 0s ease;
+			pointer-events: none;
+			align-items: center;
+			opacity: 0;
+			top: calc(var(--menu-offset) + #{$space-lg});
+			position: absolute;
+			display: flex;
+			width: unset;
+			z-index: 1001;
+			padding: $space-sm 0;
+			margin-top: $space-md;
+			text-shadow: unset;
+
+			> i.fa {
+				color: inherit;
+			}
+		}
+
+		> .menu-item:has(.sub-menu):hover > .menu-item-link-alt {
+			opacity: 1;
+			transition-delay: $transition-delay;
+			transition-property: opacity;
+			left: $space-lg;
+			pointer-events: auto;
+
+			&:hover,
+			&:hover > i.fa {
+				text-shadow: 0 0 1px var(--grey-mid);
+			}
+
+			&:hover > .menu-title-alt {
+				text-decoration: underline;
+			}
+		}
+
+
+		// Main mega-menu
+		> .menu-item > .sub-menu {
+			position: absolute;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-auto-rows: min-content;
+			justify-content: start;
+			align-items: start;
+
+			// Hide all sub-menus by default...
+			opacity: 0;
+			z-index: 1;
+
+			background-color: var(--grey-light);
+			top: var(--menu-offset);
+			left: -#{$logo-width-lg};
+			right: 0;
+			pointer-events: none;
+			box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25);
+			list-style: none;
+			min-height: 21rem;
+			padding: 2 * $space-lg;
+			padding-left: #{$logo-width-lg};
+			padding-top: 4 * $space-lg; // this space allows for the alt link.
+
+			> .menu-item {
+				text-align: left;
+				width: 100%;
+				height: 100%;
+				text-shadow: none;
+				margin-bottom: 0;
+
+				&:hover {
+					background-color: var(--grey-light);
+					font-weight: var(--font-weight-bold);
+				}
+
+				.sub-menu {
+					display: none; // TEMPORARY hide sub-sub menus.
+				}
+
+				.menu-item-link {
+					color: var(--black);
+					font-size: var(--font-size-base);
+					padding: $space-md $space-lg;
+				}
+
+				.menu-item-link:hover {
+					text-shadow: 0 0 1px var(--grey-mid);
+					background-color: lighten($grey-light, 3%);
+				}
+
+				.menu-description {
+					display: block;
+					color: var(--grey-darker);
+				}
+			}
+
+			// The currently selected sub-menu item.
+			> .menu-item.current_page_item {
+				.menu-item-link {
+					text-decoration: underline;
+					text-shadow: 0 0 1px var(--grey-mid);
+				}
+			}
+
+			// Place an image in the menu, which is positioned inside it on the left.
+			&::after {
+				content: '';
+				background-size: cover;
+				// Optionally over-ridden below.
+				background-image: url(images/megamenu/hands.png);
+				position: absolute;
+
+				top: 3rem;
+				bottom: 3rem;
+				left: 3rem;
+				width: 20rem;
+			}
+		}
+
+		> .menu-item:hover > .sub-menu {
+			transition-delay: $transition-delay;
+			opacity: 1;
+			display: grid;
+			z-index: 1000;
+			pointer-events: auto;
+		}
+
+		// Mega menu background images
+		> .menu-item:nth-child(2) > .sub-menu::after {
+			background-image: url(images/megamenu/cards-still-1.png);
+		}
+
+		> .menu-item:nth-child(3) > .sub-menu::after {
+			background-image: url(images/megamenu/doklady-1.png);
+		}
+
+		> .menu-item:nth-child(4) > .sub-menu::after {
+			background-image: url(images/megamenu/names-2.png);
+		}
+
+		// This is a transparent polygon that extends above the menu to make it
+		// a bigger hover target.
+		> .menu-item:has(.sub-menu):hover > .sub-menu::before {
+			transition-delay: $transition-delay;
+			content: '';
+			position: absolute;
+			bottom: 100%; /* Extends upward from dropdown */
+			left: 0;
+			right: 0;
+			height: $menu-gap; /* Adjust based on gap size */
+			clip-path: polygon(25% 0%, 80% 0%, 100% 100%, 0% 100%);
+			background: transparent;
+			pointer-events: auto;
+		}
+	}
+}
