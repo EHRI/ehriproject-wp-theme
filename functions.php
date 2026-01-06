@@ -17,8 +17,8 @@ $ehriproject_includes = array(
 	'customizer',
 	'theme-settings',
 	'top-bar',
-	'menus',
 	'search',
+	'class-ehri-project-icon-menu-walker',
 );
 
 foreach ( $ehriproject_includes as $file ) {

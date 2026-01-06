@@ -58,7 +58,7 @@
 							'menu'       => 'main-menu',
 							'container'  => false,
 							'items_wrap' => '%3$s', // don't wrap the items in a <ul>.
-							'walker'     => new Ehri_Project_Icon_Menu_Walker()
+							'walker'     => new Ehri_Project_Icon_Menu_Walker(),
 						)
 					);
 					?>
@@ -67,14 +67,6 @@
 							<i class="fa fa-search"></i>
 							<?php esc_html_e( 'Search', 'ehriproject' ); ?>
 						</a>
-<!--						<ul class="search-controls sub-menu">-->
-<!--							<li class="menu-item">-->
-<!--								<form role="search" method="get" id="search-form" class="search-form" action="--><?php //echo $home; ?><!--">-->
-<!--									<label class="screen-reader-text" for="search-input">Search for:</label>-->
-<!--									<input type="text" value="" name="s" id="search-input" placeholder="--><?php //esc_html_e( 'Search', 'ehriproject' ); ?><!--">-->
-<!--								</form>-->
-<!--							</li>-->
-<!--						</ul>-->
 					</li>
 				</ul>
 			</div>

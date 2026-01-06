@@ -60,7 +60,7 @@ get_header();
 			<form method="GET" accept-charset="UTF-8">
 				<div class="page-section">
 					<div id="edit-field-host-institution-value-wrapper"
-						 class="views-exposed-widget views-widget-filter-field_host_institution_value">
+						class="views-exposed-widget views-widget-filter-field_host_institution_value">
 						<label for="edit-field-host-institution-value">Host institution</label>
 						<div class="views-widget">
 							<div class="form-item form-type-select form-item-field-host-institution-value">
@@ -84,7 +84,7 @@ get_header();
 						</div>
 					</div>
 					<div id="edit-field-year-of-fellowship-value-wrapper"
-						 class="views-exposed-widget views-widget-filter-field_year_of_fellowship_value">
+						class="views-exposed-widget views-widget-filter-field_year_of_fellowship_value">
 						<label for="edit-field-year-of-fellowship-value">Year of Fellowship</label>
 						<div class="views-widget">
 							<div class="form-item form-type-select form-item-field-year-of-fellowship-value">
@@ -107,7 +107,7 @@ get_header();
 					</div>
 					<div class="views-exposed-widget views-submit-button">
 						<input type="submit" id="edit-submit-clone-of-ehri-fellows-2016" value="Apply"
-							   class="form-submit">
+							class="form-submit">
 					</div>
 				</div>
 
