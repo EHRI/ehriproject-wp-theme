@@ -1,6 +1,10 @@
 @import "../variables";
 @import "../mixins";
 
+body {
+	overflow-x: hidden; // for hiding the menu
+}
+
 /**
  * Main page header navigation. This is a fairly complex
  * responsive component that is designed to work on mobile
@@ -28,7 +32,6 @@
 	flex-direction: row;
 	align-items: center;
 	margin-right: auto;
-	//padding-right: var(--font-size-lg);
 
 	a {
 		display: flex;
@@ -83,7 +86,6 @@
 		height: 2rem;
 		position: relative;
 		float: right;
-		//right: 7px;
 		padding: 0;
 		margin: 0;
 
@@ -144,21 +146,11 @@
 
 	// ... and position the menu onscreen
 	.hamburger-toggle:checked ~ .hamburger-part ~ .hamburger-part ~ .hamburger-part ~ .navbar {
-		//padding-left: var(--margin-page-h);
 		/* to stop flickering of text in safari */
 		-webkit-font-smoothing: antialiased;
-		transition: width .4s, padding-left .4s cubic-bezier(0.77, 0.2, 0.05, 1.0), height .4s;
-		width: 100%;
-		height: calc(100vh - 100%);
-
-		.menu-item {
-			// This keeps the menu items in the slide-in menu in a fixed position,
-			// but the downside is that with with really long items and really small
-			// page widths they could exceed the bounds and clip. However, even long
-			// menu items have plenty of space relative to e.g. the logo, so other
-			// things will clip first.
-			//width: max-content;
-		}
+		transition: transform .4s, padding-left .4s cubic-bezier(0.77, 0.2, 0.05, 1.0), height .4s;
+		right: 0;
+		transform: translateX(0);
 	}
 
 	// At tablet widths, the menu is more or less the same, but a bit larger
@@ -197,6 +189,7 @@
 		.hamburger-toggle:checked ~ .hamburger-part ~ .hamburger-part ~ .hamburger-part ~ .navbar {
 			width: unset;
 			height: unset;
+			transform: unset;
 
 			.menu-item {
 				width: unset;
@@ -216,9 +209,8 @@
 	z-index: 1000;
 	top: 100%;
 	right: 0;
-	width: 0; // 0 size until toggle is clicked
-	//bottom: 0;
-	overflow-x: hidden; // this is key to hiding contents
+	width: 100%;
+	transform: translateX(100%); // offscreen by default.
 
 
 	a {
@@ -240,6 +232,7 @@
 		right: unset;
 		bottom: unset;
 		left: unset;
+		transform: unset;
 
 		width: unset; // 0 size until toggle is clicked
 		overflow: unset;
@@ -329,7 +322,10 @@
 		color: var(--theme-fg);
 	}
 
-	> .menu-item.current-menu-item > .menu-item-link {
+	> .menu-item.current-menu-parent > .menu-item-link,
+	> .menu-item.current-menu-ancestor > .menu-item-link,
+	> .menu-item.current-menu-item > .menu-item-link
+	{
 		position: relative;
 		width: 100%;
 

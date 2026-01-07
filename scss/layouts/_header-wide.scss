@@ -1,4 +1,10 @@
 
+body {
+	@media (min-width: $breakpoint-laptop) {
+		overflow-x: unset;
+	}
+}
+
 .navbar-container .navbar .header-menu {
 	// At wide widths the menu changes completely to a
 	// simple horizontal list of menu items:
