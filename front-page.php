@@ -56,7 +56,21 @@
 			</div>
 		<?php endif; ?>
 	</section>
-	<section class="page-content resource-teaser resource-teaser-flipped resource-teaser-thirds" role="main">
+	<section class="page-content map-teaser">
+		<header class="map-teaser-header">
+			<h2 class="map-teaser-title">We are growing</h2>
+		</header>
+		<div class="map-teaser-description">
+			<p>
+				From a series of projects, EHRI has changed into an ERIC, a European Research Infrastructure Consortium, and an organisation with a permanent character.
+				Thus, EHRI will grow and even more institutions can join.
+			</p>
+		</div>
+		<a class="button-primary map-teaser-link" href="#">
+			How to join
+		</a>
+	</section>
+	<section class="page-content resource-teaser resource-teaser-flipped resource-teaser-thirds">
 		<div class="resource-teaser-media">
 			<iframe src="https://www.buzzsprout.com/2057183/11392057-trailer-ehri-podcast-for-the-living-and-the-dead-traces-of-the-holocaust-season-1?client_source=small_player&amp;iframe=true" style="border:none;max-width:100%;width:100%;height:200px" frameborder="0" scrolling="yes" allowfullscreen=""></iframe>
 		</div>
