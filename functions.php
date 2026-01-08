@@ -384,6 +384,21 @@ add_action( 'init', 'ehriproject_register_fellowship_year_taxonomy' );
 add_action( 'init', 'ehriproject_register_fellowship_institution_taxonomy' );
 
 /**
+ * Blocks!
+ */
+if ( ! function_exists( 'ehriproject_create_blocks_block_init' ) ) {
+	/**
+	 * Register custom blocks.
+	 */
+	function ehriproject_create_blocks_block_init() {
+		register_block_type( __DIR__ . '/build/front-page-resource' );
+		register_block_type( __DIR__ . '/build/hero-section' );
+	}
+}
+add_action( 'init', 'ehriproject_create_blocks_block_init' );
+
+
+/**
  * Transients!
  */
 

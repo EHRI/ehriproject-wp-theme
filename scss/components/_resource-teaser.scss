@@ -1,10 +1,22 @@
+/**
+  Styling for resource teaser block components. Note: this is included
+  by the React block so is standalone, importing its dependencies.
+ */
+
+@import "../variables";
+@import "../mixins";
+@import "../base";
+@import "buttons";
+
+body.home .resource-teaser {
+	padding: var(--margin-section-v) var(--margin-page-h);
+}
+
 .resource-teaser {
 	display: grid;
 	grid-gap: $space-lg;
 	grid-template-areas: "media" "header" "description" "link";
 	grid-template-rows: min-content 1fr min-content min-content;
-
-	padding: var(--margin-section-v) var(--margin-page-h);
 
 	@media (min-width: $breakpoint-tablet) {
 		grid-template-columns: 1fr 1fr;
@@ -49,42 +61,5 @@
 .resource-teaser-thirds {
 	@media (min-width: $breakpoint-tablet) {
 		grid-template-columns: 1fr 2fr;
-	}
-}
-
-// TEMPORARY MAP TEASER
-.map-teaser {
-	display: grid;
-	grid-gap: $space-lg;
-	grid-template-columns: 1fr;
-	grid-template-rows: min-content 1fr min-content;
-	grid-template-areas: "header" "description" "link";
-
-	padding: var(--margin-section-v) var(--margin-page-h);
-
-	background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('images/map-teaser.jpg');
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-
-	.map-teaser-header {
-		grid-area: header;
-
-		h2 {
-			margin: 0;
-		}
-	}
-	.map-teaser-description {
-		grid-area: description;
-		font-size: var(--font-size-md);
-		font-weight: var(--font-weight-bolder);
-	}
-	.map-teaser-link {
-		grid-area: link;
-		width: min-content;
-	}
-
-	@media (min-width: $breakpoint-tablet) {
-		grid-template-columns: 50%;
 	}
 }

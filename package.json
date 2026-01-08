@@ -6,7 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass scss/style.scss style.css",
-	"watch": "sass --watch scss/style.scss style.css"
+    "watch": "sass --watch scss/style.scss style.css",
+    "build": "wp-scripts build",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "start": "wp-scripts start"
   },
   "author": "",
   "license": "EUPL-1.2",
@@ -14,5 +21,8 @@
     "compass": "^0.1.1",
     "compass-mixins": "^0.12.12",
     "sass": "^1.69.5"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^31.2.0"
   }
 }

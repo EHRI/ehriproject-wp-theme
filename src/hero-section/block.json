@@ -1,0 +1,53 @@
+{
+	"apiVersion": 3,
+	"title": "EHRI Project Hero section block",
+	"name": "ehriproject/hero-section",
+	"category": "media",
+	"icon": "smiley",
+	"keywords": ["ehri", "project"],
+	"attributes": {
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": "Welcome to Our Site"
+		},
+		"description": {
+			"type": "string",
+			"default": "Some text that follows the big title."
+		},
+		"alignment": {
+			"type": "string",
+			"default": "center"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"example": {
+		"attributes": {
+			"title": "Featured Section",
+			"description": "This is an example of how your hero section will look."
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:../../style.css"
+}

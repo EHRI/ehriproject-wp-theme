@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div <?php post_class( 'hero-title' ); ?> id="post-<?php the_ID(); ?>">
+<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	<header class="hero-header">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="hero-image">
