@@ -12,30 +12,12 @@
 <main id="content">
 	<?php $show_on_front = get_option( 'show_on_front' ); ?>
 	<?php if ( 'page' === $show_on_front ) : ?>
-	<section class="hero">
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
 			<?php get_template_part( 'loop-templates/content', 'hero' ); ?>
 		<?php endwhile; ?>
-	</section>
 	<?php endif; ?>
-	<section class="page-content resource-teaser" role="main">
-		<a href="https://portal.ehri-project.eu" class="resource-teaser-media">
-			<img src="<?php echo esc_url( get_theme_file_uri( 'images/portal-teaser.png' ) ); ?>" alt="EHRI
-			Portal Teaser Image">
-		</a>
-		<header class="resource-teaser-header">
-			<a href="https://portal.ehri-project.eu/">
-				<h2 class="resource-teaser-title">The EHRI Portal</h2>
-			</a>
-		</header>
-		<p class="resource-teaser-description">
-			The EHRI portal offers access to information on Holocaust-related archival material held in institutions across Europe and beyond.
-		</p>
-		<a class="button-primary resource-teaser-link" href="https://portal.ehri-project.eu">
-			Explore the EHRI Portal
-		</a>
-	</section>
+
 	<section class="page-content latest-news" role="main">
 		<?php
 		$args      = ehriproject_homepage_teaser_args( 3 );
@@ -56,6 +38,7 @@
 			</div>
 		<?php endif; ?>
 	</section>
+
 	<section class="page-content map-teaser">
 		<header class="map-teaser-header">
 			<h2 class="map-teaser-title">We are growing</h2>

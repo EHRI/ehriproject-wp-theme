@@ -6,22 +6,7 @@
 	"icon": "smiley",
 	"keywords": ["ehri", "project"],
 	"attributes": {
-		"imageUrl": {
-			"type": "string",
-			"default": ""
-		},
-		"imageId": {
-			"type": "number"
-		},
-		"imageAlt": {
-			"type": "string",
-			"default": ""
-		},
-		"title": {
-			"type": "string",
-			"default": "Welcome to Our Site"
-		},
-		"description": {
+		"text": {
 			"type": "string",
 			"default": "Some text that follows the big title."
 		},
@@ -44,8 +29,7 @@
 	},
 	"example": {
 		"attributes": {
-			"title": "Featured Section",
-			"description": "This is an example of how your hero section will look."
+			"text": "This is an example of how your hero section will look."
 		}
 	},
 	"editorScript": "file:./index.js",

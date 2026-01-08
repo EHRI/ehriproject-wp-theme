@@ -7,8 +7,8 @@
 @import "../mixins";
 @import "../base";
 
-body.home .hero .hero-header,
-body.home .hero > .hero-body
+body.home .hero-header,
+body.home .hero-body
 {
 	padding: var(--margin-section-v) var(--margin-section-h);
 }
@@ -20,37 +20,35 @@ body.home .hero > .hero-body
 	padding: $space-lg $space-xl;
 }
 
-.hero {
-	> .hero-header {
-		position: relative;
-		> .hero-image {
-			position: absolute;
-			top: 0;
-			left: 0;
+.hero-header {
+	position: relative;
+	> .hero-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+		> img {
+			object-fit: cover;
+			z-index: -1;
 			width: 100%;
 			height: 100%;
-			overflow: hidden;
-
-			> img {
-				object-fit: cover;
-				z-index: -1;
-				width: 100%;
-				height: 100%;
-			}
-		}
-
-		h1 {
-			color: var(--white);
-			position: inherit;
-			margin: 0;
 		}
 	}
 
-	> .hero-body {
-		color: var(--theme-bg);
-		background-color: var(--theme-fg);
-		font-size: 1.25rem;
-		line-height: 1.75rem;
+	h1 {
+		color: var(--white);
+		position: inherit;
+		margin: 0;
 	}
+}
+
+.hero-body {
+	color: var(--theme-bg);
+	background-color: var(--theme-fg);
+	font-size: 1.25rem;
+	line-height: 1.75rem;
 }
 

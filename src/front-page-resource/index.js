@@ -201,13 +201,13 @@ registerBlockType(metadata.name, {
 								value={description}
 							/>
 						)}
-
-						{linkUrl && linkText && (
-							<a href={linkUrl} className="resource-teaser-link">
-								{linkText}
-							</a>
-						)}
 					</div>
+
+					{linkUrl && linkText && (
+						<a href={linkUrl} className="button-primary resource-teaser-link">
+							{linkText}
+						</a>
+					)}
 				</section>
 			</div>
 		);
