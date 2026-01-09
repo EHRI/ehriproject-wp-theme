@@ -1,32 +1,68 @@
-.front-page {
-	padding: var(--margin-page-v) var(--margin-page-h);
 
-	.front-page-teasers {
-		//@include auto-grid(15rem, 2rem, 3);
+// Padding
+body.home main {
+	.hero-header,
+	.hero-body
+	{
+		padding: var(--margin-section-v) var(--margin-section-h);
+	}
 
-		display: grid;
-		grid-template-columns: 1fr;
+	.resource-teaser
+	{
+		padding: var(--margin-page-v) var(--margin-page-h);
+	}
+
+	// Look ma, an actual deliberate use of margin collapse.
+	> .wp-block-latest-posts,
+	> .wp-block-heading,
+	> .wp-block-group,
+	> .wp-block-columns,
+	> .wp-block-cover
+	{
+		padding: 0 var(--margin-page-h);
+		margin: var(--margin-page-v) 0;
+	}
+
+	> .wp-block-group,
+	> .wp-block-columns,
+	> .wp-block-cover
+	{
+		padding: var(--margin-page-v) var(--margin-page-h);
+		margin: 0;
+		row-gap: var(--margin-page-v);
+	}
+}
+
+.front-page-teasers,
+.wp-block-latest-posts
+{
+	display: grid;
+	grid-template-columns: 1fr;
+	width: 100%;
+	grid-gap: 2rem;
+
+	.post-thumbnail picture img,
+	.wp-block-latest-posts__featured-image img
+	{
+		aspect-ratio: 36 / 20;
+		object-fit: cover;
 		width: 100%;
-		grid-gap: 2rem;
-
-		.post-thumbnail picture img {
-			aspect-ratio: 36 / 20;
-			object-fit: cover;
-		}
-
-		.post-header a {
-			font-size: var(--font-size-base);
-			font-weight: var(--font-weight-bolder);
-			color: var(--black);
-		}
-
-		@media (min-width: $breakpoint-tablet) {
-			grid-template-columns: 1fr 1fr 1fr;
-		}
 	}
 
-	.section-footer {
-		display: flex;
-		justify-content: center;
+	.post-header a,
+	.wp-block-latest-posts__post-title
+	{
+		font-size: var(--font-size-base);
+		font-weight: var(--font-weight-bolder);
+		color: var(--black);
 	}
+
+	@media (min-width: $breakpoint-tablet) {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+.section-footer {
+	display: flex;
+	justify-content: center;
 }

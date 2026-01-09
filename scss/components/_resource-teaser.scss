@@ -8,10 +8,6 @@
 @import "../base";
 @import "buttons";
 
-body.home .resource-teaser {
-	padding: var(--margin-section-v) var(--margin-page-h);
-}
-
 .resource-teaser {
 	display: grid;
 	grid-gap: $space-lg;

@@ -17,56 +17,6 @@
 			<?php get_template_part( 'loop-templates/content', 'hero' ); ?>
 		<?php endwhile; ?>
 	<?php endif; ?>
-
-	<section class="page-content latest-news" role="main">
-		<?php
-		$args      = ehriproject_homepage_teaser_args( 3 );
-		$the_query = new WP_Query( $args );
-		?>
-		<?php if ( $the_query->have_posts() ) : ?>
-			<div class="front-page">
-				<h2><?php esc_html_e( 'Latest News', 'ehriproject' ); ?></h2>
-				<div class="front-page-teasers">
-					<?php while ( $the_query->have_posts() ) : ?>
-						<?php $the_query->the_post(); ?>
-						<?php get_template_part( 'loop-templates/content-front', get_post_format() ); ?>
-					<?php endwhile; ?>
-				</div>
-				<div class="section-footer">
-					<a class="button-primary" href="/latestnews"><?php esc_html_e( 'More News', 'ehriproject' ); ?></a>
-				</div>
-			</div>
-		<?php endif; ?>
-	</section>
-
-	<section class="page-content map-teaser">
-		<header class="map-teaser-header">
-			<h2 class="map-teaser-title">We are growing</h2>
-		</header>
-		<div class="map-teaser-description">
-			<p>
-				From a series of projects, EHRI has changed into an ERIC, a European Research Infrastructure Consortium, and an organisation with a permanent character.
-				Thus, EHRI will grow and even more institutions can join.
-			</p>
-		</div>
-		<a class="button-primary map-teaser-link" href="#">
-			How to join
-		</a>
-	</section>
-	<section class="page-content resource-teaser resource-teaser-flipped resource-teaser-thirds">
-		<div class="resource-teaser-media">
-			<iframe src="https://www.buzzsprout.com/2057183/11392057-trailer-ehri-podcast-for-the-living-and-the-dead-traces-of-the-holocaust-season-1?client_source=small_player&amp;iframe=true" style="border:none;max-width:100%;width:100%;height:200px" frameborder="0" scrolling="yes" allowfullscreen=""></iframe>
-		</div>
-		<header class="resource-teaser-header">
-			<h2 class="resource-teaser-title">EHRI Podcast</h2>
-		</header>
-		<p class="resource-teaser-description">
-			The EHRI portal offers access to information on Holocaust-related archival material held in institutions across Europe and beyond.
-		</p>
-		<a class="button-primary resource-teaser-link" href="/ehri-podcast-for-the-living-and-the-dead/">
-			Browse episodes
-		</a>
-	</section>
 </main>
 
 <?php get_footer(); ?>

@@ -38,6 +38,9 @@ $fa-font-path: "./fonts";
 @import "components/resource-teaser";
 @import "components/map-teaser";
 
+// Wordpress-specific.
+@import "blocks/wp-block-button";
+
 @import "fa/fontawesome";
 @import "fa/solid";
 @import "fa/brands";

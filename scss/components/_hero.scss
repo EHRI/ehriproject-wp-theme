@@ -7,12 +7,6 @@
 @import "../mixins";
 @import "../base";
 
-body.home .hero-header,
-body.home .hero-body
-{
-	padding: var(--margin-section-v) var(--margin-section-h);
-}
-
 // Editor CSS (TODO: move to another file?)
 .wp-block-ehriproject-hero-section .hero .hero-header,
 .wp-block-ehriproject-hero-section .hero-body
