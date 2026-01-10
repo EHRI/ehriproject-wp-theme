@@ -16,24 +16,22 @@ global $wp_query;
 	<?php $query = get_search_query(); ?>
 	<?php $q = trim( $query ); ?>
 	<section class="hero">
-		<div class="hero-title">
-			<header class="hero-header">
-				<h1><?php esc_html_e( 'Search the EHRI website', 'ehriproject' ); ?></h1>
+		<header class="hero-header">
+			<h1 class="hero-title"><?php esc_html_e( 'Search the EHRI website', 'ehriproject' ); ?></h1>
 
-				<form method="get">
-					<div class="hero-search-box">
-						<label class="sr-only" for="hero-search-box">Search</label>
-						<i class="fa fa-2x fa-search"></i>
-						<input name="s" id="hero-search-box" class="hero-search-box-input" type="text"
-							placeholder="<?php esc_attr_e( 'What are you looking for?', 'ehriproject' ); ?>"
-							value="<?php echo esc_attr( $q ); ?>">
-						<button type="submit" class="hero-search-box-button button-primary">
-							<?php esc_html_e( 'Search', 'ehriproject' ); ?>
-						</button>
-					</div>
-				</form>
-			</header>
-		</div>
+			<form method="get">
+				<div class="hero-search-box">
+					<label class="sr-only" for="hero-search-box">Search</label>
+					<i class="fa fa-2x fa-search"></i>
+					<input name="s" id="hero-search-box" class="hero-search-box-input" type="text"
+						placeholder="<?php esc_attr_e( 'What are you looking for?', 'ehriproject' ); ?>"
+						value="<?php echo esc_attr( $q ); ?>">
+					<button type="submit" class="hero-search-box-button button-primary">
+						<?php esc_html_e( 'Search', 'ehriproject' ); ?>
+					</button>
+				</div>
+			</form>
+		</header>
 	</section>
 	<section class="page-content" role="main">
 		<?php if ( have_posts() ) : ?>

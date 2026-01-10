@@ -1,13 +1,19 @@
 
 body.search {
+	.hero-header
+	{
+		padding: var(--margin-section-v) var(--margin-section-h);
+	}
+
 	.hero {
 		background-image: url('images/hero/tmp-bg3.png');
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
 
-		> .hero-title > .hero-header > h1 {
+		.hero-header > .hero-title {
 			color: var(--theme-fg);
+			margin-bottom: $space-lg;
 		}
 
 		.hero-search-box {
