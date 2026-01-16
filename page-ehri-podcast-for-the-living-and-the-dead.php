@@ -57,11 +57,9 @@ get_header();
 									<a href="<?php the_permalink(); ?>">
 										<?php echo preg_replace( '/Podcast Episode\s*\|?\s*/', '', get_the_title() ); ?>
 									</a>
+									<?php echo wp_strip_all_tags( get_the_excerpt() ); ?>
 								</h2>
 							</header>
-							<div class="post-excerpt">
-								<?php echo wp_strip_all_tags( get_the_excerpt() ); ?>
-							</div>
 						</div>
 					<?php endwhile; ?>
 				</div>

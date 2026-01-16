@@ -58,14 +58,12 @@ get_header();
 			?>
 
 			<form method="GET" accept-charset="UTF-8">
-				<div class="page-section">
-					<div id="edit-field-host-institution-value-wrapper"
-						class="views-exposed-widget views-widget-filter-field_host_institution_value">
-						<label for="edit-field-host-institution-value">Host institution</label>
-						<div class="views-widget">
+				<div class="form-controls">
+					<div class="form-group">
+						<div class="form-control">
+							<label for="edit-field-host-institution-value"><?php echo esc_html__( 'Host Institution', 'ehriproject' ); ?></label>
 							<div class="form-item form-type-select form-item-field-host-institution-value">
-								<select id="edit-field-host-institution-value" name="fellowship-institution"
-										class="form-select">
+								<select id="edit-field-host-institution-value" name="fellowship-institution" class="form-select">
 									<option value="" selected="selected">- Any -</option>
 									<?php foreach ( $institution_opts as $institution_term ) : ?>
 										<?php if ( $institution_term->slug === $institution ) : ?>
@@ -82,17 +80,13 @@ get_header();
 								</select>
 							</div>
 						</div>
-					</div>
-					<div id="edit-field-year-of-fellowship-value-wrapper"
-						class="views-exposed-widget views-widget-filter-field_year_of_fellowship_value">
-						<label for="edit-field-year-of-fellowship-value">Year of Fellowship</label>
-						<div class="views-widget">
+						<div class="form-control">
+							<label for="edit-field-year-of-fellowship-value"><?php echo esc_html__( 'Fellowship Year', 'ehriproject' ); ?></label>
 							<div class="form-item form-type-select form-item-field-year-of-fellowship-value">
-								<select id="edit-field-year-of-fellowship-value" name="fellowship-year"
-										class="form-select">
+								<select id="edit-field-year-of-fellowship-value" name="fellowship-year" class="form-select">
 									<option value="" selected="selected">- Any -</option>
 									<?php foreach ( $year_opts as $year_term ) : ?>
-										<?php if ( $year_term->slug === $year ) : ?>
+										<?php if ( $year_term->slug === $fellowship_year ) : ?>
 											<option value="<?php echo $year_term->slug; ?>"
 													selected="selected"><?php echo $year_term->name; ?></option>
 										<?php else : ?>
@@ -105,9 +99,9 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<div class="views-exposed-widget views-submit-button">
-						<input type="submit" id="edit-submit-clone-of-ehri-fellows-2016" value="Apply"
-							class="form-submit">
+					<div class="form-control">
+						<input type="submit" value="<?php esc_attr_e( 'Apply', 'ehriproject' ); ?>"
+							   class="button form-submit">
 					</div>
 				</div>
 
