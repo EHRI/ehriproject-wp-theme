@@ -9,6 +9,15 @@
   box-sizing: border-box;
 }
 
+html {
+	// Necessary for mobile-menu
+	overflow-x: auto;
+
+	@media (min-width: $breakpoint-laptop) {
+		overflow-x: unset;
+	}
+}
+
 /* Set core root defaults */
 html:focus-within {
   scroll-behavior: smooth;

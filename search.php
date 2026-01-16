@@ -53,7 +53,9 @@ global $wp_query;
 			<!-- The pagination component -->
 			<?php ehriproject_pagination( $wp_query ); ?>
 		<?php else : ?>
-			<h4><?php echo esc_html( sprintf( 'No results found for "%s"', $query ) ); ?> </h4>
+			<div class="post-list">
+				<h4><?php echo esc_html( sprintf( 'No results found for "%s"', $query ) ); ?> </h4>
+			</div>
 		<?php endif; ?>
 	</section>
 </main>

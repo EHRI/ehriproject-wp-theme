@@ -36,7 +36,6 @@ $fa-font-path: "./fonts";
 @import "components/hero";
 @import "components/breadcrumbs";
 @import "components/resource-teaser";
-@import "components/map-teaser";
 
 // Wordpress-specific.
 @import "blocks/wp-block-button";
@@ -46,6 +45,9 @@ $fa-font-path: "./fonts";
 @import "fa/brands";
 @import "fa/regular";
 @import "fa/shims";
+
+// Page imports
+@import "pages/page-ehri-podcast-for-the-living-and-the-dead";
 
 .post-thumbnail > a > picture > img {
 	width: 100%;

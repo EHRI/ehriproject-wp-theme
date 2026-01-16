@@ -392,7 +392,6 @@ if ( ! function_exists( 'ehriproject_create_blocks_block_init' ) ) {
 	 */
 	function ehriproject_create_blocks_block_init() {
 		register_block_type( __DIR__ . '/build/front-page-resource' );
-		register_block_type( __DIR__ . '/build/hero-section' );
 	}
 }
 add_action( 'init', 'ehriproject_create_blocks_block_init' );

@@ -1,12 +1,6 @@
 
 // Padding
-body.home main {
-	.hero-header,
-	.hero-body
-	{
-		padding: var(--margin-section-v) var(--margin-section-h);
-	}
-
+body.home main .front-page {
 	.resource-teaser
 	{
 		padding: var(--margin-page-v) var(--margin-page-h);
@@ -33,9 +27,7 @@ body.home main {
 	}
 }
 
-.front-page-teasers,
-.wp-block-latest-posts
-{
+.wp-block-latest-posts {
 	display: grid;
 	grid-template-columns: 1fr;
 	width: 100%;
@@ -44,7 +36,7 @@ body.home main {
 	.post-thumbnail picture img,
 	.wp-block-latest-posts__featured-image img
 	{
-		aspect-ratio: 36 / 20;
+		aspect-ratio: 16 / 9;
 		object-fit: cover;
 		width: 100%;
 	}

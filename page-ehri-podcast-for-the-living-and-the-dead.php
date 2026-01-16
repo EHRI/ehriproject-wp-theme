@@ -46,16 +46,22 @@ get_header();
 					<?php while ( $podcast_query->have_posts() ) : ?>
 						<?php $podcast_query->the_post(); ?>
 						<div class="podcast-episode" id="podcast-episode-<?php the_ID(); ?>">
-							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-								<img src="<?php echo get_the_post_thumbnail_url( null, 'medium' ); ?>" alt="<?php the_title(); ?>">
-							</a>
-
-							<h3>
-								<a href="<?php the_permalink(); ?>">
-									<?php echo preg_replace( '/Podcast Episode\s*\|?\s*/', '', get_the_title() ); ?>
+							<div class="post-thumbnail">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+									<img src="<?php echo get_the_post_thumbnail_url( null, 'medium' ); ?>" alt="<?php the_title(); ?>">
 								</a>
+							</div>
+
+							<header class="post-header">
+								<h2 class="post-title">
+									<a href="<?php the_permalink(); ?>">
+										<?php echo preg_replace( '/Podcast Episode\s*\|?\s*/', '', get_the_title() ); ?>
+									</a>
+								</h2>
+							</header>
+							<div class="post-excerpt">
 								<?php echo wp_strip_all_tags( get_the_excerpt() ); ?>
-							</h3>
+							</div>
 						</div>
 					<?php endwhile; ?>
 				</div>
