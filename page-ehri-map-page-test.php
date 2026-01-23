@@ -22,34 +22,13 @@ get_header();
 				<header class="post-header">
 					<h1 class="post-title" id="post-title"><?php the_title(); ?></h1>
 				</header>
+
+				<div class="map-container">
+					<?php the_content(); ?>
+				</div>
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 			<!-- Fetch all posts with the 'news' category and list them in reverse chronological order with pagination -->
-			<?php
-			$current_page = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-			$args         = array(
-				'category_name'  => 'news',
-				'paged'          => $current_page,
-				'orderby'        => 'date',
-				'order'          => 'DESC',
-				'posts_per_page' => 12,
-			);
-			$news_query   = new WP_Query( $args );
-			?>
-
-			<?php if ( $news_query->have_posts() ) : ?>
-				<div class="news post-list">
-					<?php while ( $news_query->have_posts() ) : ?>
-						<?php $news_query->the_post(); ?>
-						<?php get_template_part( 'loop-templates/content', 'news' ); ?>
-					<?php endwhile; ?>
-
-				</div>
-
-				<!-- The pagination component -->
-				<?php ehriproject_pagination( $news_query ); ?>
-			<?php endif; ?>
-			<?php wp_reset_postdata(); ?>
 		</section>
 	<?php endif; ?>
 </main>

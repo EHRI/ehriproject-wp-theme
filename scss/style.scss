@@ -54,3 +54,25 @@ $fa-font-path: "./fonts";
 	width: 100%;
 }
 
+.map-container {
+	padding: var(--margin-section-v) 0 0;
+
+	.feature-popup h3 {
+		@include header-font-3();
+	}
+
+	.feature-popup-content {
+		margin-bottom: $space-lg;
+	}
+
+	.feature-popup-content a {
+		color: var(--theme-fg-accent);
+	}
+
+	.feature-popup-content img {
+		max-width: 100%;
+		height: auto;
+	}
+
+}
+
