@@ -19,10 +19,6 @@ get_header();
 		<section class="page-content" role="main">
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
-				<header class="post-header">
-					<h1 class="post-title" id="post-title"><?php the_title(); ?></h1>
-				</header>
-
 				<div class="map-container">
 					<?php the_content(); ?>
 				</div>

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass scss/style.scss style.css",
-    "watch": "sass --watch scss/style.scss style.css",
+    "sass": "sass --silence-deprecation global-builtin scss/style.scss style.css",
+    "watch": "sass --silence-deprecation global-builtin --watch scss/style.scss style.css",
     "build": "wp-scripts build",
     "format": "wp-scripts format",
     "lint:css": "wp-scripts lint-style",

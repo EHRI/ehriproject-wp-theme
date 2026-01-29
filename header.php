@@ -63,7 +63,7 @@
 					);
 					?>
 					<li class="menu-item menu-item-search" id="menu-item-search">
-						<a href="<?php echo esc_url( get_home_url() . '?s=' ); ?>">
+						<a class="menu-item-link" href="<?php echo esc_url( get_home_url() . '?s=' ); ?>">
 							<i class="fa fa-search"></i>
 							<?php esc_html_e( 'Search', 'ehriproject' ); ?>
 						</a>

@@ -36,35 +36,33 @@
 			hsl(278deg 34% 18%) 100%
 	);
 
-	position: relative;
-	> .hero-image {
+	> .hero-image,
+	> .hero-parallax-overlay {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
-		background-image: url('./images/hero/tmp-bg4.svg');
 		background-repeat: no-repeat;
-		//background-position: center;
 		background-size: cover;
+		background-position: center center;
+	}
 
-		//> img {
-		//	object-fit: cover;
-		//	z-index: -1;
-		//	width: 100%;
-		//	height: 100%;
-		//}
+	position: relative;
+	> .hero-image {
+		background-image: url('./images/hero/blocks-p1.svg');
+		z-index: 0;
 	}
 
 	#parallax-mid {
-		background-image: url('./images/hero/tmp-bg4-mid.svg');
-		z-index: 10;
+		background-image: url('./images/hero/blocks-p2.svg');
+		z-index: 1;
 	}
 
 	#parallax-front {
-		background-image: url('./images/hero/tmp-bg4-front.svg');
-		z-index: 20;
+		background-image: url('./images/hero/blocks-p3.svg');
+		z-index: 2;
 	}
 
 	> .hero-parallax-overlay {
@@ -83,6 +81,7 @@
 		position: inherit;
 		margin: 0;
 		margin-bottom: $space-lg;
+		z-index: 3;
 	}
 
 	.hero-tagline {
@@ -92,6 +91,7 @@
 		line-height: var(--line-height-lg);
 		color: var(--white);
 		margin: 0;
+		z-index: 3;
 	}
 }
 
