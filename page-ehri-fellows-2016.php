@@ -100,8 +100,7 @@ get_header();
 						</div>
 					</div>
 					<div class="form-control">
-						<input type="submit" value="<?php esc_attr_e( 'Apply', 'ehriproject' ); ?>"
-							   class="button form-submit">
+						<input type="submit" value="<?php esc_attr_e( 'Apply', 'ehriproject' ); ?>" class="button form-submit">
 					</div>
 				</div>
 
