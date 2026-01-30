@@ -25,7 +25,8 @@ global $wp_query;
 					<i class="fa fa-2x fa-search"></i>
 					<input name="s" id="hero-search-box" class="hero-search-box-input" type="text"
 						placeholder="<?php esc_attr_e( 'What are you looking for?', 'ehriproject' ); ?>"
-						value="<?php echo esc_attr( $q ); ?>">
+						value="<?php echo esc_attr( $q ); ?>"
+						autofocus>
 					<button type="submit" class="hero-search-box-button button-primary">
 						<?php esc_html_e( 'Search', 'ehriproject' ); ?>
 					</button>

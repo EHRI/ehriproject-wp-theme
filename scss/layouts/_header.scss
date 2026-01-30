@@ -273,7 +273,7 @@ body {
 			text-shadow: 0 0 2px var(--grey-mid);
 		}
 
-		$icon-size: 1.5em;
+		$icon-size: 1rem;
 
 		.menu-item-link {
 			position: relative; // for positioning of item ::before underlines
@@ -282,7 +282,7 @@ body {
 			i.fa {
 				margin-right: $space-sm;
 				font-size: $icon-size;
-				color: var(--grey-dark);
+				color: inherit;
 			}
 			.menu-description {
 				display: block;
