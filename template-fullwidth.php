@@ -1,6 +1,7 @@
 <?php
 /**
- * The template for latest news items.
+ * Template Name: Full Width Page
+ * Template Post Type: page
  *
  * @package ehriproject-wp-theme
  */
@@ -8,8 +9,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-
-wp_enqueue_script("leaflet-js", "js");
 
 get_header();
 ?>
