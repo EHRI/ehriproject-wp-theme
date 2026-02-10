@@ -39,6 +39,7 @@
 
 			<section class="hero">
 				<header class="hero-header">
+					<div class="hero-bg" id="parallax-bg"></div>
 					<div class="hero-image" id="parallax-back"></div>
 					<div class="hero-parallax-overlay" id="parallax-mid"></div>
 					<div class="hero-parallax-overlay" id="parallax-front"></div>
