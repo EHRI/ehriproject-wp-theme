@@ -12,38 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<main id="main">
-	<div id="main-inner">
-		<?php if ( have_posts() ) : ?>
-			<div id="content" class="column">
-				<div id="content-inner">
-					<a id="main-content"></a>
-					<?php while ( have_posts() ) : ?>
-						<?php the_post(); ?>
-						<?php get_template_part( 'loop-templates/content', 'single' ); ?>
-					<?php endwhile; ?>
-					<?php
-					$args         = array(
-						'tag'      => 'fellow-list-2014',
-						'orderby'  => 'date',
-						'order'    => 'ASC',
-						'nopaging' => true,
-					);
-					$people_query = new WP_Query( $args );
-					?>
-
-					<?php if ( $people_query->have_posts() ) : ?>
-						<?php while ( $people_query->have_posts() ) : ?>
-							<?php $people_query->the_post(); ?>
-							<?php get_template_part( 'loop-templates/content', 'fellowship' ); ?>
-						<?php endwhile; ?>
-					<?php endif; ?>
-				</div>
-			</div>
-		<?php endif; ?>
-
-		<?php get_sidebar(); ?>
-	</div>
+<main id="content">
+	<section class="page-content">
+		<a id="main-content"></a>
+		<?php while ( have_posts() ) : ?>
+			<?php the_post(); ?>
+			<?php get_template_part( 'loop-templates/content', 'single' ); ?>
+		<?php endwhile; ?>
+		<?php get_template_part( 'template-parts/fellowship', 'list' ); ?>
+	</section>
 </main>
 
 
