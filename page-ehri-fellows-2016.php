@@ -13,8 +13,8 @@ get_header();
 ?>
 
 <main id="content">
-	<section class="page-content" role="main">
-		<a id="#main-content"></a>
+	<section class="page-content">
+		<a id="main-content"></a>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
 			<?php get_template_part( 'loop-templates/content', 'single' ); ?>

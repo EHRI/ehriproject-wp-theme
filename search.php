@@ -22,11 +22,10 @@ global $wp_query;
 			<form method="get">
 				<div class="hero-search-box">
 					<label class="sr-only" for="hero-search-box">Search</label>
-					<i class="fa fa-2x fa-search"></i>
+					<i class="fa fa-2x fa-search" aria-hidden="true"></i>
 					<input name="s" id="hero-search-box" class="hero-search-box-input" type="text"
 						placeholder="<?php esc_attr_e( 'What are you looking for?', 'ehriproject' ); ?>"
-						value="<?php echo esc_attr( $q ); ?>"
-						autofocus>
+						value="<?php echo esc_attr( $q ); ?>">
 					<button type="submit" class="hero-search-box-button button-primary">
 						<?php esc_html_e( 'Search', 'ehriproject' ); ?>
 					</button>
@@ -34,7 +33,7 @@ global $wp_query;
 			</form>
 		</header>
 	</section>
-	<section class="page-content" role="main">
+	<section class="page-content">
 		<?php if ( have_posts() ) : ?>
 			<?php if ( $q ) : ?>
 				<section class="breadcrumbs">

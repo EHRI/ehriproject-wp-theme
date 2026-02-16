@@ -9,7 +9,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
 	<?php $home = get_home_url(); ?>
 	<meta charset="utf-8">
@@ -33,7 +33,10 @@
 	<?php endif; ?>
 </head>
 <body <?php body_class( array( 'html' ) ); ?>>
-	<header class="main header" id="header" role="banner">
+	<a class="skip-link sr-only sr-only-focusable" href="#main-content">
+		<?php esc_html_e( 'Skip to main content', 'ehriproject' ); ?>
+	</a>
+	<header class="main header" id="header">
 		<div class="banner">
 			<div class="logo">
 				<a href="<?php echo esc_url( home_url() ); ?>">
@@ -43,9 +46,9 @@
 				</a>
 			</div>
 		</div>
-		<nav class="nav main-navbar navbar-container" role="navigation">
-			<label for="hamburger-toggle">Show menu</label>
-			<input id="hamburger-toggle" class="hamburger-toggle" type="checkbox"/>
+		<nav class="nav main-navbar navbar-container">
+			<label for="hamburger-toggle" class="sr-only">Toggle navigation menu</label>
+			<input id="hamburger-toggle" class="hamburger-toggle" type="checkbox" aria-label="Toggle navigation menu" aria-expanded="false"/>
 			<span class="hamburger-part"></span>
 			<span class="hamburger-part"></span>
 			<span class="hamburger-part"></span>
@@ -65,7 +68,7 @@
 					<li class="menu-item menu-item-search <?php echo is_search() ? 'current-menu-item' : ''; ?>"
 						id="menu-item-search">
 						<a class="menu-item-link" href="<?php echo esc_url( get_home_url() . '?s=' ); ?>">
-							<i class="fa fa-search"></i>
+							<i class="fa fa-search" aria-hidden="true"></i>
 							<?php esc_html_e( 'Search', 'ehriproject' ); ?>
 						</a>
 					</li>
