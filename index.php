@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php get_header(); ?>
 
 <main id="content">
-	<div class="page-content" role="main">
+	<div class="page-content">
 		<h1>INDEX</h1>
 		<?php if ( have_posts() ) : ?>
 			<?php while ( have_posts() ) : ?>

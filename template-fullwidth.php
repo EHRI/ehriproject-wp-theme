@@ -15,7 +15,7 @@ get_header();
 
 <main id="content">
 	<?php if ( have_posts() ) : ?>
-		<section class="page-content" role="main">
+		<section class="page-content">
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
 				<div class="map-container">

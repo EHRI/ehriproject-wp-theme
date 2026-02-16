@@ -13,7 +13,7 @@
 <head>
 	<?php $home = get_home_url(); ?>
 	<meta charset="utf-8">
-	<link rel="shortcut icon" href="<?php echo get_theme_file_uri( 'favicon.png' ); ?>" type="image/png">
+	<link rel="shortcut icon" href="<?php echo esc_url( get_theme_file_uri( 'favicon.png' ) ); ?>" type="image/png">
 	<link rel="canonical" href="<?php echo $home; ?>">
 	<link rel="shortlink" href="<?php echo $home; ?>">
 	<meta name="dcterms.title" content="European Holocaust Research Infrastructure">

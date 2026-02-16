@@ -13,13 +13,13 @@
 
 			<div class="socmed">
 				<a href="https://bsky.app/profile/ehri-project.eu" target="_blank" aria-label="<?php esc_attr_e( 'Follow EHRI on Bluesky (opens in new window)', 'ehriproject' ); ?>">
-					<img alt="" src="<?php echo get_theme_file_uri( 'images/bluesky.png' ); ?>">
+					<img alt="" src="<?php echo esc_url( get_theme_file_uri( 'images/bluesky.png' ) ); ?>">
 				</a>
 				<a href="https://facebook.com/EHRIproject" target="_blank" aria-label="<?php esc_attr_e( 'Follow EHRI on Facebook (opens in new window)', 'ehriproject' ); ?>">
-					<img alt="" src="<?php echo get_theme_file_uri( 'images/facebook.png' ); ?>">
+					<img alt="" src="<?php echo esc_url( get_theme_file_uri( 'images/facebook.png' ) ); ?>">
 				</a>
 				<a href="https://www.linkedin.com/company/ehri-european-holocaust-research-infrastructure/" target="_blank" aria-label="<?php esc_attr_e( 'Follow EHRI on LinkedIn (opens in new window)', 'ehriproject' ); ?>">
-					<img alt="" src="<?php echo get_theme_file_uri( 'images/linkedin2.png' ); ?>">
+					<img alt="" src="<?php echo esc_url( get_theme_file_uri( 'images/linkedin2.png' ) ); ?>">
 				</a>
 			</div>
 		</section>
@@ -89,7 +89,8 @@
 							</div>
 							<?php $num ++; ?>
 							<?php endwhile; ?>
-						<?php endif; ?>
+					<?php endif; ?>
+					<?php wp_reset_postdata(); ?>
 				</div>
 
 				<p class="more-link">
