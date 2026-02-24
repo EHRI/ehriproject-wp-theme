@@ -212,7 +212,7 @@ if ( ! function_exists( 'ehriproject_save_homepage_order_meta' ) ) {
 			update_post_meta(
 				$post_id,
 				'_homepage_order',
-				wp_unslash( intval( $_POST['homepage_order'] ) )
+				intval( wp_unslash( $_POST['homepage_order'] ) )
 			);
 		} else {
 			delete_post_meta( $post_id, '_homepage_order' );
