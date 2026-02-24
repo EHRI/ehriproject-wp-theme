@@ -112,6 +112,7 @@ get_header();
 						<?php endwhile; ?>
 					</div>
 				<?php endif; ?>
+				<?php wp_reset_postdata(); ?>
 
 				<!-- The pagination component -->
 				<?php ehriproject_pagination( $the_query ); ?>
