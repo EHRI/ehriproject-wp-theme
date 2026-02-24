@@ -1,0 +1,67 @@
+/**
+ * Styling for the map page, mainly customisations to leaflet's default styles
+ * for popup elements.
+ */
+
+.map-container {
+	// Look ma, an actual deliberate use of margin collapse.
+	> .wp-block-latest-posts,
+	> .wp-block-heading,
+	> .wp-block-group,
+	> .wp-block-columns,
+	> .wp-block-cover
+	{
+		padding: 0 var(--margin-page-h);
+		margin: var(--margin-page-v) 0;
+	}
+
+	> .wp-block-group,
+	> .wp-block-columns,
+	> .wp-block-cover
+	{
+		padding: var(--margin-page-v) var(--margin-page-h);
+		margin: 0;
+		row-gap: var(--margin-page-v);
+	}
+
+	.leaflet-popup-pane .leaflet-popup-close-button {
+		font-size: var(--font-size-xl);
+		color: var(--black);
+		margin: $space-sm $space-sm;
+	}
+
+	.leaflet-popup-content-wrapper {
+		padding: 0;
+	}
+
+	.leaflet-popup-content {
+		margin: 0;
+	}
+
+	.feature-popup > h3 {
+		@include header-font-3();
+		color: var(--black);
+		margin: 0;
+		padding: $space-sm $space-md;
+		padding-right: 3rem; // ensure enough space for close button
+		background-color: var(--grey-light);
+		border-top-right-radius: 12px;
+		border-top-left-radius: 12px;
+	}
+
+	.feature-popup-content {
+		margin: 0;
+		padding: $space-md;
+	}
+
+	.feature-popup-content a {
+		color: var(--theme-fg-accent);
+	}
+
+	.feature-popup-content img {
+		max-width: 100%;
+		height: auto;
+	}
+
+}
+
