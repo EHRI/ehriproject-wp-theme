@@ -28,6 +28,7 @@ $fa-font-path: "./fonts";
 @import "layouts/front-page";
 @import "layouts/post-list";
 @import "layouts/search";
+@import "layouts/map";
 
 @import "components/buttons";
 @import "components/misc";
@@ -53,43 +54,3 @@ $fa-font-path: "./fonts";
 .post-thumbnail > a > picture > img {
 	width: 100%;
 }
-
-.map-container {
-	// Look ma, an actual deliberate use of margin collapse.
-	> .wp-block-latest-posts,
-	> .wp-block-heading,
-	> .wp-block-group,
-	> .wp-block-columns,
-	> .wp-block-cover
-	{
-		padding: 0 var(--margin-page-h);
-		margin: var(--margin-page-v) 0;
-	}
-
-	> .wp-block-group,
-	> .wp-block-columns,
-	> .wp-block-cover
-	{
-		padding: var(--margin-page-v) var(--margin-page-h);
-		margin: 0;
-		row-gap: var(--margin-page-v);
-	}
-	.feature-popup h3 {
-		@include header-font-3();
-	}
-
-	.feature-popup-content {
-		margin-bottom: $space-lg;
-	}
-
-	.feature-popup-content a {
-		color: var(--theme-fg-accent);
-	}
-
-	.feature-popup-content img {
-		max-width: 100%;
-		height: auto;
-	}
-
-}
-
