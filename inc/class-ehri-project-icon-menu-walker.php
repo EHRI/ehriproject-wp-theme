@@ -53,7 +53,7 @@ class Ehri_Project_Icon_Menu_Walker extends Walker_Nav_Menu {
 		// the mega menu.
 		if ( 0 === $depth ) {
 			$alt_link_text   = empty( $item->description ) ? $item->title : $item->description;
-			$alt_attributes  = ! empty( $item->url ) ? ' href="' . $item->url . '"' : '';
+			$alt_attributes  = ! empty( $item->url ) ? ' href="' . esc_url( $item->url ) . '"' : '';
 			$alt_attributes .= ' class="menu-item-link-alt"';
 			$alt_attributes .= ! empty( $item->target ) ? ' target=' . esc_attr( $item->target ) : '';
 			$item_output    .= '<a' . $alt_attributes . '>';
@@ -76,7 +76,7 @@ class Ehri_Project_Icon_Menu_Walker extends Walker_Nav_Menu {
 		foreach ( $item->classes as $class_name ) {
 			if ( substr( $class_name, 0, 8 ) === 'icon-fa-' ) {
 				$fa_class = 'fa-' . substr( $class_name, 8 );
-				return '<i class="fa fa-fw ' . $fa_class . '"></i>';
+				return '<i class="fa fa-fw ' . esc_attr( $fa_class ) . '"></i>';
 			}
 		}
 		return '';
