@@ -320,7 +320,7 @@ $newsletter_edition_name = get_queried_object()->name;
 								</span>
 									</div>
 									<div class="field field-body">
-										<?php echo drupal_text_summary( get_the_content(), $max_length = 600 ); ?>
+										<?php echo wp_kses_post( drupal_text_summary( get_the_content(), $max_length = 600 ) ); ?>
 									</div>
 								</td>
 							</tr>
@@ -336,6 +336,7 @@ $newsletter_edition_name = get_queried_object()->name;
 				</tr>
 			<?php endwhile; ?>
 		<?php endif; ?>
+		<?php wp_reset_postdata(); ?>
 
 
 		<tr>
