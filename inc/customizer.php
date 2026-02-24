@@ -38,9 +38,9 @@ if ( ! function_exists( 'ehriproject_theme_customize_register' ) ) {
 		$wp_customize->add_section(
 			'ehriproject_theme_header_options',
 			array(
-				'title'       => __( 'Theme Header Settings' ),
+				'title'       => __( 'Theme Header Settings', 'ehriproject' ),
 				'capability'  => 'edit_theme_options',
-				'description' => __( 'EHRI theme header settings' ),
+				'description' => __( 'EHRI theme header settings', 'ehriproject' ),
 				'priority'    => 170,
 			)
 		);
@@ -72,9 +72,9 @@ if ( ! function_exists( 'ehriproject_theme_customize_register' ) ) {
 		$wp_customize->add_section(
 			'ehriproject_theme_social_options',
 			array(
-				'title'       => __( 'Theme Social Media Settings' ),
+				'title'       => __( 'Theme Social Media Settings', 'ehriproject' ),
 				'capability'  => 'edit_theme_options',
-				'description' => __( 'EHRI theme social settings' ),
+				'description' => __( 'EHRI theme social settings', 'ehriproject' ),
 				'priority'    => 170,
 			)
 		);
@@ -178,9 +178,9 @@ if ( ! function_exists( 'ehriproject_theme_customize_register' ) ) {
 		$wp_customize->add_section(
 			'ehriproject_theme_footer_options',
 			array(
-				'title'       => __( 'Theme Footer Settings' ),
+				'title'       => __( 'Theme Footer Settings', 'ehriproject' ),
 				'capability'  => 'edit_theme_options',
-				'description' => __( 'EHRI theme footer settings' ),
+				'description' => __( 'EHRI theme footer settings', 'ehriproject' ),
 				'priority'    => 171,
 			)
 		);
