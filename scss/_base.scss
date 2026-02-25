@@ -126,7 +126,7 @@ body {
   --padding-page-content-h: 18vw;
 
 	@media (min-width: $breakpoint-laptop) {
-		--margin-page-h: max(calc((100vw - var(--max-page-width)) / 2), max(1rem, 15vw));
+		--margin-page-h: max(calc((100vw - var(--max-page-width)) / 2), max(1rem, 5vw));
 		--margin-section-h: max(calc((100vw - var(--max-content-width)) / 2), max(1rem, 20vw));
 	}
 }
