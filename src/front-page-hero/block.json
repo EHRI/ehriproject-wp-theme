@@ -1,0 +1,47 @@
+{
+	"apiVersion": 3,
+	"title": "EHRI Project Front Page Hero block",
+	"name": "ehriproject/front-page-hero",
+	"category": "media",
+	"icon": "smiley",
+	"keywords": ["ehri", "project"],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "European Holocaust Research Infrastructure"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "A description of EHRI goes here."
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"linkText": {
+			"type": "string",
+			"default": "Learn More"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"example": {
+		"attributes": {
+			"title": "Welcome to EHRI",
+			"subtitle": "This is an example of how your hero section will look.",
+			"linkText": "Get Started"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:../../style.css"
+}

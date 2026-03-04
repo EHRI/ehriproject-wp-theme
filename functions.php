@@ -36,8 +36,7 @@ if ( ! function_exists( 'ehriproject_enqueue_styles' ) ) {
 	 * Enqueue theme scripts and styles.
 	 */
 	function ehriproject_enqueue_styles() {
-		wp_enqueue_style( 'ehri-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
-		wp_enqueue_style( 'ehri-typekit', '//use.typekit.net/xhz5yfl.css', array(), wp_get_theme()->get( 'Version' ) );
+		wp_enqueue_style( 'ehriproject-wp-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
 
 		// Enqueue front page parallax script only on the front page.
 		if ( is_front_page() ) {
@@ -53,6 +52,29 @@ if ( ! function_exists( 'ehriproject_enqueue_styles' ) ) {
 
 	add_action( 'wp_enqueue_scripts', 'ehriproject_enqueue_styles' );
 }
+
+if ( ! function_exists( 'ehriproject_front_page_hero_assets_path' ) ) {
+	/**
+	 * Add a snippet to load background images on the
+	 * front page hero section.
+	 */
+	function ehriproject_front_page_hero_assets_path() {
+		$theme_uri = get_template_directory_uri();
+
+		$custom_css = "
+        :root {
+            --hero-bg-1: url('{$theme_uri}/images/hero/blocks-p1-o.svg');
+            --hero-bg-2: url('{$theme_uri}/images/hero/blocks-p2-o.svg');
+            --hero-bg-3: url('{$theme_uri}/images/hero/blocks-p3-o.svg');
+        }";
+
+		wp_add_inline_style( 'ehriproject-wp-style', $custom_css );
+		wp_add_inline_style( 'ehriproject-front-page-hero-style', $custom_css );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'ehriproject_front_page_hero_assets_path' );
+add_action( 'enqueue_block_editor_assets', 'ehriproject_front_page_hero_assets_path' );
 
 
 if ( ! function_exists( 'ehriproject_teaser_image_data' ) ) {
@@ -399,6 +421,7 @@ if ( ! function_exists( 'ehriproject_create_blocks_block_init' ) ) {
 	 * Register custom blocks.
 	 */
 	function ehriproject_create_blocks_block_init() {
+		register_block_type( __DIR__ . '/build/front-page-hero' );
 		register_block_type( __DIR__ . '/build/front-page-resource' );
 	}
 }
