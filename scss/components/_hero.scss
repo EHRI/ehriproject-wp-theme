@@ -91,4 +91,22 @@
 		line-height: var(--line-height-lg);
 		margin: 0;
 	}
+
+	.hero-link {
+		$blur: 2px;
+		border-color: rgba(255, 255, 255, .5);
+		border-width: 2px;
+		background-color: #7a6486;
+		//background-color: color-mix(in srgb, var(--theme-fg) 60%, transparent);
+		//background: rgba(255, 255, 255, 0); /* semi-transparent */
+		//backdrop-filter: blur($blur);          /* blurs what's behind it */
+		//-webkit-backdrop-filter: blur($blur);  /* Safari support */
+
+		&:hover {
+			background-color: #90769e;
+			border-color: rgba(255, 255, 255, .7);
+			//background-color: color-mix(in srgb, var(--theme-fg) 90%, transparent);
+			//background: rgba(255, 255, 255, 0.2); /* semi-transparent */
+		}
+	}
 }
