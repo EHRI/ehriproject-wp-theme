@@ -1,0 +1,25 @@
+.wp-block-image img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+.wp-block-image figcaption {
+	font-size: $font-size-sm;
+	color: #666;
+	text-align: center;
+	margin-top: $space-sm;
+}
+
+/* Prevent floated images from overflowing */
+.wp-block-image.alignleft {
+	float: left;
+	margin-right: $space-lg;
+	margin-bottom: $space-md;
+}
+
+.wp-block-image.alignright {
+	float: right;
+	margin-left: $space-lg;
+	margin-bottom: $space-md;
+}
