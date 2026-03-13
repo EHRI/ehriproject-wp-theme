@@ -21,6 +21,8 @@
 	<meta name="dcterms.format" content="text/html">
 	<meta name="dcterms.identifier" content="<?php echo $home; ?>/">
 
+	<?php ehriproject_render_open_graph_meta(); ?>
+
 	<meta name="MobileOptimized" content="width">
 	<meta name="HandheldFriendly" content="true">
 	<meta name="viewport" content="width=device-width">

@@ -1,0 +1,6 @@
+// All this does currently is put flow-root on a group
+// to prevent floated images interfering with following
+// content.
+.wp-block-group {
+	display: flow-root;
+}
