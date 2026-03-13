@@ -19,6 +19,7 @@ $ehriproject_includes = array(
 	'top-bar',
 	'search',
 	'class-ehri-project-icon-menu-walker',
+	'template-tags',
 );
 
 foreach ( $ehriproject_includes as $file ) {
