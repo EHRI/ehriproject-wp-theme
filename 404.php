@@ -15,7 +15,9 @@ get_header();
 <main id="content">
 	<section class="page-content">
 		<header class="post-header">
-			<h1 class="post-title"><?php esc_html_e( '404: Page not found', 'ehriproject' ); ?></h1>
+			<h1 class="post-title">
+				<?php esc_html_e( '404: Page not found', 'ehriproject' ); ?>
+			</h1>
 		</header>
 
 		<p class="post-body">
