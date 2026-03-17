@@ -204,7 +204,7 @@ if ( ! function_exists( 'ehriproject_register_gallery_item_post_type' ) ) {
 			'labels'             => $labels,
 			'public'             => true,
 			'publicly_queryable' => true,
-			'show_ui'            => true,
+			'show_ui'            => false,
 			'show_in_menu'       => true,
 			'query_var'          => true,
 			'rewrite'            => array( 'slug' => 'gallery_item' ),
@@ -244,7 +244,7 @@ if ( ! function_exists( 'ehriproject_register_video_post_type' ) ) {
 			'labels'             => $labels,
 			'public'             => true,
 			'publicly_queryable' => true,
-			'show_ui'            => true,
+			'show_ui'            => false,
 			'show_in_menu'       => true,
 			'query_var'          => true,
 			'rewrite'            => array( 'slug' => 'video' ),
@@ -283,7 +283,7 @@ if ( ! function_exists( 'ehriproject_register_newsletter_edition_taxonomy' ) ) {
 		$args = array(
 			'hierarchical' => false,
 			'labels'       => $labels,
-			'show_ui'      => true,
+			'show_ui'      => false,
 			'closed'       => true,
 			'show_in_menu' => true,
 			'query_var'    => true,
@@ -323,12 +323,12 @@ if ( ! function_exists( 'ehriproject_register_newsletter_category_taxonomy' ) ) 
 		$args = array(
 			'hierarchical' => false,
 			'labels'       => $labels,
-			'show_ui'      => true,
+			'show_ui'      => false,
 			'closed'       => true,
 			'query_var'    => true,
-			'show_in_rest' => true,
+			'show_in_rest' => false,
 			'rewrite'      => array( 'slug' => 'newsletter-category' ),
-			'show_in_menu' => true,
+			'show_in_menu' => false,
 		);
 
 		register_taxonomy( 'newsletter_category', array( 'post', 'page' ), $args );

@@ -14,7 +14,7 @@
 	<?php if ( 'page' === $show_on_front ) : ?>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
-			<?php get_template_part( 'loop-templates/content', 'hero' ); ?>
+			<?php get_template_part( 'loop-templates/content', 'front' ); ?>
 		<?php endwhile; ?>
 	<?php endif; ?>
 </main>
