@@ -15,7 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <main id="content">
 	<div class="page-content">
-		<h1>INDEX</h1>
 		<?php if ( have_posts() ) : ?>
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
