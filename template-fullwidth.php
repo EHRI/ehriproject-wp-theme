@@ -15,12 +15,10 @@ get_header();
 
 <main id="content">
 	<?php if ( have_posts() ) : ?>
-		<section class="page-content">
+		<section <?php post_class( array( 'page-content', 'full-width' ) ); ?> id="post-<?php the_ID(); ?>">
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
-				<div class="map-container">
-					<?php the_content(); ?>
-				</div>
+				<?php the_content(); ?>
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 			<!-- Fetch all posts with the 'news' category and list them in reverse chronological order with pagination -->

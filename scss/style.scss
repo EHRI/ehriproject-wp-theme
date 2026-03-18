@@ -28,7 +28,7 @@ $fa-font-path: "./fonts";
 @import "layouts/front-page";
 @import "layouts/post-list";
 @import "layouts/search";
-@import "layouts/map";
+@import "layouts/full-width";
 
 @import "components/buttons";
 @import "components/misc";
@@ -43,6 +43,7 @@ $fa-font-path: "./fonts";
 @import "blocks/wp-block-image";
 @import "blocks/wp-block-group";
 @import "blocks/wp-block-latest-posts";
+@import "blocks/map_block_leaflet";
 
 @import "fa/fontawesome";
 @import "fa/solid";
