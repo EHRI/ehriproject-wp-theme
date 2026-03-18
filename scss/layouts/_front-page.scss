@@ -1,12 +1,7 @@
 
-// Padding
 body.home main .front-page {
-	.resource-teaser
-	{
-		padding: var(--margin-page-v) var(--margin-page-h);
-	}
 
-	// Look ma, an actual deliberate use of margin collapse.
+	//// Look ma, an actual deliberate use of margin collapse.
 	> .wp-block-latest-posts,
 	> .wp-block-heading,
 	> .wp-block-group,
@@ -25,36 +20,4 @@ body.home main .front-page {
 		margin: 0;
 		row-gap: var(--margin-page-v);
 	}
-}
-
-.wp-block-latest-posts {
-	display: grid;
-	grid-template-columns: 1fr;
-	width: 100%;
-	grid-gap: 2rem;
-
-	.post-thumbnail picture img,
-	.wp-block-latest-posts__featured-image img
-	{
-		aspect-ratio: 16 / 9;
-		object-fit: cover;
-		width: 100%;
-	}
-
-	.post-header a,
-	.wp-block-latest-posts__post-title
-	{
-		font-size: var(--font-size-base);
-		font-weight: var(--font-weight-bolder);
-		color: var(--black);
-	}
-
-	@media (min-width: $breakpoint-tablet) {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
-}
-
-.section-footer {
-	display: flex;
-	justify-content: center;
 }

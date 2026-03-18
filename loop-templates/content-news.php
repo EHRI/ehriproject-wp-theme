@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo get_the_title(); ?>">
-			<div class="post-thumbnail">
+			<div class="post-thumbnail" style="--post-thumbnail: url('<?php echo esc_url( get_the_post_thumbnail_url() ); ?>');">
 				<?php the_post_thumbnail( 'medium' ); ?>
 			</div>
 		</a>

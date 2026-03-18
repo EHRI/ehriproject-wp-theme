@@ -33,7 +33,7 @@ if ( $people_query->have_posts() ) :
 		<?php
 		while ( $people_query->have_posts() ) :
 			$people_query->the_post();
-			get_template_part( 'loop-templates/content', 'fellowship' );
+			get_template_part( 'loop-templates/content', 'news' );
 		endwhile;
 		?>
 	</div>

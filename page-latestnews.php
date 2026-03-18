@@ -14,7 +14,7 @@ get_header();
 
 <main id="content">
 	<?php if ( have_posts() ) : ?>
-		<section class="page-content">
+		<section <?php post_class( 'page-content' ); ?> id="post-<?php the_ID(); ?>">
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
 				<header class="post-header">

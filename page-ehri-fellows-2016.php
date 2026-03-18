@@ -13,7 +13,7 @@ get_header();
 ?>
 
 <main id="content">
-	<section class="page-content">
+	<section <?php post_class( array( 'page-content', 'fellowships' ) ); ?>>
 		<a id="main-content"></a>
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
@@ -108,7 +108,7 @@ get_header();
 					<div class="post-list">
 						<?php while ( $the_query->have_posts() ) : ?>
 							<?php $the_query->the_post(); ?>
-							<?php get_template_part( 'loop-templates/content', 'fellowship' ); ?>
+							<?php get_template_part( 'loop-templates/content', 'news' ); ?>
 						<?php endwhile; ?>
 					</div>
 				<?php endif; ?>

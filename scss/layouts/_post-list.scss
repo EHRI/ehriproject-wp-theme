@@ -13,11 +13,16 @@
 		}
 	}
 
-	.post-thumbnail img {
+	.post-thumbnail {
+		width: 100%;
 		aspect-ratio: 16 / 9;
+		overflow: hidden;
+	}
+
+	.post-thumbnail img {
 		object-fit: cover;
 		width: 100%;
-		height: auto;
+		height: 100%;
 	}
 
 	.post-header a {
@@ -29,9 +34,4 @@
 	.post-read-more {
 		font-weight: var(--font-weight-bold);
 	}
-}
-
-.section-footer {
-	display: flex;
-	justify-content: center;
 }

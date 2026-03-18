@@ -42,7 +42,7 @@
 		<div class="banner">
 			<div class="logo">
 				<a href="<?php echo esc_url( home_url() ); ?>">
-					<img src="<?php echo esc_url( get_theme_file_uri( 'images/ehri-logo-ng.svg' ) ); ?>"
+					<img src="<?php echo esc_url( get_theme_file_uri( 'images/ehri-logo-o.svg' ) ); ?>"
 						alt="EHRI Logo"
 						title="<?php bloginfo( 'name' ); ?>"/>
 				</a>

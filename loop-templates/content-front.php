@@ -8,8 +8,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-?>
 
-<div <?php post_class( 'front-page' ); ?> id="post-<?php the_ID(); ?>">
-	<?php the_content(); ?>
-</div>
+// The entire front page is built in the WordPress editor, so
+// no page chrome is added here.
+the_content();
