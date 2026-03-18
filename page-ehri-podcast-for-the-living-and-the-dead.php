@@ -14,7 +14,7 @@ get_header();
 
 
 <main id="content">
-	<div class="page-content">
+	<section <?php post_class( array( 'page-content', 'podcast-season' ) ); ?>>
 		<?php if ( have_posts() ) : ?>
 			<a id="main-content"></a>
 			<?php while ( have_posts() ) : ?>
@@ -45,12 +45,14 @@ get_header();
 				<div class="podcast-episode-list post-list">
 					<?php while ( $podcast_query->have_posts() ) : ?>
 						<?php $podcast_query->the_post(); ?>
-						<div class="podcast-episode" id="podcast-episode-<?php the_ID(); ?>">
-							<div class="post-thumbnail">
-								<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
-									<img src="<?php echo esc_url( get_the_post_thumbnail_url( null, 'medium' ) ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+						<div <?php post_class( 'podcast-episode' ); ?> id="podcast-episode-<?php the_ID(); ?>">
+							<?php if ( has_post_thumbnail() ) : ?>
+								<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo get_the_title(); ?>">
+									<div class="post-thumbnail" style="--post-thumbnail: url('<?php echo esc_url( get_the_post_thumbnail_url() ); ?>');">
+										<?php the_post_thumbnail( 'medium' ); ?>
+									</div>
 								</a>
-							</div>
+							<?php endif; ?>
 
 							<header class="post-header">
 								<h2 class="post-title">
@@ -66,7 +68,7 @@ get_header();
 			<?php endif; ?>
 			<?php wp_reset_postdata(); ?>
 		<?php endif; ?>
-	</div>
+	</section>
 </main>
 
 <?php get_footer(); ?>
