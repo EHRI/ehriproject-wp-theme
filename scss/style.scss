@@ -42,6 +42,7 @@ $fa-font-path: "./fonts";
 @import "blocks/wp-block-button";
 @import "blocks/wp-block-image";
 @import "blocks/wp-block-group";
+@import "blocks/wp-block-latest-posts";
 
 @import "fa/fontawesome";
 @import "fa/solid";
@@ -52,6 +53,9 @@ $fa-font-path: "./fonts";
 // Page imports
 @import "pages/page-ehri-podcast-for-the-living-and-the-dead";
 @import "pages/fellowship";
+
+// Things we don't want to acknowledge:
+@import "hacks";
 
 .post-thumbnail > a > picture > img {
 	width: 100%;

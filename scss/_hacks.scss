@@ -1,0 +1,35 @@
+
+// Try and tackle a problem that images in some categories have portrait
+// thumbnails, whereas the rest of the design is oriented around
+// 16/9 landscape thumbnails.
+// Put a blurred background and override the object-fit property
+// for posts in this category.
+.post-list .post.category-fellowships .post-thumbnail,
+.post-list .post.category-podcast-episode .post-thumbnail,
+body.single .post.category-fellowships .post-header.has-featured-image .post-featured-image,
+body.page .page.podcast-season .post-header.has-featured-image .post-featured-image,
+body.single .post.category-podcast-episode .post-header.has-featured-image .post-featured-image,
+body.single.single-post main .post-header.has-featured-image > .post-featured-image
+{
+	position: relative;
+	background-color: var(--grey-light);
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: var(--post-thumbnail); // Set in the PHP template
+		background-size: cover;
+		background-position: center;
+		filter: blur(10px) brightness(0.7);
+		transform: scale(1.1); // Prevents white edges from the blur
+	}
+
+	> img {
+		position: relative; // Sits above the pseudo-element
+		object-fit: contain;
+	}
+}

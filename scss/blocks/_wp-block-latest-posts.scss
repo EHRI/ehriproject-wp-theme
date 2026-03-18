@@ -1,0 +1,27 @@
+
+.wp-block-latest-posts {
+	display: grid;
+	grid-template-columns: 1fr;
+	width: 100%;
+	grid-gap: 2rem;
+
+	.post-thumbnail picture img,
+	.wp-block-latest-posts__featured-image img
+	{
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		width: 100%;
+	}
+
+	.post-header a,
+	.wp-block-latest-posts__post-title
+	{
+		font-size: var(--font-size-base);
+		font-weight: var(--font-weight-bolder);
+		color: var(--black);
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
