@@ -466,3 +466,17 @@ add_action( 'delete_post', 'ehriproject_delete_gallery_transients' );
 
 // Add support for excerpts on pages.
 add_post_type_support( 'page', 'excerpt' );
+
+if ( ! function_exists( 'ehriproject_add_custom_favicons' ) ) {
+	/**
+	 * Add favicon files that should've been uploaded to the WordPress root
+	 * directory.
+	 */
+	function ehriproject_add_custom_favicons() {
+		echo '
+    <link rel="icon" href="' . get_site_url() . '/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="' . get_site_url() . '/apple-touch-icon.png">
+    ';
+	}
+}
+add_action( 'wp_head', 'ehriproject_add_custom_favicons' );
