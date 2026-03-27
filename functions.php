@@ -11,9 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $ehriproject_includes = array(
 	'pagination',
-	'widgets',
 	'queries',
-	'drupal',
 	'customizer',
 	'theme-settings',
 	'top-bar',
@@ -38,17 +36,6 @@ if ( ! function_exists( 'ehriproject_enqueue_styles' ) ) {
 	 */
 	function ehriproject_enqueue_styles() {
 		wp_enqueue_style( 'ehriproject-wp-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
-
-		// Enqueue front page parallax script only on the front page.
-		if ( is_front_page() ) {
-			wp_enqueue_script(
-				'ehri-front-page-parallax',
-				get_template_directory_uri() . '/js/front-page-parallax.js',
-				array(),
-				wp_get_theme()->get( 'Version' ),
-				true
-			);
-		}
 	}
 
 	add_action( 'wp_enqueue_scripts', 'ehriproject_enqueue_styles' );
@@ -78,54 +65,6 @@ add_action( 'wp_enqueue_scripts', 'ehriproject_front_page_hero_assets_path' );
 add_action( 'enqueue_block_editor_assets', 'ehriproject_front_page_hero_assets_path' );
 
 
-if ( ! function_exists( 'ehriproject_teaser_image_data' ) ) {
-	/**
-	 * Returns an array of image sizes for the teaser images.
-	 *
-	 * @return array
-	 */
-	function ehriproject_teaser_image_data() {
-		return array(
-			'teaser_desktop_1x' => array(
-				'name'   => __( 'Teaser Desktop 1x' ),
-				'width'  => 400,
-				'height' => 270,
-				'media'  => '(min-width: 992px)',
-			),
-			'teaser_desktop_2x' => array(
-				'name'   => __( 'Teaser Desktop 2x' ),
-				'width'  => 800,
-				'height' => 540,
-				'media'  => '(min-width: 992px)',
-			),
-			'teaser_tablet_1x'  => array(
-				'name'   => __( 'Teaser Tablet 1x' ),
-				'width'  => 280,
-				'height' => 184,
-				'media'  => '(min-width: 768px)',
-			),
-			'teaser_tablet_2x'  => array(
-				'name'   => __( 'Teaser Tablet 2x' ),
-				'width'  => 560,
-				'height' => 370,
-				'media'  => '(min-width: 768px)',
-			),
-			'teaser_mobile_1x'  => array(
-				'name'   => __( 'Teaser Mobile 1x' ),
-				'width'  => 320,
-				'height' => 180,
-				'media'  => '(min-width: 0px)',
-			),
-			'teaser_mobile_2x'  => array(
-				'name'   => __( 'Teaser Mobile 2x' ),
-				'width'  => 640,
-				'height' => 360,
-				'media'  => '(min-width: 0px)',
-			),
-		);
-	}
-}
-
 if ( ! function_exists( 'ehriproject_theme_setup' ) ) {
 	/**
 	 * Theme setup function.
@@ -134,27 +73,27 @@ if ( ! function_exists( 'ehriproject_theme_setup' ) ) {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
 
-		foreach ( ehriproject_teaser_image_data() as $key => $value ) {
-			add_image_size( $key, $value['width'], $value['height'], true );
-		}
+		// Override WP defaults to be 16:9.
+		update_option( 'thumbnail_size_w', 150 );
+		update_option( 'thumbnail_size_h', 150 );
+		update_option( 'thumbnail_crop', 1 );
 
-		/**
-		 * Add custom image sizes to the media library.
-		 *
-		 * @param array $sizes Array of image sizes.
-		 *
-		 * @return array Modified array of image sizes.
-		 */
-		function ehriproject_teaser_sizes( $sizes ) {
-			$ehri_teaser_image_size_names = array();
-			foreach ( ehriproject_teaser_image_data() as $key => $value ) {
-				$ehri_teaser_image_size_names[ $key ] = $value['name'];
-			}
+		update_option( 'medium_size_w', 480 );
+		update_option( 'medium_size_h', 270 );
+		update_option( 'medium_crop', 1 );
 
-			return array_merge( $sizes, $ehri_teaser_image_size_names );
-		}
+		update_option( 'medium_large_size_w', 768 );
+		update_option( 'medium_large_size_h', 432 );
 
-		add_filter( 'image_size_names_choose', 'ehriproject_teaser_sizes' );
+		update_option( 'large_size_w', 1024 );
+		update_option( 'large_size_h', 576 );
+		update_option( 'large_crop', 1 );
+
+		// Custom sizes.
+		add_image_size( 'card', 640, 360, true );
+		add_image_size( 'wide', 1280, 720, true );
+		add_image_size( 'og-image', 1200, 630, true );
+		add_image_size( 'full-hd', 1920, 1080, true );
 	}
 }
 
@@ -427,41 +366,6 @@ if ( ! function_exists( 'ehriproject_create_blocks_block_init' ) ) {
 	}
 }
 add_action( 'init', 'ehriproject_create_blocks_block_init' );
-
-
-/**
- * Transients!
- */
-
-if ( ! function_exists( 'ehriproject_delete_homepage_transients' ) ) {
-	/**
-	 * Delete transients related to the homepage posts and latest news.
-	 *
-	 * @param int $post_id The ID of the post being saved or deleted.
-	 */
-	function ehriproject_delete_homepage_transients( $post_id ) {
-		delete_transient( 'ehri_homepage_posts' );
-		delete_transient( 'ehri_latest_news' );
-	}
-}
-
-if ( ! function_exists( 'ehriproject_delete_gallery_transients' ) ) {
-	/**
-	 * Delete transients related to gallery items.
-	 *
-	 * @param int $post_id The ID of the post being saved or deleted.
-	 */
-	function ehriproject_delete_gallery_transients( $post_id ) {
-		if ( 'gallery_item' === get_post_type( $post_id ) ) {
-			delete_transient( 'ehri_gallery_items' );
-		}
-	}
-}
-
-add_action( 'save_post_post', 'ehriproject_delete_homepage_transients' );
-add_action( 'delete_post', 'ehriproject_delete_homepage_transients' );
-add_action( 'save_post_gallery_item', 'ehriproject_delete_gallery_transients' );
-add_action( 'delete_post', 'ehriproject_delete_gallery_transients' );
 
 
 // Add support for excerpts on pages.
