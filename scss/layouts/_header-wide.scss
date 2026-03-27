@@ -213,7 +213,7 @@ body {
 				content: '';
 				background-size: cover;
 				// Optionally over-ridden below.
-				background-image: url(images/megamenu/hands.png);
+				background-image: url(images/megamenu/auschwitz-monument.jpg);
 				position: absolute;
 
 				top: 3rem;
@@ -233,15 +233,19 @@ body {
 
 		// Mega menu background images
 		> .menu-item:nth-child(2) > .sub-menu::after {
-			background-image: url(images/megamenu/cards-still-1.png);
+			background-image: url(images/megamenu/bovenkant1.jpg);
 		}
 
 		> .menu-item:nth-child(3) > .sub-menu::after {
-			background-image: url(images/megamenu/doklady-1.png);
+			background-image: url(images/megamenu/hands.png);
 		}
 
 		> .menu-item:nth-child(4) > .sub-menu::after {
-			background-image: url(images/megamenu/names-2.png);
+			background-image: url(images/megamenu/yv.jpg);
+		}
+
+		> .menu-item:nth-child(5) > .sub-menu::after {
+			background-image: url(images/megamenu/cards-still-1.png);
 		}
 
 		// This is a transparent polygon that extends above the menu to make it
