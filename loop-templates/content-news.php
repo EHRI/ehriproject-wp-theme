@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo get_the_title(); ?>">
 			<div class="post-thumbnail" style="--post-thumbnail: url('<?php echo esc_url( get_the_post_thumbnail_url() ); ?>');">
-				<?php the_post_thumbnail( 'medium' ); ?>
+				<?php the_post_thumbnail( 'medium_large' ); ?>
 			</div>
 		</a>
 	<?php endif; ?>
