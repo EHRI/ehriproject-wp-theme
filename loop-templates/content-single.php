@@ -23,7 +23,7 @@ $post_status = get_post_status();
 
 	<?php if ( has_post_thumbnail() ) : ?>
 		<div class="post-featured-image">
-			<?php the_post_thumbnail( 'medium' ); ?>
+			<?php the_post_thumbnail( 'medium_large' ); ?>
 		</div>
 	<?php endif; ?>
 </header>
