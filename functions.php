@@ -80,14 +80,15 @@ if ( ! function_exists( 'ehriproject_theme_setup' ) ) {
 
 		update_option( 'medium_size_w', 480 );
 		update_option( 'medium_size_h', 270 );
-		update_option( 'medium_crop', 1 );
+		update_option( 'medium_crop', 0 );
 
 		update_option( 'medium_large_size_w', 768 );
 		update_option( 'medium_large_size_h', 432 );
+		update_option( 'large_crop', 0 );
 
 		update_option( 'large_size_w', 1024 );
 		update_option( 'large_size_h', 576 );
-		update_option( 'large_crop', 1 );
+		update_option( 'large_crop', 0 );
 
 		// Custom sizes.
 		add_image_size( 'card', 640, 360, true );
@@ -384,3 +385,24 @@ if ( ! function_exists( 'ehriproject_add_custom_favicons' ) ) {
 	}
 }
 add_action( 'wp_head', 'ehriproject_add_custom_favicons' );
+
+// Disable users sitemaps.
+add_filter(
+	'wp_sitemaps_add_provider',
+	function ( $provider, $name ) {
+		if ( 'users' === $name ) {
+			return false;
+		}
+		return $provider;
+	},
+	10,
+	2
+);
+
+add_filter(
+	'wp_sitemaps_register_providers',
+	function ( $providers ) {
+		unset( $providers['users'] );
+		return $providers;
+	}
+);
