@@ -21,7 +21,6 @@ get_header();
 				<?php the_content(); ?>
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
-			<!-- Fetch all posts with the 'news' category and list them in reverse chronological order with pagination -->
 		</section>
 	<?php endif; ?>
 </main>

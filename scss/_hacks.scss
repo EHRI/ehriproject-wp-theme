@@ -33,3 +33,12 @@ body.single.single-post main .post-header.has-featured-image > .post-featured-im
 		object-fit: contain;
 	}
 }
+
+// Override default post list featured image aspect ration for the podcast page,
+// where the images are 4/3:
+
+.podcast-epis .wp-block-latest-posts__featured-image,
+.podcast-episodes .wp-block-latest-posts__featured-image
+{
+	aspect-ratio: 1;
+}

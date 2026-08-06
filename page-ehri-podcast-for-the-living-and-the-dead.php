@@ -14,13 +14,14 @@ get_header();
 
 
 <main id="content">
-	<section <?php post_class( array( 'page-content', 'podcast-season' ) ); ?>>
+	<section <?php post_class( array( 'page-content', 'podcast-season', 'full-width' ) ); ?>>
 		<?php if ( have_posts() ) : ?>
 			<a id="main-content"></a>
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
-				<?php get_template_part( 'loop-templates/content', 'single' ); ?>
+				<?php the_content(); ?>
 			<?php endwhile; ?>
+			<?php wp_reset_postdata(); ?>
 
 			<!-- Fetch all posts with the 'news' category and list them in reverse chronological order with pagination -->
 			<?php
