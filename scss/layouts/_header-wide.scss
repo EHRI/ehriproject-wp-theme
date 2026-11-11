@@ -1,6 +1,6 @@
 
 body {
-	@media (min-width: $breakpoint-laptop) {
+	@media #{$mq-desktop-nav} {
 		overflow-x: unset;
 	}
 }
@@ -8,7 +8,7 @@ body {
 .navbar-container .navbar .header-menu {
 	// At wide widths the menu changes completely to a
 	// simple horizontal list of menu items:
-	@media (min-width: $breakpoint-laptop) {
+	@media #{$mq-desktop-nav} {
 		// Space between the top-level menu item and the mega-menu
 		$menu-gap: 2rem;
 		--menu-offset: calc(100% + #{$menu-gap});
@@ -24,7 +24,7 @@ body {
 		margin: 0 0 0 $space-lg;
 		padding: 0;
 
-		&:has(:nth-child(4)) {
+		&:has(> :nth-child(4)) {
 			justify-content: space-between;
 
 			// NOTE: Do not put a flex gap between menu
@@ -95,7 +95,8 @@ body {
 			border-bottom: $menu-gap solid var(--grey-light); /* Match sub-menu background */
 		}
 
-		> .menu-item:has(.sub-menu):hover > .menu-item-link::after {
+		> .menu-item:has(.sub-menu):hover > .menu-item-link::after,
+		&:not(:hover) > .menu-item:has(.sub-menu):has(:focus-visible) > .menu-item-link::after {
 			transition-delay: $transition-delay;
 			opacity: 1;
 			pointer-events: auto;
@@ -124,7 +125,8 @@ body {
 			}
 		}
 
-		> .menu-item:has(.sub-menu):hover > .menu-item-link-alt {
+		> .menu-item:has(.sub-menu):hover > .menu-item-link-alt,
+		&:not(:hover) > .menu-item:has(.sub-menu):has(:focus-visible) > .menu-item-link-alt {
 			opacity: 1;
 			transition-delay: $transition-delay;
 			transition-property: opacity;
@@ -223,7 +225,12 @@ body {
 			}
 		}
 
-		> .menu-item:hover > .sub-menu {
+		// Open on hover, and on keyboard focus anywhere within the item. Keyboard
+		// focus uses :focus-visible so that a link focused by a mouse click doesn't
+		// keep its menu open, and only applies while the pointer isn't over the menu
+		// bar, so that hovering another item never shows two menus at once.
+		> .menu-item:hover > .sub-menu,
+		&:not(:hover) > .menu-item:has(:focus-visible) > .sub-menu {
 			transition-delay: $transition-delay;
 			opacity: 1;
 			display: grid;
@@ -250,7 +257,8 @@ body {
 
 		// This is a transparent polygon that extends above the menu to make it
 		// a bigger hover target.
-		> .menu-item:has(.sub-menu):hover > .sub-menu::before {
+		> .menu-item:has(.sub-menu):hover > .sub-menu::before,
+		&:not(:hover) > .menu-item:has(.sub-menu):has(:focus-visible) > .sub-menu::before {
 			transition-delay: $transition-delay;
 			content: '';
 			position: absolute;

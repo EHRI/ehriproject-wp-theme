@@ -51,3 +51,9 @@ $logo-width-sm: 16rem;
 $breakpoint-wide: 1440px;
 $breakpoint-laptop: 1024px;
 $breakpoint-tablet: 576px;
+
+// Media query for the horizontal desktop navigation with hover mega-menus.
+// Requires a hover-capable primary pointer, so touch devices at laptop
+// widths (e.g. landscape tablets) keep the hamburger menu, where sub-menus
+// are always expanded.
+$mq-desktop-nav: "(min-width: #{$breakpoint-laptop}) and (hover: hover)";

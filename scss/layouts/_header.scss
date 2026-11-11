@@ -176,7 +176,7 @@ body {
 		}
 	}
 
-	@media(min-width: $breakpoint-laptop) {
+	@media #{$mq-desktop-nav} {
 		min-width: 60%;
 
 		// Hide hamburger toggle
@@ -222,7 +222,7 @@ body {
 
 	// At wide widths the menu changes completely to a simple horizontal list of menu items
 	// so we need to unset all the styles we've set before.
-	@media (min-width: $breakpoint-laptop) {
+	@media #{$mq-desktop-nav} {
 		background-color: transparent;
 		box-shadow: none;
 

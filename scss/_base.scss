@@ -13,7 +13,7 @@ html {
 	// Necessary for mobile-menu
 	overflow-x: auto;
 
-	@media (min-width: $breakpoint-laptop) {
+	@media #{$mq-desktop-nav} {
 		overflow-x: unset;
 	}
 }
